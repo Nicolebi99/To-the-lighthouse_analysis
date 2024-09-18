@@ -149,7 +149,7 @@
         }
 
         async function search() {
-            const query = document.getElementById('searchInput').value.trim();
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
             if (!query) {
                 alert('Please enter a phrase to search.');
                 return;
@@ -167,9 +167,7 @@
 
             // Trova la frase che corrisponde alla query
             const result = allPhrases.find(item =>
-                item["I. THE WINDOW"] === query ||
-                item["II. TIME PASSES"] === query ||
-                item["III. THE LIGHTHOUSE"] === query
+                item.phrase.toLowerCase() === query
             );
 
             if (result) {
@@ -181,11 +179,8 @@
                     Disgust: ${result.disgust}<br>
                     Surprise: ${result.surprise}
                 `;
-                const chapter = result.CHAPTER;
-                const part = result["I. THE WINDOW"] ? "I. THE WINDOW" :
-                             result["II. TIME PASSES"] ? "II. TIME PASSES" :
-                             result["III. THE LIGHTHOUSE"] ? "III. THE LIGHTHOUSE" :
-                             "Unknown";
+                const chapter = result.CHAPTER || "Unknown";
+                const part = Object.keys(data).find(key => data[key].some(item => item.phrase.toLowerCase() === query)) || "Unknown";
                 const characters = result.Characters || "Unknown";
 
                 document.getElementById('result').innerHTML = `
