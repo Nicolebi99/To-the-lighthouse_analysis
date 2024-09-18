@@ -158,8 +158,6 @@
             const data = await loadJSON();
             if (!data) return;
 
-            console.log("Loaded data:", data); // Debug: Verifica il contenuto del JSON
-
             let allPhrases = [];
             for (const section in data) {
                 if (Array.isArray(data[section])) {
@@ -167,8 +165,7 @@
                 }
             }
 
-            console.log("All phrases:", allPhrases); // Debug: Verifica tutte le frasi caricate
-
+            // Trova la frase che corrisponde alla query
             const result = allPhrases.find(item =>
                 item["I. THE WINDOW"] === query ||
                 item["II. TIME PASSES"] === query ||
@@ -176,7 +173,14 @@
             );
 
             if (result) {
-                const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
+                const sentiment = `
+                    Joy: ${result.joy}<br>
+                    Sadness: ${result.sandness}<br>
+                    Anger: ${result.anger}<br>
+                    Fear: ${result.fear}<br>
+                    Disgust: ${result.disgust}<br>
+                    Surprise: ${result.surprise}
+                `;
                 const chapter = result.CHAPTER;
                 const part = result["I. THE WINDOW"] ? "I. THE WINDOW" :
                              result["II. TIME PASSES"] ? "II. TIME PASSES" :
@@ -199,5 +203,4 @@
 
 </body>
 </html>
-
 
