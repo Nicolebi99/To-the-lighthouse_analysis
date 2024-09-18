@@ -169,7 +169,7 @@
 
             console.log("All phrases:", allPhrases); // Debug: Verifica tutte le frasi caricate
 
-            const result = allPhrases.find(item => 
+            const result = allPhrases.find(item =>
                 item["I. THE WINDOW"] === query ||
                 item["II. TIME PASSES"] === query ||
                 item["III. THE LIGHTHOUSE"] === query
@@ -177,7 +177,20 @@
 
             if (result) {
                 const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
-                document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
+                const chapter = result.CHAPTER;
+                const part = result["I. THE WINDOW"] ? "I. THE WINDOW" :
+                             result["II. TIME PASSES"] ? "II. TIME PASSES" :
+                             result["III. THE LIGHTHOUSE"] ? "III. THE LIGHTHOUSE" :
+                             "Unknown";
+                const characters = result.Characters || "Unknown";
+
+                document.getElementById('result').innerHTML = `
+                    <strong>Phrase Found:</strong> "${query}"<br>
+                    <strong>Part:</strong> ${part}<br>
+                    <strong>Chapter:</strong> ${chapter}<br>
+                    <strong>Characters:</strong> ${characters}<br>
+                    <strong>Sentiment Scores:</strong> ${sentiment}
+                `;
             } else {
                 document.getElementById('result').innerText = 'Phrase not found.';
             }
@@ -186,6 +199,4 @@
 
 </body>
 </html>
-
-
 
