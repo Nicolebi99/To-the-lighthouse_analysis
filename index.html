@@ -11,12 +11,12 @@
         margin: 0;
         padding: 0;
         height: 100%; 
-        color: white; /* Colore del testo bianco */
-        background-color: #03045e; /* Sfondo blu scuro */
+        color: white; 
+        background-color: #03045e; 
     }
 
     header {
-        background-color: #0077b6; /* Colore di sfondo blu chiaro */
+        background-color: #0077b6; 
         color: white;
         padding: 10px;
         text-align: left;
@@ -31,14 +31,14 @@
     }
 
     nav a {
-        color: white; /* Colore del testo bianco */
+        color: white; 
         text-decoration: none;
         padding: 14px 20px;
         font-weight: bold;
     }
 
     nav a:hover {
-        background-color: #0077b6; /* Colore di hover più chiaro */
+        background-color: #0077b6; 
         color: white;
     }
 
@@ -52,14 +52,14 @@
 
     .container h1 {
         font-size: 2.5rem;
-        color: #90e0ef; /* Colore blu chiaro per i titoli */
+        color: #90e0ef; 
     }
 
     .container p {
         font-size: 1.2rem;
         margin: 20px 0;
         text-align: justify; 
-        color: white; /* Colore del testo bianco */
+        color: white; 
     }
 
     .iframe-container {
@@ -107,6 +107,17 @@
             width: 100%;
             height: 250px;
         }
+        .image-container {
+    text-align: center; /* Centra l'immagine orizzontalmente */
+    margin: 20px 0; /* Spazio sopra e sotto l'immagine */
+}
+
+.image-container img {
+    max-width: 100%; /* L'immagine non supera la larghezza del contenitore */
+    height: auto; /* Mantiene il rapporto di aspetto */
+    border: 2px solid #90e0ef; /* Aggiunge un bordo per dare risalto all'immagine (opzionale) */
+}
+
     }
 </style>
 </head>
@@ -122,11 +133,27 @@
         <a href="about.html">About me</a>
     </nav>
 
-    <div class="container">
-        <h1>To the Lighthouse</h1>
-        <p>
-            Analisi approfondita del romanzo "To the Lighthouse" di Virginia Woolf. Esplora i temi, i personaggi e lo stile narrativo unico di questo capolavoro modernista.
-        </p>
+  <div class="container">
+    <h1>To the Lighthouse</h1>
+    <p>
+        Analisi approfondita del romanzo "To the Lighthouse" di Virginia Woolf.
+    </p>
+
+    <!-- Aggiungi l'immagine al centro -->
+    <div class="image-container">
+        <img src="/mnt/data/To-The-Lighthouse.jpg" alt="To the Lighthouse by Virginia Woolf" />
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="mygraph.html" width="1200" height="700" frameborder="0"></iframe>
+    </div>
+    
+    <footer>
+        <p>by Nicole Biscaro</p>
+        <p>CC BY-NC-SA 4.0</p>
+    </footer>
+</div>
+
 
         <div class="iframe-container">
             <iframe src="mygraph.html" width="1200" height="700" frameborder="0"></iframe>
