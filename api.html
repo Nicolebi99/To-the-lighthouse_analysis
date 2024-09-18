@@ -162,7 +162,7 @@
 
             const phrases = data["First Part"];
             const result = phrases.find(item => item["I. THE WINDOW"] === query);
-            
+
             if (result) {
                 const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
                 document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
@@ -174,3 +174,4 @@
 
 </body>
 </html>
+
