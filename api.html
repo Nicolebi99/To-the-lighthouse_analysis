@@ -115,6 +115,17 @@
             <br>
             <code>https://tua-api-endpoint.com/v1/chapter/1</code>
         </p>
+        <p>
+            Risposta JSON di esempio:
+            <br>
+            <code>
+                {<br>
+                &nbsp;&nbsp;"chapter": 3,<br>
+                &nbsp;&nbsp;"title": "API for humanities",<br>
+                &nbsp;&nbsp;"content": "Contenuto del terzo capitolo"<br>
+                }
+            </code>
+        </p>
     </div>
 
     <footer>
@@ -149,25 +160,28 @@
 
             // Trova la frase che corrisponde alla query
             const result = data.find(item => {
-                return Object.values(item).some(value => {
-                    return typeof value === 'string' && value.toLowerCase().includes(query);
-                });
+                return Object.keys(item).some(key =>
+                    key !== "CHAPTER" && key !== "Characters" &&
+                    item[key].toLowerCase().includes(query)
+                );
             });
 
             if (result) {
                 const sentiment = `
-                    Joy: ${result.joy || 0}<br>
-                    Sadness: ${result.sandness || 0}<br>
-                    Anger: ${result.anger || 0}<br>
-                    Fear: ${result.fear || 0}<br>
-                    Disgust: ${result.disgust || 0}<br>
-                    Surprise: ${result.surprise || 0}
+                    Joy: ${result.joy}<br>
+                    Sadness: ${result.sandness}<br>
+                    Anger: ${result.anger}<br>
+                    Fear: ${result.fear}<br>
+                    Disgust: ${result.disgust}<br>
+                    Surprise: ${result.surprise}
                 `;
                 const chapter = result.CHAPTER || "Unknown";
+                const part = Object.keys(result).find(key => key !== "CHAPTER" && key !== "Characters" && result[key].toLowerCase().includes(query)) || "Unknown";
                 const characters = result.Characters || "Unknown";
 
                 document.getElementById('result').innerHTML = `
                     <strong>Phrase Found:</strong> "${query}"<br>
+                    <strong>Part:</strong> ${part}<br>
                     <strong>Chapter:</strong> ${chapter}<br>
                     <strong>Characters:</strong> ${characters}<br>
                     <strong>Sentiment Scores:</strong> ${sentiment}
@@ -177,6 +191,8 @@
             }
         }
     </script>
+
 </body>
 </html>
+
 
