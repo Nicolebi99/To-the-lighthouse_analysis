@@ -134,69 +134,70 @@
     </footer>
 
     <script>
-        const jsonFileUrl = 'to_the_lighthouse_sentiment.json'; // Percorso del file JSON
+     const jsonFileUrl = 'to_the_lighthouse_sentiment.json'; // Percorso del file JSON
 
-        async function loadJSON() {
-            try {
-                const response = await fetch(jsonFileUrl);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error('Error fetching JSON:', error);
-                document.getElementById('result').innerText = 'Error loading data.';
-            }
+async function loadJSON() {
+    try {
+        const response = await fetch(jsonFileUrl);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching JSON:', error);
+        document.getElementById('result').innerText = 'Error loading data.';
+    }
+}
+
+async function search() {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    if (!query) {
+        alert('Please enter a phrase to search.');
+        return;
+    }
+
+    const data = await loadJSON();
+    if (!data) return;
+
+    let allPhrases = [];
+    for (const section in data) {
+        if (Array.isArray(data[section])) {
+            allPhrases = allPhrases.concat(data[section]);
         }
+    }
 
-        async function search() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a phrase to search.');
-                return;
-            }
+    // Debug: Mostra le frasi caricate
+    console.log("All phrases:", allPhrases);
 
-            const data = await loadJSON();
-            if (!data) return;
+    // Trova la frase che corrisponde alla query
+    const result = allPhrases.find(item =>
+        item.phrase && item.phrase.toLowerCase() === query
+    );
 
-            let allPhrases = [];
-            for (const section in data) {
-                if (Array.isArray(data[section])) {
-                    allPhrases = allPhrases.concat(data[section]);
-                }
-            }
+    if (result) {
+        const sentiment = `
+            Joy: ${result.joy}<br>
+            Sadness: ${result.sadness}<br>
+            Anger: ${result.anger}<br>
+            Fear: ${result.fear}<br>
+            Disgust: ${result.disgust}<br>
+            Surprise: ${result.surprise}
+        `;
+        const chapter = result.CHAPTER || "Unknown";
+        const part = Object.keys(data).find(key => data[key].some(item => item.phrase && item.phrase.toLowerCase() === query)) || "Unknown";
+        const characters = result.Characters || "Unknown";
 
-            // Debug: Mostra le frasi caricate
-            console.log("All phrases:", allPhrases);
+        document.getElementById('result').innerHTML = `
+            <strong>Phrase Found:</strong> "${query}"<br>
+            <strong>Part:</strong> ${part}<br>
+            <strong>Chapter:</strong> ${chapter}<br>
+            <strong>Characters:</strong> ${characters}<br>
+            <strong>Sentiment Scores:</strong> ${sentiment}
+        `;
+    } else {
+        document.getElementById('result').innerText = 'Phrase not found.';
+    }
+}
 
-            // Trova la frase che corrisponde alla query
-            const result = allPhrases.find(item =>
-                item.phrase && item.phrase.toLowerCase() === query
-            );
-
-            if (result) {
-                const sentiment = `
-                    Joy: ${result.joy}<br>
-                    Sadness: ${result.sandness}<br>
-                    Anger: ${result.anger}<br>
-                    Fear: ${result.fear}<br>
-                    Disgust: ${result.disgust}<br>
-                    Surprise: ${result.surprise}
-                `;
-                const chapter = result.CHAPTER || "Unknown";
-                const part = Object.keys(data).find(key => data[key].some(item => item.phrase && item.phrase.toLowerCase() === query)) || "Unknown";
-                const characters = result.Characters || "Unknown";
-
-                document.getElementById('result').innerHTML = `
-                    <strong>Phrase Found:</strong> "${query}"<br>
-                    <strong>Part:</strong> ${part}<br>
-                    <strong>Chapter:</strong> ${chapter}<br>
-                    <strong>Characters:</strong> ${characters}<br>
-                    <strong>Sentiment Scores:</strong> ${sentiment}
-                `;
-            } else {
-                document.getElementById('result').innerText = 'Phrase not found.';
-            }
-        }
     </script>
 
 </body>
