@@ -5,123 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To the Lighthouse Analysis</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        height: 100%; 
-        color: white; 
-        background-color: #03045e; 
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%; 
+            color: white; 
+            background-color: #03045e; 
+        }
 
-    header {
-        background-color: #0077b6; 
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
-
-    nav {
-        margin-top: 10px;
-        background-color: #023047;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    nav a {
-        color: white; 
-        text-decoration: none;
-        padding: 14px 20px;
-        font-weight: bold;
-    }
-
-    nav a:hover {
-        background-color: #0077b6; 
-        color: white;
-    }
-
-
-
-    .container {
-        background-color: #023047; 
-        padding: 20px;
-        text-align: center;
-        min-height: calc(100vh - 130px); 
-        box-sizing: border-box;
-    }
-
-    .container h1 {
-        font-size: 2.5rem;
-        color: #90e0ef; 
-    }
-
-    .container p {
-        font-size: 1.2rem;
-        margin: 20px 0;
-        text-align: justify; 
-        color: white; 
-    }
-
-    .iframe-container {
-        margin: 30px 0;
-    }
-
-    .image-container {
-        text-align: center; /* Centra l'immagine orizzontalmente */
-        margin: 20px 0; /* Spazio sopra e sotto l'immagine */
-    }
-
-    .image-container img {
-        max-width: 100%; /* L'immagine non supera la larghezza del contenitore */
-        height: auto; /* Mantiene il rapporto di aspetto */
-        border: 2px solid #90e0ef; /* Aggiunge un bordo per dare risalto all'immagine (opzionale) */
-    }
-
-    footer {
-        margin-top: 20px; 
-        text-align: right;
-        font-size: 0.8rem;
-        padding-right: 20px;
-        color: white;
-    }
-
-    @media (max-width: 768px) {
-        nav a {
+        header {
+            background-color: #0077b6; 
+            color: white;
             padding: 10px;
-            font-size: 1rem;
+            text-align: left;
+        }
+
+        nav {
+            margin-top: 10px;
+            background-color: #023047;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white; 
+            text-decoration: none;
+            padding: 14px 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #0077b6; 
+            color: white;
+        }
+
+        .container {
+            background-color: #023047; 
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 130px); 
+            box-sizing: border-box;
         }
 
         .container h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: #90e0ef; 
         }
 
         .container p {
-            font-size: 1rem;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            text-align: justify; 
+            color: white; 
         }
 
-        .iframe-container iframe {
-            width: 100%;
-            height: 300px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .container h1 {
-            font-size: 1.5rem;
+        .iframe-container {
+            margin: 30px 0;
         }
 
-        .container p {
-            font-size: 0.9rem;
+        .image-container {
+            text-align: center; /* Centra l'immagine orizzontalmente */
+            margin: 20px 0; /* Spazio sopra e sotto l'immagine */
         }
 
-        .iframe-container iframe {
-            width: 100%;
-            height: 250px;
+        .image-container img {
+            max-width: 100%; /* L'immagine non supera la larghezza del contenitore */
+            height: auto; /* Mantiene il rapporto di aspetto */
+            border: 2px solid #90e0ef; /* Aggiunge un bordo per dare risalto all'immagine (opzionale) */
         }
-    }
-</style>
+
+        footer {
+            margin-top: 20px; 
+            text-align: right;
+            font-size: 0.8rem;
+            padding-right: 20px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .container h1 {
+                font-size: 2rem;
+            }
+
+            .container p {
+                font-size: 1rem;
+            }
+
+            .iframe-container iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container h1 {
+                font-size: 1.5rem;
+            }
+
+            .container p {
+                font-size: 0.9rem;
+            }
+
+            .iframe-container iframe {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -130,13 +128,11 @@
     </header>
 
     <nav>
-    <a href="index.html">Home</a>
-    <a href="project.html">The Project</a>
-    <a href="api.html">API</a> 
-    <a href="about.html">About me</a>
-   
-</nav>
-
+        <a href="index.html">Home</a>
+        <a href="project.html">The Project</a>
+        <a href="api.html">API</a> 
+        <a href="about.html">About me</a>
+    </nav>
 
     <div class="container">
         <h1>To the Lighthouse</h1>
@@ -146,7 +142,7 @@
 
         <!-- Aggiungi l'immagine al centro -->
         <div class="image-container">
-            <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse by Virginia Woolf" />
+            <img src="https://nicolebi99.github.io/To-the-lighthouse_analysis/To-The-Lighthouse.jpg" alt="To the Lighthouse by Virginia Woolf" />
         </div>
 
         <div class="iframe-container">
