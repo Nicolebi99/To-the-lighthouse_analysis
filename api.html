@@ -110,30 +110,6 @@
         <p>
             Inserisci una frase di To the Lighthouse per vedere il sentiment's score
         </p>
-        <p>
-            Esempio di endpoint API:
-            <br>
-            <code>https://tua-api-endpoint.com/v1/chapter/1</code>
-        </p>
-        <p>
-            Risposta JSON di esempio:
-            <br>
-            <code>
-                [<br>
-                &nbsp;&nbsp;{<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"I. THE WINDOW": "Some phrase",<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"CHAPTER": "I.",<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"Characters": "Character Name",<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"joy": 5,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"sadness": 2,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"anger": 1,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"fear": 1,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"disgust": 1,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;"surprise": 1<br>
-                &nbsp;&nbsp;}<br>
-                ]
-            </code>
-        </p>
     </div>
 
     <footer>
@@ -142,63 +118,64 @@
     </footer>
 
     <script>
-        const jsonFileUrl = 'to_the_lighthouse_sentiment.json'; // Percorso del file JSON
+        const jsonFileUrl = 'To_the_lighthouse_sentiment.json'; // Path to the correct JSON file
 
-async function loadJSON() {
-    try {
-        const response = await fetch(jsonFileUrl);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching JSON:', error);
-        document.getElementById('result').innerText = 'Error loading data.';
-    }
-}
+        // Load JSON file
+        async function loadJSON() {
+            try {
+                const response = await fetch(jsonFileUrl);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                return data["First Part"]; // Access the "First Part" section directly
+            } catch (error) {
+                console.error('Error fetching JSON:', error);
+                document.getElementById('result').innerText = 'Error loading data.';
+            }
+        }
 
-async function search() {
-    const query = document.getElementById('searchInput').value.trim().toLowerCase();
-    if (!query) {
-        alert('Please enter a phrase to search.');
-        return;
-    }
+        // Search function
+        async function search() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a phrase to search.');
+                return;
+            }
 
-    const data = await loadJSON();
-    if (!data) return;
+            const data = await loadJSON();
+            if (!data) return;
 
-    // Trova la frase che corrisponde alla query
-    const result = data.find(item => {
-        return Object.keys(item).some(key =>
-            key !== "CHAPTER" && key !== "Characters" &&
-            (item[key] || '').toLowerCase().includes(query)
-        );
-    });
+            // Find a match in the JSON data
+            const result = data.find(item => {
+                return Object.keys(item).some(key =>
+                    key !== "CHAPTER" && key !== "Characters" &&
+                    (item[key] || '').toLowerCase().includes(query)
+                );
+            });
 
-    if (result) {
-        const sentiment = `
-            Joy: ${result.joy}<br>
-            Sadness: ${result.sandness}<br>
-            Anger: ${result.anger}<br>
-            Fear: ${result.fear}<br>
-            Disgust: ${result.disgust}<br>
-            Surprise: ${result.surprise}
-        `;
-        const chapter = result.CHAPTER || "Unknown";
-        const part = Object.keys(result).find(key => key !== "CHAPTER" && key !== "Characters" && (result[key] || '').toLowerCase().includes(query)) || "Unknown";
-        const characters = result.Characters || "Unknown";
+            if (result) {
+                const sentiment = `
+                    Joy: ${result.joy}<br>
+                    Sadness: ${result.sandness}<br>
+                    Anger: ${result.anger}<br>
+                    Fear: ${result.fear}<br>
+                    Disgust: ${result.disgust}<br>
+                    Surprise: ${result.surprise}
+                `;
+                const chapter = result.CHAPTER || "Unknown";
+                const part = Object.keys(result).find(key => key !== "CHAPTER" && key !== "Characters" && (result[key] || '').toLowerCase().includes(query)) || "Unknown";
+                const characters = result.Characters || "Unknown";
 
-        document.getElementById('result').innerHTML = `
-            <strong>Phrase Found:</strong> "${query}"<br>
-            <strong>Part:</strong> ${part}<br>
-            <strong>Chapter:</strong> ${chapter}<br>
-            <strong>Characters:</strong> ${characters}<br>
-            <strong>Sentiment Scores:</strong> ${sentiment}
-        `;
-    } else {
-        document.getElementById('result').innerText = 'Phrase not found.';
-    }
-}
-
+                document.getElementById('result').innerHTML = `
+                    <strong>Phrase Found:</strong> "${query}"<br>
+                    <strong>Part:</strong> ${part}<br>
+                    <strong>Chapter:</strong> ${chapter}<br>
+                    <strong>Characters:</strong> ${characters}<br>
+                    <strong>Sentiment Scores:</strong> ${sentiment}
+                `;
+            } else {
+                document.getElementById('result').innerText = 'Phrase not found.';
+            }
+        }
     </script>
 
 </body>
