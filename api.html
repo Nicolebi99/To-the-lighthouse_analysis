@@ -168,12 +168,12 @@
 
             if (result) {
                 const sentiment = `
-                    Joy: ${result.joy}<br>
-                    Sadness: ${result.sandness}<br>
-                    Anger: ${result.anger}<br>
-                    Fear: ${result.fear}<br>
-                    Disgust: ${result.disgust}<br>
-                    Surprise: ${result.surprise}
+                    Joy: ${result.joy || 'N/A'}<br>
+                    Sadness: ${result.sadness || 'N/A'}<br>
+                    Anger: ${result.anger || 'N/A'}<br>
+                    Fear: ${result.fear || 'N/A'}<br>
+                    Disgust: ${result.disgust || 'N/A'}<br>
+                    Surprise: ${result.surprise || 'N/A'}
                 `;
                 const chapter = result.CHAPTER || "Unknown";
                 const part = Object.keys(result).find(key => key !== "CHAPTER" && key !== "Characters" && result[key].toLowerCase().includes(query)) || "Unknown";
@@ -194,7 +194,3 @@
 
 </body>
 </html>
-
-
-
-
