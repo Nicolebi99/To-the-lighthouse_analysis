@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>API - To the Lighthouse</title>
     <style>
-        /* Inserisci qui il tuo stile CSS, se necessario */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,14 +14,12 @@
             color: white;
             background-color: #03045e;
         }
-
         header {
             background-color: #0077b6;
             color: white;
             padding: 10px;
             text-align: left;
         }
-
         nav {
             margin-top: 10px;
             background-color: #023047;
@@ -30,19 +27,16 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-
         nav a {
             color: white;
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
         }
-
         nav a:hover {
             background-color: #0077b6;
             color: white;
         }
-
         .container {
             background-color: #023047;
             padding: 20px;
@@ -50,25 +44,21 @@
             min-height: calc(100vh - 130px);
             box-sizing: border-box;
         }
-
         .container h1 {
             font-size: 2.5rem;
             color: #90e0ef;
         }
-
         .container p {
             font-size: 1.2rem;
             margin: 20px 0;
             text-align: justify;
             color: white;
         }
-
         .search-bar {
             margin: 20px 0;
             border: 2px solid red;
             padding: 10px;
         }
-
         .search-bar input[type="text"] {
             padding: 10px;
             width: 80%;
@@ -77,7 +67,6 @@
             border-radius: 4px;
             margin-right: 10px;
         }
-
         .search-bar button {
             padding: 10px;
             font-size: 1rem;
@@ -87,7 +76,6 @@
             color: white;
             cursor: pointer;
         }
-
         footer {
             margin-top: 20px;
             text-align: right;
@@ -95,11 +83,9 @@
             padding-right: 20px;
             color: white;
         }
-
     </style>
 </head>
 <body>
-
     <header>
         <h1>API Information</h1>
     </header>
@@ -108,7 +94,7 @@
         <a href="index.html">Home</a>
         <a href="the_project.html">The Project</a>
         <a href="about.html">About me</a>
-        <a href="API.html">API</a>
+        <a href="api.html">API</a>
     </nav>
 
     <div class="container">
@@ -156,37 +142,33 @@
             try {
                 const response = await fetch(jsonFileUrl);
                 if (!response.ok) throw new Error('Network response was not ok');
-                return await response.json();
+                const data = await response.json();
+                return data;
             } catch (error) {
                 console.error('Error fetching JSON:', error);
                 document.getElementById('result').innerText = 'Error loading data.';
             }
         }
 
-        function search() {
+        async function search() {
             const query = document.getElementById('searchInput').value.trim();
-            console.log('Query:', query); // Debug: mostra la query
-
             if (!query) {
                 alert('Please enter a phrase to search.');
                 return;
             }
 
-            loadJSON().then(data => {
-                console.log('Data:', data); // Debug: mostra i dati del JSON
-                const phrases = data["First Part"];
-                const result = phrases.find(item => item["I. THE WINDOW"] === query);
-                
-                if (result) {
-                    const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
-                    document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
-                } else {
-                    document.getElementById('result').innerText = 'Phrase not found.';
-                }
-            }).catch(error => {
-                console.error('Error during search:', error);
-                document.getElementById('result').innerText = 'Error processing search.';
-            });
+            const data = await loadJSON();
+            if (!data) return;
+
+            const phrases = data["First Part"];
+            const result = phrases.find(item => item["I. THE WINDOW"] === query);
+            
+            if (result) {
+                const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
+                document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
+            } else {
+                document.getElementById('result').innerText = 'Phrase not found.';
+            }
         }
     </script>
 
