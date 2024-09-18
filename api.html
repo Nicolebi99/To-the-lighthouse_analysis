@@ -134,7 +134,8 @@
     </footer>
 
     <script>
-     const jsonFileUrl = 'to_the_lighthouse_sentiment.json'; // Percorso del file JSON
+
+        const jsonFileUrl = 'to_the_lighthouse_sentiment.json'; // Percorso del file JSON
 
 async function loadJSON() {
     try {
@@ -159,6 +160,7 @@ async function search() {
     if (!data) return;
 
     let allPhrases = [];
+    // Itera attraverso tutte le sezioni del JSON
     for (const section in data) {
         if (Array.isArray(data[section])) {
             allPhrases = allPhrases.concat(data[section]);
@@ -169,21 +171,25 @@ async function search() {
     console.log("All phrases:", allPhrases);
 
     // Trova la frase che corrisponde alla query
-    const result = allPhrases.find(item =>
-        item.phrase && item.phrase.toLowerCase() === query
-    );
+    const result = allPhrases.find(item => {
+        // Itera attraverso tutte le chiavi (parti) per trovare la frase
+        return Object.keys(item).some(key =>
+            key !== "CHAPTER" && key !== "Characters" &&
+            item[key].toLowerCase() === query
+        );
+    });
 
     if (result) {
         const sentiment = `
             Joy: ${result.joy}<br>
-            Sadness: ${result.sadness}<br>
+            Sadness: ${result.sandness}<br>
             Anger: ${result.anger}<br>
             Fear: ${result.fear}<br>
             Disgust: ${result.disgust}<br>
             Surprise: ${result.surprise}
         `;
         const chapter = result.CHAPTER || "Unknown";
-        const part = Object.keys(data).find(key => data[key].some(item => item.phrase && item.phrase.toLowerCase() === query)) || "Unknown";
+        const part = Object.keys(result).find(key => key !== "CHAPTER" && key !== "Characters" && result[key].toLowerCase() === query) || "Unknown";
         const characters = result.Characters || "Unknown";
 
         document.getElementById('result').innerHTML = `
@@ -197,6 +203,7 @@ async function search() {
         document.getElementById('result').innerText = 'Phrase not found.';
     }
 }
+
 
     </script>
 
