@@ -165,9 +165,12 @@
                 }
             }
 
+            // Debug: Mostra le frasi caricate
+            console.log("All phrases:", allPhrases);
+
             // Trova la frase che corrisponde alla query
             const result = allPhrases.find(item =>
-                item.phrase.toLowerCase() === query
+                item.phrase && item.phrase.toLowerCase() === query
             );
 
             if (result) {
@@ -180,7 +183,7 @@
                     Surprise: ${result.surprise}
                 `;
                 const chapter = result.CHAPTER || "Unknown";
-                const part = Object.keys(data).find(key => data[key].some(item => item.phrase.toLowerCase() === query)) || "Unknown";
+                const part = Object.keys(data).find(key => data[key].some(item => item.phrase && item.phrase.toLowerCase() === query)) || "Unknown";
                 const characters = result.Characters || "Unknown";
 
                 document.getElementById('result').innerHTML = `
@@ -198,4 +201,3 @@
 
 </body>
 </html>
-
