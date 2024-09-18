@@ -158,19 +158,27 @@
             const data = await loadJSON();
             if (!data) return;
 
-            let found = false;
+            console.log("Loaded data:", data); // Debug: Verifica il contenuto del JSON
+
+            let allPhrases = [];
             for (const section in data) {
-                const phrases = Array.isArray(data[section]) ? data[section] : [];
-                const result = phrases.find(item => item["I. THE WINDOW"] === query || item["II. TIME PASSES"] === query || item["III. THE LIGHTHOUSE"] === query);
-                if (result) {
-                    const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
-                    document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
-                    found = true;
-                    break;
+                if (Array.isArray(data[section])) {
+                    allPhrases = allPhrases.concat(data[section]);
                 }
             }
 
-            if (!found) {
+            console.log("All phrases:", allPhrases); // Debug: Verifica tutte le frasi caricate
+
+            const result = allPhrases.find(item => 
+                item["I. THE WINDOW"] === query ||
+                item["II. TIME PASSES"] === query ||
+                item["III. THE LIGHTHOUSE"] === query
+            );
+
+            if (result) {
+                const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
+                document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
+            } else {
                 document.getElementById('result').innerText = 'Phrase not found.';
             }
         }
@@ -178,5 +186,6 @@
 
 </body>
 </html>
+
 
 
