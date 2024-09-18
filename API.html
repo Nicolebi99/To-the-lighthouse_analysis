@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API - To the Lighthouse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: white;
+            background-color: #03045e;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        nav {
+            margin-top: 10px;
+            background-color: #023047;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #0077b6;
+            color: white;
+        }
+
+        .container {
+            background-color: #023047;
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 130px);
+            box-sizing: border-box;
+        }
+
+        .container h1 {
+            font-size: 2.5rem;
+            color: #90e0ef;
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            text-align: justify;
+            color: white;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 0.8rem;
+            padding-right: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>API Information</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="project.html">The Project</a>
+        <a href="about.html">About me</a>
+        <a href="api.html">API</a> <!-- Il pulsante API rimane qui per la navigazione -->
+    </nav>
+
+    <div class="container">
+        <h1>API Overview</h1>
+        <p>
+            Questa pagina contiene informazioni sull'API che descrive il tuo progetto "To the Lighthouse". 
+            Qui puoi documentare le funzionalità della tua API, le risorse disponibili, i metodi di accesso (GET, POST, ecc.), e 
+            esempi di utilizzo.
+        </p>
+        <p>
+            Esempio di endpoint API:
+            <br>
+            <code>https://tua-api-endpoint.com/v1/chapter/1</code>
+        </p>
+        <p>
+            Risposta JSON di esempio:
+            <br>
+            <code>
+                {<br>
+                &nbsp;&nbsp;"chapter": 1,<br>
+                &nbsp;&nbsp;"title": "Introduzione al Romanzo",<br>
+                &nbsp;&nbsp;"content": "Contenuto del primo capitolo"<br>
+                }
+            </code>
+        </p>
+    </div>
+
+    <footer>
+        <p>by Nicole Biscaro</p>
+        <p>CC BY-NC-SA 4.0</p>
+    </footer>
+
+</body>
+</html>
