@@ -174,25 +174,25 @@
             );
 
             if (result) {
-                const sentiment = 
+                const sentiment = `
                     Joy: ${result.joy}<br>
                     Sadness: ${result.sandness}<br>
                     Anger: ${result.anger}<br>
                     Fear: ${result.fear}<br>
                     Disgust: ${result.disgust}<br>
                     Surprise: ${result.surprise}
-                ;
+                `;
                 const chapter = result.CHAPTER || "Unknown";
                 const part = Object.keys(data).find(key => data[key].some(item => item.phrase && item.phrase.toLowerCase() === query)) || "Unknown";
                 const characters = result.Characters || "Unknown";
 
-                document.getElementById('result').innerHTML = 
+                document.getElementById('result').innerHTML = `
                     <strong>Phrase Found:</strong> "${query}"<br>
                     <strong>Part:</strong> ${part}<br>
                     <strong>Chapter:</strong> ${chapter}<br>
                     <strong>Characters:</strong> ${characters}<br>
                     <strong>Sentiment Scores:</strong> ${sentiment}
-                ;
+                `;
             } else {
                 document.getElementById('result').innerText = 'Phrase not found.';
             }
@@ -201,3 +201,4 @@
 
 </body>
 </html>
+
