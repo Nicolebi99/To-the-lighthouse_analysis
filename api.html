@@ -158,16 +158,19 @@
             const data = await loadJSON();
             if (!data) return;
 
-            const phrases = data["First Part"];
-            console.log("Loaded phrases:", phrases); // Debug: Visualizza tutte le frasi caricate
-            console.log("Searching for:", query);    // Debug: Mostra la query di ricerca
+            let found = false;
+            for (const section in data) {
+                const phrases = Array.isArray(data[section]) ? data[section] : [];
+                const result = phrases.find(item => item["I. THE WINDOW"] === query || item["II. TIME PASSES"] === query || item["III. THE LIGHTHOUSE"] === query);
+                if (result) {
+                    const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
+                    document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
+                    found = true;
+                    break;
+                }
+            }
 
-            const result = phrases.find(item => item["I. THE WINDOW"] === query);
-
-            if (result) {
-                const sentiment = `Joy: ${result.joy}, Sadness: ${result.sandness}, Anger: ${result.anger}, Fear: ${result.fear}, Disgust: ${result.disgust}, Surprise: ${result.surprise}`;
-                document.getElementById('result').innerText = `Sentiment Scores: ${sentiment}`;
-            } else {
+            if (!found) {
                 document.getElementById('result').innerText = 'Phrase not found.';
             }
         }
@@ -175,4 +178,5 @@
 
 </body>
 </html>
+
 
