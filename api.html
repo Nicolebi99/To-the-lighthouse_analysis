@@ -87,7 +87,7 @@
 </head>
 <body>
     <header>
-        <h1>API Information</h1>
+        <h1>API To the Lighthouse</h1>
     </header>
 
     <nav>
@@ -119,7 +119,7 @@
 
     <script>
         // URL corretto del file JSON da GitHub
-        const jsonFileUrl = "https://raw.githubusercontent.com/nicolebi99/To-the-lighthouse_analysis/main/book.json"; 
+        const jsonFileUrl = "https://raw.githubusercontent.com/nicolebi99/To-the-lighthouse_analysis/main/book.json";
 
         // Funzione per caricare il file JSON
         async function loadJSON() {
@@ -142,7 +142,7 @@
                 return;
             }
 
-            const data = await loadJSON();
+            const data = await loadJSON(); // Carica i dati dal JSON
             if (!data) return;
 
             // Trova una corrispondenza nel JSON
