@@ -54,27 +54,36 @@
             text-align: justify;
             color: white;
         }
-        .search-bar {
+        .character-list {
+            list-style: none;
+            padding: 0;
             margin: 20px 0;
-            border: 2px solid blue;
-            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .search-bar input[type="text"] {
-            padding: 10px;
-            width: 80%;
-            font-size: 1rem;
-            border: 2px solid red;
-            border-radius: 4px;
-            margin-right: 10px;
+        .character-list li {
+            margin: 10px;
         }
-        .search-bar button {
-            padding: 10px;
+        .character-list button {
+            padding: 10px 20px;
             font-size: 1rem;
-            border: 2px solid red;
+            border: 2px solid #90e0ef;
             border-radius: 4px;
             background-color: #0077b6;
             color: white;
             cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .character-list button:hover {
+            background-color: #90e0ef;
+            color: #023047;
+        }
+        .iframe-container {
+            margin-top: 30px;
+            width: 100%;
+            height: 600px;
+            border: none;
         }
         footer {
             margin-top: 20px;
@@ -94,22 +103,22 @@
         <a href="index.html">Home</a>
         <a href="the_project.html">The Project</a>
         <a href="about.html">About me</a>
-        <a href="api.html">API</a>
+        <a href="api.html">Characters' book</a>
     </nav>
 
     <div class="container">
-        <h1>API Overview</h1>
+        <h1>Indice dei Personaggi</h1>
 
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Cerca nell'API...">
-            <button onclick="search()">Cerca</button>
+        <ul class="character-list">
+            <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
+            <li><button onclick="loadVisualization('Mrs_Woolf')">Mrs Woolf</button></li>
+            <li><button onclick="loadVisualization('James_Woolf')">James Woolf</button></li>
+            <!-- Aggiungi altri personaggi qui -->
+        </ul>
+
+        <div id="visualization">
+            <p>Seleziona un personaggio dall'indice per visualizzare l'analisi interattiva.</p>
         </div>
-
-        <div id="result"></div>
-
-        <p>
-            Inserisci una frase di To the Lighthouse per vedere il sentiment's score
-        </p>
     </div>
 
     <footer>
@@ -118,59 +127,32 @@
     </footer>
 
     <script>
-        // URL corretto del file JSON da GitHub
-        const jsonFileUrl = "https://raw.githubusercontent.com/nicolebi99/To-the-lighthouse_analysis/main/book.json";
+        // Funzione per caricare la visualizzazione interattiva
+        function loadVisualization(character) {
+            const visualizationContainer = document.getElementById('visualization');
+            const githubBaseUrl = "https://raw.githubusercontent.com/nicolebi99/To-the-lighthouse_analysis/main/";
 
-        // Funzione per caricare il file JSON
-        async function loadJSON() {
-            try {
-                const response = await fetch(jsonFileUrl);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const data = await response.json();
-                return data; // Restituisce l'intero JSON, che è una lista di oggetti
-            } catch (error) {
-                console.error('Error fetching JSON:', error);
-                document.getElementById('result').innerText = 'Errore nel caricamento dei dati.';
-            }
-        }
+            // Definisci il percorso del file HTML per ogni personaggio
+            const characterFiles = {
+                'Lily_Briscoe': 'emotion_scores_Lily_Briscoe.html',
+                'Mrs_Woolf': 'emotion_scores_Mrs_Woolf.html',
+                'James_Woolf': 'emotion_scores_James_Woolf.html'
+                // Aggiungi altri personaggi e i relativi file HTML qui
+            };
 
-        // Funzione di ricerca
-        async function search() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
-            if (!query) {
-                alert('Per favore inserisci una frase da cercare.');
-                return;
-            }
+            // Controlla se il personaggio esiste nell'oggetto
+            if (characterFiles[character]) {
+                const fileUrl = `${githubBaseUrl}${characterFiles[character]}`;
 
-            const data = await loadJSON(); // Carica i dati dal JSON
-            if (!data) return;
-
-            // Trova una corrispondenza nel JSON
-            const result = data.find(item => (item.phrase || '').toLowerCase().includes(query));
-
-            if (result) {
-                const sentiment = `
-                    Joy: ${result.joy}<br>
-                    Sadness: ${result.sadness}<br>
-                    Anger: ${result.anger}<br>
-                    Fear: ${result.fear}<br>
-                    Disgust: ${result.disgust}<br>
-                    Surprise: ${result.surprise}
-                `;
-                const chapter = result.Chapter || "Sconosciuto";
-                const characters = result.Character || "Sconosciuto";
-
-                document.getElementById('result').innerHTML = `
-                    <strong>Frase trovata:</strong> "${result.phrase}"<br>
-                    <strong>Capitolo:</strong> ${chapter}<br>
-                    <strong>Personaggio:</strong> ${characters}<br>
-                    <strong>Punteggi di sentimento:</strong><br> ${sentiment}
+                // Crea un iframe per caricare il file HTML
+                visualizationContainer.innerHTML = `
+                    <iframe src="${fileUrl}" class="iframe-container"></iframe>
                 `;
             } else {
-                document.getElementById('result').innerText = 'Frase non trovata.';
+                visualizationContainer.innerHTML = '<p>Visualizzazione non disponibile per questo personaggio.</p>';
             }
         }
     </script>
-
 </body>
 </html>
+
