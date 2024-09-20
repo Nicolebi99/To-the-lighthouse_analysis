@@ -56,6 +56,8 @@
         }
         .center-button {
             margin: 20px 0;
+            display: flex;
+            justify-content: center;
         }
         .center-button button {
             padding: 15px 30px;
@@ -120,7 +122,7 @@
         <a href="index.html">Home</a>
         <a href="the_project.html">The Project</a>
         <a href="about.html">About me</a>
-        <a href="api.html">To the lighthouse's visualizations</a>
+        <a href="api.html">To the Lighthouse's Visualizations</a>
     </nav>
 
     <div class="container">
@@ -131,6 +133,7 @@
             <button onclick="loadMainVisualization()">Visualizza Analisi Sentiment Completa</button>
         </div>
 
+        <!-- Lista dei personaggi -->
         <ul class="character-list">
             <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
             <li><button onclick="loadVisualization('Mrs_Woolf')">Mrs Woolf</button></li>
@@ -138,6 +141,7 @@
             <!-- Aggiungi altri personaggi qui -->
         </ul>
 
+        <!-- Contenitore per le visualizzazioni -->
         <div id="visualization">
             <p>Seleziona un personaggio dall'indice per visualizzare l'analisi interattiva.</p>
         </div>
@@ -152,7 +156,7 @@
         // Funzione per caricare la visualizzazione principale (analisi sentiment completa)
         function loadMainVisualization() {
             const visualizationContainer = document.getElementById('visualization');
-            // Aggiorna con l'URL del tuo file HTML su GitHub Pages
+            // URL del tuo file HTML principale su GitHub Pages
             const mainVisualizationUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/emotion_scores_over_chapters.html";
 
             // Crea un iframe per caricare il file HTML principale
@@ -164,14 +168,14 @@
         // Funzione per caricare la visualizzazione interattiva per i personaggi
         function loadVisualization(character) {
             const visualizationContainer = document.getElementById('visualization');
-            // Aggiorna con l'URL della tua GitHub Pages
+            // URL base della tua GitHub Pages
             const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
 
             // Definisci il percorso del file HTML per ogni personaggio
             const characterFiles = {
                 'Lily_Briscoe': 'Lily_Briscoe.html',
-                'Mrs_Woolf': 'Mrs_Ramsay.html',
-                'James_Woolf': 'James_Ramsay.html'
+                'Mrs_Woolf': 'Mrs_Woolf.html',
+                'James_Woolf': 'James_Woolf.html'
                 // Aggiungi altri personaggi e i relativi file HTML qui
             };
 
@@ -188,6 +192,5 @@
             }
         }
     </script>
-
 </body>
 </html>
