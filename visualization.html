@@ -171,10 +171,8 @@
         // Funzione per caricare la visualizzazione principale (analisi sentiment completa)
         function loadMainVisualization() {
             const visualizationContainer = document.getElementById('visualization');
-            // URL del tuo file HTML principale su GitHub Pages
             const mainVisualizationUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/emotion_scores_over_chapters.html";
 
-            // Crea un iframe per caricare il file HTML principale
             visualizationContainer.innerHTML = `
                 <iframe src="${mainVisualizationUrl}" class="iframe-container"></iframe>
             `;
@@ -183,10 +181,8 @@
         // Funzione per caricare la visualizzazione interattiva per i personaggi
         function loadVisualization(character) {
             const visualizationContainer = document.getElementById('visualization');
-            // URL base della tua GitHub Pages
             const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
 
-            // Definisci il percorso del file HTML per ogni personaggio
             const characterFiles = {
                 'Narrator': 'Narrator.html',
                 'Mr_Ramsay': 'Mr_Ramsay.html',
@@ -194,11 +190,8 @@
                 'James_Ramsay': 'James_Ramsay.html'
             };
 
-            // Controlla se il personaggio esiste nell'oggetto
             if (characterFiles[character]) {
                 const fileUrl = `${githubPagesBaseUrl}${characterFiles[character]}`;
-
-                // Crea un iframe per caricare il file HTML
                 visualizationContainer.innerHTML = `
                     <iframe src="${fileUrl}" class="iframe-container"></iframe>
                 `;
@@ -209,3 +202,4 @@
     </script>
 </body>
 </html>
+
