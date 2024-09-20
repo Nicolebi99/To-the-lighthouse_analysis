@@ -54,6 +54,23 @@
             text-align: justify;
             color: white;
         }
+        .center-button {
+            margin: 20px 0;
+        }
+        .center-button button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: 2px solid #90e0ef;
+            border-radius: 8px;
+            background-color: #023047;
+            color: #90e0ef;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .center-button button:hover {
+            background-color: #90e0ef;
+            color: #023047;
+        }
         .character-list {
             list-style: none;
             padding: 0;
@@ -109,6 +126,11 @@
     <div class="container">
         <h1>Indice dei Personaggi</h1>
 
+        <!-- Bottone centrale per l'analisi del sentiment di tutti i personaggi -->
+        <div class="center-button">
+            <button onclick="loadMainVisualization()">Visualizza Analisi Sentiment Completa</button>
+        </div>
+
         <ul class="character-list">
             <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
             <li><button onclick="loadVisualization('Mrs_Woolf')">Mrs Woolf</button></li>
@@ -127,7 +149,19 @@
     </footer>
 
     <script>
-        // Funzione per caricare la visualizzazione interattiva
+        // Funzione per caricare la visualizzazione principale (analisi sentiment completa)
+        function loadMainVisualization() {
+            const visualizationContainer = document.getElementById('visualization');
+            // Aggiorna con l'URL del tuo file HTML su GitHub Pages
+            const mainVisualizationUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/emotion_scores_over_chapters.html";
+
+            // Crea un iframe per caricare il file HTML principale
+            visualizationContainer.innerHTML = `
+                <iframe src="${mainVisualizationUrl}" class="iframe-container"></iframe>
+            `;
+        }
+
+        // Funzione per caricare la visualizzazione interattiva per i personaggi
         function loadVisualization(character) {
             const visualizationContainer = document.getElementById('visualization');
             // Aggiorna con l'URL della tua GitHub Pages
@@ -136,8 +170,8 @@
             // Definisci il percorso del file HTML per ogni personaggio
             const characterFiles = {
                 'Lily_Briscoe': 'Lily_Briscoe.html',
-                'Mrs_Woolf': 'Mrs_Woolf.html',
-                'James_Woolf': 'James_Woolf.html'
+                'Mrs_Woolf': 'Mrs_Ramsay.html',
+                'James_Woolf': 'James_Ramsay.html'
                 // Aggiungi altri personaggi e i relativi file HTML qui
             };
 
@@ -154,7 +188,6 @@
             }
         }
     </script>
+
 </body>
 </html>
-
-
