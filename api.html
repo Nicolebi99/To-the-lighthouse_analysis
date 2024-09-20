@@ -103,7 +103,7 @@
         <a href="index.html">Home</a>
         <a href="the_project.html">The Project</a>
         <a href="about.html">About me</a>
-        <a href="api.html">Characters' book</a>
+        <a href="api.html">API</a>
     </nav>
 
     <div class="container">
@@ -130,19 +130,20 @@
         // Funzione per caricare la visualizzazione interattiva
         function loadVisualization(character) {
             const visualizationContainer = document.getElementById('visualization');
-            const githubBaseUrl = "https://raw.githubusercontent.com/nicolebi99/To-the-lighthouse_analysis/main/";
+            // Aggiorna con l'URL della tua GitHub Pages
+            const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
 
             // Definisci il percorso del file HTML per ogni personaggio
             const characterFiles = {
-                'Lily_Briscoe': 'emotion_scores_Lily_Briscoe.html',
-                'Mrs_Woolf': 'emotion_scores_Mrs_Woolf.html',
-                'James_Woolf': 'emotion_scores_James_Woolf.html'
+                'Lily_Briscoe': 'Lily_Briscoe.html',
+                'Mrs_Woolf': 'Mrs_Woolf.html',
+                'James_Woolf': 'James_Woolf.html'
                 // Aggiungi altri personaggi e i relativi file HTML qui
             };
 
             // Controlla se il personaggio esiste nell'oggetto
             if (characterFiles[character]) {
-                const fileUrl = `${githubBaseUrl}${characterFiles[character]}`;
+                const fileUrl = `${githubPagesBaseUrl}${characterFiles[character]}`;
 
                 // Crea un iframe per caricare il file HTML
                 visualizationContainer.innerHTML = `
@@ -155,4 +156,5 @@
     </script>
 </body>
 </html>
+
 
