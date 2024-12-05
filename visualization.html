@@ -141,26 +141,38 @@
         
     </nav>
 
+       <div class="container">
+    <h1>Characters' List</h1>
 
-    <div class="container">
-        <h1>Characters' List</h1>
+    <!-- Bottone centrale per l'analisi del sentiment completa -->
+    <div class="center-button">
+        <button onclick="loadMainVisualization()">All characters' analysis</button>
+    </div>
 
-        <!-- Bottone centrale per l'analisi del sentiment completa -->
-        <div class="center-button">
-            <button onclick="loadMainVisualization()">All characters' analysis</button>
-        </div>
+    <!-- Lista dei personaggi principali -->
+    <h2>Main Characters</h2>
+    <ul class="character-list">
+        <li><button onclick="loadVisualization('Narrator')">Narrator</button></li>
+        <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
+        <li><button onclick="loadVisualization('Mr_Ramsay')">Mr. Ramsay</button></li>
+        <li><button onclick="loadVisualization('Mrs_Ramsay')">Mrs. Ramsay</button></li>
+        <li><button onclick="loadVisualization('James_Ramsay')">James Ramsay</button></li>
+        <li><button onclick="loadVisualization('Cam_Ramsay')">Cam Ramsay</button></li>
+        <li><button onclick="loadVisualization('Mr_Tansley')">Mr. Tansley</button></li>
+    </ul>
 
-        <!-- Lista dei personaggi -->
-        <ul class="character-list">
-            <li><button onclick="loadVisualization('Narrator')">Narrator</button></li>
-            <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
-            <li><button onclick="loadVisualization('Mr_Ramsay')">Mr. Ramsay</button></li>
-            <li><button onclick="loadVisualization('Mrs_Ramsay')">Mrs. Ramsay</button></li>
-            <li><button onclick="loadVisualization('James_Ramsay')">James Ramsay</button></li>
-            <li><button onclick="loadVisualization('Cam_Ramsay')">Cam Ramsay</button></li>
-            <li><button onclick="loadVisualization('Mr_Tansley')">Mr. Tansley</button></li>
-            <li><button onclick="loadVisualization('Andrew_Ramsay')">Andrew Ramsay</button></li>
-        </ul>
+    <!-- Lista dei personaggi secondari -->
+    <h2>Secondary Characters</h2>
+    <ul class="character-list">
+        <li><button onclick="loadVisualization('Andrew_Ramsay')">Andrew Ramsay</button></li>
+        <li><button onclick="loadVisualization('Prue_Ramsay')">Prue Ramsay</button></li>
+    </ul>
+
+    <!-- Contenitore per le visualizzazioni -->
+    <div id="visualization">
+        <p>Select a character to view its sentiment within the story.</p>
+    </div>
+</div>
 
         <!-- Contenitore per le visualizzazioni -->
         <div id="visualization">
@@ -196,8 +208,9 @@
                 'Mrs_Ramsay': 'Mrs_Ramsay.html',
                 'James_Ramsay': 'James_Ramsay.html',
                 'Cam_Ramsay':'Cam_Ramsay.html',
-                'Mr_Tansley':Mr_Tansley.html',
-                'Andrew Ramsay':Andrew_Ramsay.html'
+                'Mr_Tansley':'Mr_Tansley.html',
+                'Andrew_Ramsay':'Andrew_Ramsay.html',
+                'Prue_Ramsay':'Prue_Ramsay.html'
                 
             };
 
