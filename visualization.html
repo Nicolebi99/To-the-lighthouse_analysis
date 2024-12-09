@@ -133,79 +133,76 @@
         <h1>To the lighthouse's visualization</h1>
     </header>
 
-      <nav>
+    <nav>
         <a href="index.html">Home</a>
         <a href="project.html">THE PROJECT</a>
         <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
         <a href="about.html">ABOUT ME</a>
-        
     </nav>
 
     <!-- Navigation back button -->
-<div class="navigation">
-    <button class="back-button" onclick="goBack()">&#8592; Back</button>
-</div>
-
-       <div class="container">
-    <h1>Characters' List</h1>
-
-    <!-- Bottone centrale per l'analisi del sentiment completa -->
-    <div class="center-button">
-        <button onclick="loadMainVisualization()">All characters' analysis</button>
+    <div class="navigation">
+        <button class="back-button" onclick="goBack()">&#8592; Back</button>
     </div>
-           
-  <!-- Anteprima delle apparizioni dei personaggi -->
-    <h2>Top 10 Characters' Appearances</h2>
-    <div class="iframe-preview">
-        <iframe src="https://nicolebi99.github.io/To-the-lighthouse_analysis/top_10_characters_appearances.html" 
-                class="iframe-container" title="Top 10 Characters' Appearances"></iframe>
+
+    <div class="container">
+        <h1>Characters' List</h1>
+
+        <!-- Bottone centrale per l'analisi del sentiment completa -->
+        <div class="center-button">
+            <button onclick="loadMainVisualization()">All characters' analysis</button>
+        </div>
+
+        <!-- Anteprima delle apparizioni dei personaggi -->
+        <h2>Top 10 Characters' Appearances</h2>
+        <div class="iframe-preview">
+            <iframe src="https://nicolebi99.github.io/To-the-lighthouse_analysis/top_10_characters_appearances.html" 
+                    class="iframe-container" title="Top 10 Characters' Appearances"></iframe>
+        </div>
+
+        <!-- Lista dei personaggi principali -->
+        <h2>Main Characters</h2>
+        <ul class="character-list">
+            <li><button onclick="loadVisualization('Narrator')">Narrator</button></li>
+            <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
+            <li><button onclick="loadVisualization('Mr_Ramsay')">Mr. Ramsay</button></li>
+            <li><button onclick="loadVisualization('Mrs_Ramsay')">Mrs. Ramsay</button></li>
+            <li><button onclick="loadVisualization('James_Ramsay')">James Ramsay</button></li>
+            <li><button onclick="loadVisualization('Cam_Ramsay')">Cam Ramsay</button></li>
+            <li><button onclick="loadVisualization('Mr_Tansley')">Mr. Tansley</button></li>
+            <li><button onclick="loadVisualization('Mr_Carmichael')">Mr. Carmichael</button></li>
+            <li><button onclick="loadVisualization('William_Bankes')">William Bankes</button></li>
+            <li><button onclick="loadVisualization('Mrs_McNab')">Mrs. McNab</button></li>
+        </ul>
+
+        <!-- Lista dei personaggi secondari -->
+        <h2>Secondary Characters</h2>
+        <ul class="character-list">
+            <li><button onclick="loadVisualization('Andrew_Ramsay')">Andrew Ramsay</button></li>
+            <li><button onclick="loadVisualization('Prue_Ramsay')">Prue Ramsay</button></li>
+            <li><button onclick="loadVisualization('Jasper_Ramsay')">Jasper Ramsay</button></li>
+            <li><button onclick="loadVisualization('Nancy')">Nancy</button></li>
+            <li><button onclick="loadVisualization('Roger')">Roger</button></li>
+            <li><button onclick="loadVisualization('Minta_Doyle')">Minta Doyle</button></li>
+            <li><button onclick="loadVisualization('Sorley')">Sorley</button></li>
+            <li><button onclick="loadVisualization('Miss_Giddings')">Miss Giddings</button></li>
+            <li><button onclick="loadVisualization('Paul_Rayley')">Paul Rayley</button></li>
+            <li><button onclick="loadVisualization('Mrs_Bast')">Mrs. Bast</button></li>
+            <li><button onclick="loadVisualization('George')">George</button></li>
+            <li><button onclick="loadVisualization('Percy')">Percy</button></li>
+            <li><button onclick="loadVisualization('Mildred')">Mildred</button></li>
+            <li><button onclick="loadVisualization('Maggie')">Maggie</button></li>
+            <li><button onclick="loadVisualization('Mrs_Beckwith')">Mrs. Beckwith</button></li>
+            <li><button onclick="loadVisualization('Macalister\'s_boy')">Macalister's boy</button></li>
+            <li><button onclick="loadVisualization('Macalister')">Macalister</button></li>
+            <li><button onclick="loadVisualization('Charles')">Charles</button></li>
+        </ul>
+
+        <!-- Contenitore per le visualizzazioni -->
+        <div id="visualization">
+            <p>Select a character to view its sentiment within the story.</p>
+        </div>
     </div>
-           
-    <!-- Lista dei personaggi principali -->
-    <h2>Main Characters</h2>
-    <ul class="character-list">
-        <li><button onclick="loadVisualization('Narrator')">Narrator</button></li>
-        <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
-        <li><button onclick="loadVisualization('Mr_Ramsay')">Mr. Ramsay</button></li>
-        <li><button onclick="loadVisualization('Mrs_Ramsay')">Mrs. Ramsay</button></li>
-        <li><button onclick="loadVisualization('James_Ramsay')">James Ramsay</button></li>
-        <li><button onclick="loadVisualization('Cam_Ramsay')">Cam Ramsay</button></li>
-        <li><button onclick="loadVisualization('Mr_Tansley')">Mr. Tansley</button></li>
-        <li><button onclick="loadVisualization('Mr_Carmichael')">Mr. Carmichael</button></li>
-        <li><button onclick="loadVisualization('William_Bankes')">William Bankes</button></li>
-        <li><button onclick="loadVisualization('Mrs_McNab')">Mrs. McNab</button></li>
-        
-    </ul>
-
-    <!-- Lista dei personaggi secondari -->
-    <h2>Secondary Characters</h2>
-    <ul class="character-list">
-        <li><button onclick="loadVisualization('Andrew_Ramsay')">Andrew Ramsay</button></li>
-        <li><button onclick="loadVisualization('Prue_Ramsay')">Prue Ramsay</button></li>
-        <li><button onclick="loadVisualization('Jasper_Ramsay')">Jasper Ramsay</button></li>
-        <li><button onclick="loadVisualization('Nancy')">Nancy</button></li>
-        <li><button onclick="loadVisualization('Roger')">Roger</button></li>
-        <li><button onclick="loadVisualization('Minta_Doyle')">Minta Doyle</button></li>
-        <li><button onclick="loadVisualization('Sorley')">Sorley</button></li>
-        <li><button onclick="loadVisualization('Miss_Giddings')">Miss Giddings</button></li>
-        <li><button onclick="loadVisualization('Paul_Rayley')">Paul Rayley</button></li>
-        <li><button onclick="loadVisualization('Mrs_Bast')">Mrs. Bast</button></li>
-        <li><button onclick="loadVisualization('George')">George</button></li>
-        <li><button onclick="loadVisualization('Percy')">Percy</button></li>
-        <li><button onclick="loadVisualization('Mildred')">Mildred</button></li>
-        <li><button onclick="loadVisualization('Maggie')">Maggie</button></li>
-        <li><button onclick="loadVisualization('Mrs_Beckwith')">Mrs. Beckwith</button></li>
-        <li><button onclick="loadVisualization('Macalister's_boy')">Macalister's boy</button></li>
-        <li><button onclick="loadVisualization('Macalister')">Macalister</button></li>
-        <li><button onclick="loadVisualization('Charles')">Charles</button></li>
-    </ul>
-
-    <!-- Contenitore per le visualizzazioni -->
-    <div id="visualization">
-        <p>Select a character to view its sentiment within the story.</p>
-    </div>
-</div>
-
 
     <footer>
         <p>by Nicole Biscaro</p>
@@ -257,7 +254,6 @@
                 'Macalisters_boy': 'Macalisters_boy.html',
                 'Macalister': 'Macalister.html',
                 'Charles': 'Charles.html'
-            
             };
 
             if (characterFiles[character]) {
@@ -269,6 +265,12 @@
                 visualizationContainer.innerHTML = '<p>Visualizzazione non disponibile per questo personaggio.</p>';
             }
         }
+
+        // Funzione per tornare indietro nella cronologia del browser
+        function goBack() {
+            window.history.back();
+        }
     </script>
 </body>
 </html>
+
