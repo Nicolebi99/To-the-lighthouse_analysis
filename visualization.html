@@ -6,61 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Visualization - To the Lighthouse</title>
     <style>
-body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        color: white;
-        background-color: #03045e;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: white;
+            background-color: #03045e;
+        }
 
-    header {
-        background-color: #0077b6;
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
 
-    nav {
-        margin-top: 10px;
-        background-color: #023047;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        position: relative;
-    }
+        nav {
+            margin-top: 10px;
+            background-color: #023047;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-        padding: 14px 20px;
-        font-weight: bold;
-        position: relative;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-weight: bold;
+            position: relative;
+        }
 
-    /* Animazione sottolineatura */
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background-color: #90e0ef;
-        transition: width 0.3s, left 0.3s;
-    }
-
-    nav a:hover {
-        color: #90e0ef;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-        left: 0;
-    }
-
-    .container {
+        .container {
             background-color: #023047;
             padding: 20px;
             text-align: center;
@@ -73,108 +52,48 @@ body {
             color: #90e0ef;
         }
 
-        .container p {
-            font-size: 1.2rem;
-            margin: 20px 0;
-            text-align: justify;
-            color: white;
-        }
-
-        .character-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            padding: 0;
-            list-style-type: none;
-        }
-
-        .character-list li button {
+        .container select {
             background-color: #0077b6;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            margin: 5px 0;
-            border-radius: 5px;
             font-size: 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .character-list li button:hover {
-            background-color: #023047;
-            color: #90e0ef;
-            transform: scale(1.05);
-        }
-
-        .center-button button {
-            background-color: #0077b6;
-            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
             border: none;
-            padding: 15px 30px;
-            margin: 20px 0;
-            border-radius: 8px;
-            font-size: 1.2rem;
+            width: 300px;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .center-button button:hover {
+        .container select:hover {
             background-color: #023047;
             color: #90e0ef;
-            transform: scale(1.1);
         }
 
-    .navigation {
-        text-align: left;
-        margin: 20px;
-    }
-
-    .back-button {
-    background-color: #0077b6;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px; /* Bordi arrotondati */
-    text-decoration: none;
-    font-size: 1rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-    transition: all 0.3s ease; /* Transizione fluida */
-}
-
-.back-button:hover {
-    background-color: #023047;
-    color: #90e0ef; /* Colore di evidenziazione */
-    transform: translateY(-3px); /* Effetto movimento */
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
-}
-
-
-    footer {
-        margin-top: 20px;
-        text-align: right;
-        font-size: 0.8rem;
-        padding-right: 20px;
-        color: white;
-    }
+        footer {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 0.8rem;
+            padding-right: 20px;
+            color: white;
+        }
+        
         .iframe-container {
-    width: 100%;
-    height: 600px;
-    border: none;
-    margin: 20px 0;
-}
-
-@media (max-width: 768px) {
-    .iframe-container {
-        height: 400px; /* Altezza ridotta per schermi piccoli */
-    }
-}
-
+            width: 100%;
+            height: 600px;
+            border: none;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .iframe-container {
+                height: 400px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>To the lighthouse's visualization</h1>
+        <h1>To the Lighthouse's Visualization</h1>
     </header>
 
     <nav>
@@ -184,63 +103,42 @@ body {
         <a href="about.html">ABOUT ME</a>
     </nav>
 
-    <!-- Navigation back button -->
-    <div class="navigation">
-        <button class="back-button" onclick="goBack()">&#8592; Back</button>
-    </div>
-
     <div class="container">
         <h1>Characters' List</h1>
 
-        <!-- Bottone centrale per l'analisi del sentiment completa -->
-        <div class="center-button">
-            <button onclick="loadMainVisualization()">All characters' analysis</button>
-        </div>
-
-        <!-- Anteprima delle apparizioni dei personaggi -->
-        <h2>Most frequent character appearances</h2>
-        <div class="iframe-preview">
-            <iframe src="https://nicolebi99.github.io/To-the-lighthouse_analysis/top_10_characters_appearances.html" 
-                    class="iframe-container" title="Top 10 Characters' Appearances"></iframe>
-        </div>
-
-        <!-- Lista dei personaggi principali -->
-        <h2>Main Characters</h2>
-        <ul class="character-list">
-            <li><button onclick="loadVisualization('Narrator')">Narrator</button></li>
-            <li><button onclick="loadVisualization('Lily_Briscoe')">Lily Briscoe</button></li>
-            <li><button onclick="loadVisualization('Mr_Ramsay')">Mr. Ramsay</button></li>
-            <li><button onclick="loadVisualization('Mrs_Ramsay')">Mrs. Ramsay</button></li>
-            <li><button onclick="loadVisualization('James_Ramsay')">James Ramsay</button></li>
-            <li><button onclick="loadVisualization('Cam_Ramsay')">Cam Ramsay</button></li>
-            <li><button onclick="loadVisualization('Mr_Tansley')">Mr. Tansley</button></li>
-            <li><button onclick="loadVisualization('Mr_Carmichael')">Mr. Carmichael</button></li>
-            <li><button onclick="loadVisualization('William_Bankes')">William Bankes</button></li>
-            <li><button onclick="loadVisualization('Mrs_McNab')">Mrs. McNab</button></li>
-        </ul>
-
-        <!-- Lista dei personaggi secondari -->
-        <h2>Secondary Characters</h2>
-        <ul class="character-list">
-            <li><button onclick="loadVisualization('Andrew_Ramsay')">Andrew Ramsay</button></li>
-            <li><button onclick="loadVisualization('Prue_Ramsay')">Prue Ramsay</button></li>
-            <li><button onclick="loadVisualization('Jasper_Ramsay')">Jasper Ramsay</button></li>
-            <li><button onclick="loadVisualization('Nancy')">Nancy</button></li>
-            <li><button onclick="loadVisualization('Roger')">Roger</button></li>
-            <li><button onclick="loadVisualization('Minta_Doyle')">Minta Doyle</button></li>
-            <li><button onclick="loadVisualization('Sorley')">Sorley</button></li>
-            <li><button onclick="loadVisualization('Miss_Giddings')">Miss Giddings</button></li>
-            <li><button onclick="loadVisualization('Paul_Rayley')">Paul Rayley</button></li>
-            <li><button onclick="loadVisualization('Mrs_Bast')">Mrs. Bast</button></li>
-            <li><button onclick="loadVisualization('George')">George</button></li>
-            <li><button onclick="loadVisualization('Percy')">Percy</button></li>
-            <li><button onclick="loadVisualization('Mildred')">Mildred</button></li>
-            <li><button onclick="loadVisualization('Maggie')">Maggie</button></li>
-            <li><button onclick="loadVisualization('Mrs_Beckwith')">Mrs. Beckwith</button></li>
-            <li><button onclick="loadVisualization('Macalister\'s_boy')">Macalister's boy</button></li>
-            <li><button onclick="loadVisualization('Macalister')">Macalister</button></li>
-            <li><button onclick="loadVisualization('Charles')">Charles</button></li>
-        </ul>
+        <!-- Selezione del personaggio tramite menu a tendina -->
+        <label for="characterSelect">Choose a character:</label>
+        <select id="characterSelect" onchange="loadVisualization(this.value)">
+            <option value="">Select a character</option>
+            <option value="Narrator">Narrator</option>
+            <option value="Lily_Briscoe">Lily Briscoe</option>
+            <option value="Mr_Ramsay">Mr. Ramsay</option>
+            <option value="Mrs_Ramsay">Mrs. Ramsay</option>
+            <option value="James_Ramsay">James Ramsay</option>
+            <option value="Cam_Ramsay">Cam Ramsay</option>
+            <option value="Mr_Tansley">Mr. Tansley</option>
+            <option value="Mr_Carmichael">Mr. Carmichael</option>
+            <option value="William_Bankes">William Bankes</option>
+            <option value="Mrs_McNab">Mrs. McNab</option>
+            <option value="Andrew_Ramsay">Andrew Ramsay</option>
+            <option value="Prue_Ramsay">Prue Ramsay</option>
+            <option value="Jasper_Ramsay">Jasper Ramsay</option>
+            <option value="Nancy">Nancy</option>
+            <option value="Roger">Roger</option>
+            <option value="Minta_Doyle">Minta Doyle</option>
+            <option value="Sorley">Sorley</option>
+            <option value="Miss_Giddings">Miss Giddings</option>
+            <option value="Paul_Rayley">Paul Rayley</option>
+            <option value="Mrs_Bast">Mrs. Bast</option>
+            <option value="George">George</option>
+            <option value="Percy">Percy</option>
+            <option value="Mildred">Mildred</option>
+            <option value="Maggie">Maggie</option>
+            <option value="Mrs_Beckwith">Mrs. Beckwith</option>
+            <option value="Macalisters_boy">Macalister's boy</option>
+            <option value="Macalister">Macalister</option>
+            <option value="Charles">Charles</option>
+        </select>
 
         <!-- Contenitore per le visualizzazioni -->
         <div id="visualization">
@@ -254,16 +152,6 @@ body {
     </footer>
 
     <script>
-        // Funzione per caricare la visualizzazione principale (analisi sentiment completa)
-        function loadMainVisualization() {
-            const visualizationContainer = document.getElementById('visualization');
-            const mainVisualizationUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/Combined_Characters.html";
-
-            visualizationContainer.innerHTML = `
-                <iframe src="${mainVisualizationUrl}" class="iframe-container"></iframe>
-            `;
-        }
-
         // Funzione per caricare la visualizzazione interattiva per i personaggi
         function loadVisualization(character) {
             const visualizationContainer = document.getElementById('visualization');
@@ -275,13 +163,13 @@ body {
                 'Mr_Ramsay': 'Mr_Ramsay.html',
                 'Mrs_Ramsay': 'Mrs_Ramsay.html',
                 'James_Ramsay': 'James_Ramsay.html',
-                'Cam_Ramsay':'Cam_Ramsay.html',
-                'Mr_Tansley':'Mr_Tansley.html',
-                'Andrew_Ramsay':'Andrew_Ramsay.html',
-                'Prue_Ramsay':'Prue_Ramsay.html',
-                'Mr_Carmichael':'Mr_Carmichael.html',
-                'William_Bankes':'William_Bankes.html',
-                'Mrs_McNab':'Mrs_McNab.html',
+                'Cam_Ramsay': 'Cam_Ramsay.html',
+                'Mr_Tansley': 'Mr_Tansley.html',
+                'Andrew_Ramsay': 'Andrew_Ramsay.html',
+                'Prue_Ramsay': 'Prue_Ramsay.html',
+                'Mr_Carmichael': 'Mr_Carmichael.html',
+                'William_Bankes': 'William_Bankes.html',
+                'Mrs_McNab': 'Mrs_McNab.html',
                 'Nancy': 'Nancy.html',
                 'Jasper_Ramsay': 'Jasper_Ramsay.html',
                 'Roger': 'Roger.html',
@@ -309,12 +197,6 @@ body {
                 visualizationContainer.innerHTML = '<p>Visualizzazione non disponibile per questo personaggio.</p>';
             }
         }
-
-        // Funzione per tornare indietro nella cronologia del browser
-        function goBack() {
-            window.history.back();
-        }
     </script>
 </body>
 </html>
-
