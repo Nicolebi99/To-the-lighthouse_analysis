@@ -4,23 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To the Lighthouse Analysis</title>
+    <title>Visualization - To the Lighthouse</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             height: 100%;
             color: white;
             background-color: #03045e;
-            line-height: 1.6;
         }
 
         header {
             background-color: #0077b6;
             color: white;
-            padding: 20px;
+            padding: 10px 20px;
             text-align: left;
+            position: relative;
+        }
+
+        /* Titolo in stile "Atlante Calvino" */
+        h1 span {
+            display: inline-block;
+            transition: transform 0.3s, color 0.3s;
+        }
+        h1 span:hover {
+            transform: rotate(-10deg) scale(1.2);
+            color: #90e0ef;
         }
 
         nav {
@@ -36,55 +46,88 @@
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            position: relative;
+            transition: color 0.3s;
         }
 
+        /* Animazione sottolineatura */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #90e0ef;
+            transition: width 0.3s, left 0.3s;
+        }
         nav a:hover {
-            background-color: #0077b6;
-            color: white;
+            color: #90e0ef;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         .container {
-            padding: 40px;
+            background-color: #023047;
+            padding: 40px 20px;
             text-align: center;
+            min-height: calc(100vh - 130px);
             box-sizing: border-box;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
-        .container h1 {
-            font-size: 2.5rem;
-            color: #90e0ef;
-            margin-bottom: 20px;
-        }
-
-        .container p {
-            font-size: 1.2rem;
-            margin: 20px 0;
-            text-align: justify;
-        }
-
-        .quote {
-            font-style: italic;
-            background-color: #0077b6;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            color: #90e0ef;
-            font-size: 1.1rem;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
+        .center-button button {
+            padding: 20px 40px;
+            font-size: 1.5rem;
             border: 2px solid #90e0ef;
             border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #023047;
+            color: #90e0ef;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .center-button button:hover {
+            background-color: #90e0ef;
+            color: #023047;
         }
 
-        .navigation {
-            text-align: left;
-            margin: 20px;
+        /* Sezione Learn More */
+        .learn-more-container {
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .learn-more-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: #022a53;
+            padding: 0 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .learn-more-container button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .learn-more-container button:hover {
+            background-color: #90e0ef;
+            color: #023047;
+        }
+
+        .learn-more-content p {
+            padding: 20px 0;
+            font-size: 1rem;
         }
 
         footer {
@@ -94,75 +137,57 @@
             padding-right: 20px;
             color: white;
         }
-
-        @media (max-width: 768px) {
-            nav a {
-                padding: 10px;
-                font-size: 1rem;
-            }
-
-            .container h1 {
-                font-size: 2rem;
-            }
-
-            .container p {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container h1 {
-                font-size: 1.5rem;
-            }
-
-            .container p {
-                font-size: 0.9rem;
-            }
-        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>
+            <span>T</span><span>o</span> <span>t</span><span>h</span><span>e</span> 
+            <span>L</span><span>i</span><span>g</span><span>h</span><span>t</span><span>h</span><span>o</span><span>u</span><span>s</span><span>e</span>
+        </h1>
+    </header>
 
-<header>
-    <h1>To the Lighthouse, Virginia Woolf</h1>
-</header>
-
-<nav>
-        <a href="index.html">HOME</a>
+    <nav>
+        <a href="index.html">Home</a>
         <a href="project.html">THE PROJECT</a>
         <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
         <a href="about.html">ABOUT ME</a>
     </nav>
 
+    <div class="container">
+        <h1>Characters' List</h1>
 
-<div class="container">
-    <h1>Explore *To the Lighthouse*</h1>
-    <p>
-        Discover an in-depth analysis of *To the Lighthouse*, a masterpiece by Virginia Woolf. This novel is celebrated 
-        for its exploration of human relationships, the passage of time, and the intricacies of perception.
-    </p>
+        <div class="center-button">
+            <button onclick="loadMainVisualization()">All characters' analysis</button>
+        </div>
 
-    <div class="quote">
-        "For nothing was simply one thing." <br>— *To the Lighthouse*
+        <!-- Sezione Learn More -->
+        <div class="learn-more-container">
+            <button onclick="toggleLearnMore()">Learn More</button>
+            <div class="learn-more-content" id="learnMoreContent">
+                <p>
+                    "To the Lighthouse" is a modernist novel by Virginia Woolf, exploring themes of time, memory, and family relationships. 
+                    It is divided into three parts: *The Window*, *Time Passes*, and *The Lighthouse*.
+                </p>
+            </div>
+        </div>
     </div>
-
-    <div class="image-container">
-        <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse by Virginia Woolf">
-    </div>
-
-    <p>
-        Through this platform, delve into the characters, themes, and sentiments that make this work a timeless 
-        exploration of the human spirit. Navigate through the sections to uncover a detailed breakdown of the 
-        narrative and its profound impact.
-    </p>
 
     <footer>
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
     </footer>
-</div>
 
-
+    <script>
+        function toggleLearnMore() {
+            const content = document.getElementById('learnMoreContent');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+    </script>
 </body>
 </html>
 
