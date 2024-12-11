@@ -282,6 +282,15 @@
             } else {
                 visualizationContainer.innerHTML = '<p>Visualizzazione non disponibile per questo personaggio.</p>';
             }
+            function showTopCharactersImage() {
+                const container = document.getElementById('topCharactersImageContainer');
+            if (container.style.display === 'none') {
+                container.style.display = 'block'; // Mostra l'immagine
+            } else {
+                container.style.display = 'none'; // Nasconde l'immagine
+            }
+        }
+
         }
     </script>
 </body>
