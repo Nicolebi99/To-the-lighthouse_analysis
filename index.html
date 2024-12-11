@@ -20,10 +20,8 @@
             color: white;
             padding: 10px 20px;
             text-align: left;
-            position: relative;
         }
 
-        /* Titolo in stile Atlante di Calvino */
         h1 {
             font-size: 2.5rem;
             display: flex;
@@ -60,7 +58,6 @@
             transition: color 0.3s;
         }
 
-        /* Animazione sottolineatura */
         nav a::after {
             content: '';
             position: absolute;
@@ -71,9 +68,11 @@
             background-color: #90e0ef;
             transition: width 0.3s, left 0.3s;
         }
+
         nav a:hover {
             color: #90e0ef;
         }
+
         nav a:hover::after {
             width: 100%;
             left: 0;
@@ -87,14 +86,12 @@
             box-sizing: border-box;
         }
 
-        /* Titolo sopra l'immagine */
         .container h2 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: #90e0ef;
         }
 
-        /* Copertina del romanzo */
         .book-cover {
             margin: 20px auto;
             max-width: 300px;
@@ -103,59 +100,20 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Nota sotto l'immagine */
         .container .note {
             margin-top: 10px;
             font-size: 1rem;
             font-style: italic;
             color: #90e0ef;
         }
-        .woolf-works {
-            padding: 20px;
-            text-align: center;
-            background-color: #03045e;
-            color: white;
-        }
 
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .work-item {
-            background-color: #023047;
-            border-radius: 10px;
-            padding: 10px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .work-item img {
-            max-width: 100%;
-            border-radius: 5px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .work-item:hover {
-            transform: scale(1.1);
-            background-color: #0077b6;
-        }
-
-        .work-item p {
-            margin-top: 10px;
-            color: #90e0ef;
-            font-size: 1rem;
-        }
         .novels-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .novel-card {
             background-color: #023047;
             padding: 15px;
@@ -164,27 +122,68 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .novel-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
         }
-        
+
         .novel-icon {
             width: 80px;
             height: 80px;
             margin-bottom: 10px;
             border-radius: 10px;
         }
-        
+
         .novel-card h3 {
             font-size: 1.2rem;
             color: #90e0ef;
         }
-        
+
         .novel-card p {
             font-size: 1rem;
             color: #caf0f8;
+        }
+
+        #work-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: #03045e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #work-modal .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #03045e;
+        }
+
+        #work-modal img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
 
         footer {
@@ -292,20 +291,33 @@
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
     </footer>
-    <div id="work-modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeModal()">×</span>
-        <h3>To the Lighthouse</h3>
-        <p>Una delle opere più celebri di Virginia Woolf, che esplora il flusso di coscienza e la complessità delle relazioni umane.</p>
-        <img src="path/to/lighthouse_visual.jpg" alt="Visualizzazione To the Lighthouse">
-    </div>
-</div>
+     <script>
+        const novelDescriptions = {
+            "The Voyage Out": "Virginia Woolf’s debut novel, a voyage of self-discovery, set on a ship heading to South America.",
+            "Night and Day": "A story that contrasts romantic ideals with social conventions in Edwardian London.",
+            "Jacob's Room": "A groundbreaking modernist work exploring the life and memory of Jacob Flanders.",
+            "Mrs Dalloway": "An iconic narrative following a day in the life of Clarissa Dalloway as she prepares for a party.",
+            "Orlando": "A fantastical biography spanning centuries, exploring themes of identity and gender fluidity.",
+            "The Waves": "A poetic novel with soliloquies of six characters, reflecting on time and human connection.",
+            "The Years": "A family saga tracing the social and political changes of the early 20th century.",
+            "Between the Acts": "Woolf’s last novel, reflecting on art, war, and human experience through a village pageant."
+        };
 
-<script>
-    function closeModal() {
-        document.getElementById('work-modal').style.display = 'none';
-    }
-</script>
+        function showDetails(title) {
+            const description = novelDescriptions[title] || "Description not available.";
+            const imageSrc = `${title.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-")}.jpg`;
 
+            document.getElementById("modal-title").innerText = title;
+            document.getElementById("modal-description").innerText = description;
+            document.getElementById("modal-image").src = imageSrc;
+            document.getElementById("work-modal").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("work-modal").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
 </body>
 </html>
