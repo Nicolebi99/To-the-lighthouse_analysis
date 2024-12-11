@@ -84,74 +84,80 @@
             padding: 20px;
         }
 
-        .book-cover-container {
+        /* Larger button and positioning for the Lighthouse section */
+        .lighthouse-section {
             position: relative;
-            display: inline-block;
-            text-align: center;
-            margin-bottom: 20px;
-            max-width: 350px;
-            margin-left: auto;
-            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            height: 300px; /* Adjust height if necessary */
         }
-
-        .book-cover {
-            width: 100%;
-            max-width: 300px;
-            border: 5px solid #90e0ef;
-            border-radius: 10px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-        }
-
+        
         .lighthouse-button {
             position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 20px; /* Move button up a bit */
             background-color: #90e0ef;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px; /* Larger padding for a bigger button */
             color: white;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.2rem;
             border-radius: 5px;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             cursor: pointer;
             transition: background-color 0.3s;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
         .lighthouse-button:hover {
             background-color: #023047;
         }
-
-        .lighthouse-icon {
-            width: 30px;
-            height: 30px;
-        }
-
+        
+        /* Positioning and size of Virginia Woolf photo */
         .author-section {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 30px;
+            justify-content: center;
+            gap: 40px;
             margin-top: 30px;
             padding: 20px;
-            text-align: left;
         }
-
+        
         .author-photo {
-            width: 150px;
-            height: 150px;
+            width: 200px; /* Adjusted size */
+            height: 200px;
             border-radius: 50%;
             border: 5px solid #90e0ef;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
         .author-bio {
             max-width: 600px;
             color: #caf0f8;
             font-size: 1rem;
+            text-align: left;
+        }
+        
+        /* Adjusting book cover image */
+        .book-cover-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px; /* More space below */
+        }
+        
+        .book-cover {
+            width: 100%;
+            max-width: 450px; /* Slightly larger width */
+            border: 5px solid #90e0ef;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
 
         .novels-section {
@@ -277,28 +283,29 @@
         </div>
     </div>
 <!-- Sezione dell'Atlante -->
-        <div class="lighthouse-section">
-            <img src="lighthouse.png" alt="Lighthouse Icon" class="lighthouse-icon">
-            <button class="lighthouse-button" onclick="showDetails('To the Lighthouse')">
-                More Info
-            </button>
-        </div>
+<div class="lighthouse-section">
+    <button class="lighthouse-button" onclick="showDetails('To the Lighthouse')">
+        More Info
+    </button>
+</div>
 
-        <!-- Copertina del romanzo -->
-        <div class="book-cover-container">
-            <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
-        </div>
+<!-- Copertina del romanzo -->
+<div class="book-cover-container">
+    <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
+</div>
 
-        <!-- Didascalia -->
-        <p class="note">The Hogarth Press, London, 1927</p>
+<!-- Didascalia -->
+<p class="note">The Hogarth Press, London, 1927</p>
 
-        <!-- Sezione Virginia Woolf -->
-        <div class="author-section">
-            <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
-            <div class="author-bio">
-                <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author. She is best known for her novels, essays, and short stories that explore complex themes of consciousness and time...</p>
-            </div>
-        </div>
+<!-- Sezione Virginia Woolf -->
+<div class="author-section">
+    <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
+    <div class="author-bio">
+        <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author. She is best known for her novels, essays, and short stories that explore complex themes of consciousness and time...</p>
+    </div>
+</div>
+
+        
 
     </div>
 
