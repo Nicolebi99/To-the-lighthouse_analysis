@@ -7,57 +7,43 @@
     <title>Visualization - To the Lighthouse</title>
     <style>
         body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        color: white;
-        background: url('waves.jpg') no-repeat center center fixed;
-        background-size: cover;
-        background-blend-mode: overlay;
-        background-color: rgba(3, 4, 94, 0.9);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: white;
+            background: url('waves.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(3, 4, 94, 0.9);
         }
-    
+
+
         header {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
             text-align: center;
         }
-    
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 0.2rem;
-            opacity: 0; /* Initially hidden */
-            animation: fadeIn 2s forwards 1s; /* Fade in after 1 second */
         }
-    
+
         h1 span {
             display: inline-block;
-            transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
             cursor: pointer;
         }
-    
+
         h1 span:hover {
-            transform: scale(1.1); /* Slight scaling on hover */
-            color: #90e0ef; /* Light blue color on hover */
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Soft glow on hover */
+            transform: rotate(-10deg) scale(1.3);
+            color: #90e0ef;
         }
-    
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    
-        /* Optional: Adjust the font-size for better responsiveness */
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-           
 
         nav {
             background-color: #023047;
@@ -127,50 +113,42 @@
             transform: scale(1.05);
         }
 
-        .author-and-book-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 30px;
-        }
-        
-        .author-photo-container {
-            flex: 1;
-            text-align: left;
-            padding-right: 20px;
-        }
-        
-        .book-cover-container {
-            flex: 1;
-            text-align: right;
-        }
-        
         .author-photo {
-            width: 150px; /* Adjust size as needed */
-            height: 150px; /* Adjust size as needed */
+            width: 120px; /* Aumentato per maggiore visibilità */
+            height: 120px; /* Aumentato per maggiore visibilità */
             border-radius: 50%;
-            border: 4px solid #90e0ef;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            border: 4px solid #90e0ef; /* Leggermente più sottile */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombra un po' più soft */
         }
         
         .author-bio {
+            max-width: 240px; /* Più spazio per la biografia */
             color: #caf0f8;
-            font-size: 1.1rem;
-            margin-top: 10px;
+            font-size: 1.1rem; /* Aumentato per leggibilità */
+            text-align: left;
+            flex: 1;
+        }
+        
+        .book-cover-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 350px; /* Leggermente più largo per migliorare l'aspetto */
         }
         
         .book-cover {
             width: 100%;
-            max-width: 300px; /* Adjust size as needed */
-            border: 4px solid #90e0ef;
+            max-width: 250px; /* Un po' più largo per migliorare l'aspetto */
+            border: 4px solid #90e0ef; /* Leggermente più sottile */
             border-radius: 10px;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più soft */
+            margin-bottom: 12px; /* Più spazio tra immagine e descrizione */
         }
         
-        .book-caption {
+        .book-description {
             color: #caf0f8;
-            font-size: 1rem;
-            margin-top: 10px;
+            font-size: 1rem; /* Aumento leggero per la leggibilità */
             text-align: center;
         }
 
@@ -183,77 +161,25 @@
             justify-items: center;
         }
         
+        .novel-card {
+            width: 150px;
+            height: 150px;
+            background-color: #023047;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 10px; /* Spazio sotto ogni card */
+        }
         
-          /* Styling delle etichette */
-    .novel-card {
-        width: 150px;
-        height: 150px;
-        background-color: #023047;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
-        margin-bottom: 10px;
-    }
-    
-    .novel-icon {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
-    
-    /* Stile per il pop-up di descrizione */
-    .popup {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #00aaff, #0077b6); /* Gradiente blu/azzurro */
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        max-width: 600px;
-        width: 90%;
-        text-align: center;
-        font-size: 1.2rem;
-        z-index: 1000;
-        opacity: 0;
-        transform: scale(0.8);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    .popup h3 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-
-    /* Animazione di comparsa */
-    .popup.show {
-        display: block;
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    /* Bottone di chiusura per la pop-up */
-    .popup .close-btn {
-        background-color: #023047;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .popup .close-btn:hover {
-        background-color: #90e0ef;
-    }
+        .novel-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
         
         .lighthouse-highlight {
             margin-top: 30px;
@@ -371,23 +297,20 @@
     </div>
 </div>
 
-    <div class="author-and-book-container">
-    <div class="author-photo-container">
-        <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
-        <p class="author-bio">Virginia Woolf (1882-1941) was an influential English modernist author.</p>
-    </div>
+
     <div class="book-cover-container">
         <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
-        <p class="book-caption">The Hogarth Press, London, 1927</p>
     </div>
-</div>
 
-<!-- Pop-up con descrizione -->
-<div id="popup" class="popup">
-    <h3 id="popupTitle"></h3>
-    <p id="popupDescription"></p>
-    <button class="close-btn" onclick="closePopup()">Close</button>
-</div>
+    <p class="note">The Hogarth Press, London, 1927</p>
+
+    <div class="author-section">
+        <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
+        <div class="author-bio">
+            <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author</p>
+        </div>
+    </div>
+
     <footer>
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
@@ -405,26 +328,13 @@
             "Between the Acts": "Woolf’s last novel, reflecting on art, war, and human experience through a village pageant.",
             "To the Lighthouse": "An exploration of the Ramsay family and their visits to the Isle of Skye in Scotland, capturing the passage of time and the emotional depth of the characters."
         };
-        
-                
-// Funzione per mostrare il pop-up
-    function showDetails(title) {
-        const description = novelDescriptions[title] || "Description not available.";
-        
-        const popup = document.getElementById("popup");
-        const popupTitle = document.getElementById("popupTitle");
-        const popupDescription = document.getElementById("popupDescription");
-        
-        popupTitle.textContent = title;
-        popupDescription.textContent = description;
-        
-        popup.classList.add("show");
-    }
-
-    // Funzione per chiudere il pop-up
-    function closePopup() {
-        const popup = document.getElementById("popup");
-        popup.classList.remove("show");
+        function showDetails(title) {
+            const description = novelDescriptions[title] || "Description not available.";
+            alert(${title}: ${description});
+        }
     </script>
 </body>
 </html>
+
+
+
