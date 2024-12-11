@@ -162,15 +162,16 @@
             font-size: 1rem;
         }
  
-         .novels-grid {
+        .novels-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px; /* Maggiore spazio tra gli elementi */
+            gap: 30px;
             margin-top: 20px;
             justify-items: center;
         }
-        
+
         .novel-card {
+            position: relative;
             width: 150px;
             height: 150px;
             background-color: #023047;
@@ -180,21 +181,50 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            margin-bottom: 10px; /* Spazio sotto ogni card */
+            margin-bottom: 10px;
+            overflow: hidden;
         }
-        
+
+        .novel-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .novel-icon {
             width: 80px;
             height: 80px;
             margin-bottom: 10px;
             border-radius: 5px;
         }
-        
+
+        .novel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .novel-card:hover .novel-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         .lighthouse-highlight {
             margin-top: 30px;
             padding: 40px;
             text-align: center;
-            background-color: transparent; /* Rende trasparente lo sfondo */
+            background-color: transparent;
             color: white;
             border-radius: 15px;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
