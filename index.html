@@ -154,17 +154,13 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .novels-section {
-            margin-top: 30px;
-        }
-
         .novels-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-
+        
         .novel-card {
             background-color: #023047;
             padding: 15px;
@@ -174,28 +170,47 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
-
+        
         .novel-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
         }
-
-        .novel-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
+        
+        .lighthouse-highlight {
+            margin-top: 40px;
+            padding: 30px;
+            text-align: center;
+            background-color: #0077b6;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .lighthouse-highlight:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .lighthouse-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
             border-radius: 10px;
         }
-
-        .novel-card h3 {
-            font-size: 1.2rem;
+        
+        .lighthouse-highlight h3 {
+            font-size: 1.8rem;
+            margin: 10px 0;
             color: #90e0ef;
         }
-
-        .novel-card p {
-            font-size: 1rem;
+        
+        .lighthouse-highlight p {
+            font-size: 1.2rem;
             color: #caf0f8;
         }
+        
 
         .note {
             color: #caf0f8;
@@ -232,63 +247,60 @@
         <h2>Digital and Public Humanities' project about To the Lighthouse</h2>
 
         <div class="novels-section">
-            <h2>Atlas of Virginia Woolf's Works</h2>
-            <div class="novels-grid">
-                <!-- Repeatable novel card component -->
-                <div class="novel-card" onclick="showDetails('The Voyage Out')">
-                    <img src="cruise.png" alt="A cruise ship" class="novel-icon">
-                    <h3>The Voyage Out (1915)</h3>
-                    <p>La crociera</p>
-                </div>
-                <h3>The Voyage Out (1915)</h3>
-                    <p>La crociera</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('Night and Day')">
-                    <img src="day-and-night-2.png" alt="Sun and Moon" class="novel-icon">
-                    <h3>Night and Day (1919)</h3>
-                    <p>Notte e giorno</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('Jacob\'s Room')">
-                    <img src="room.png" alt="A room" class="novel-icon">
-                    <h3>Jacob's Room (1922)</h3>
-                    <p>La stanza di Jacob</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('Mrs Dalloway')">
-                    <img src="beautiful.png" alt="A lady silhouette" class="novel-icon">
-                    <h3>Mrs Dalloway (1925)</h3>
-                    <p>La signora Dalloway</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('Orlando')">
-                    <img src="mirror.png" alt="Orlando title" class="novel-icon">
-                    <h3>Orlando: A Biography (1928)</h3>
-                    <p>Orlando</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('The Waves')">
-                    <img src="waves.png" alt="Waves" class="novel-icon">
-                    <h3>The Waves (1931)</h3>
-                    <p>Le onde</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('The Years')">
-                    <img src="hourglass.png" alt="Calendar for The Years" class="novel-icon">
-                    <h3>The Years (1937)</h3>
-                    <p>Gli anni</p>
-                </div>
-                <div class="novel-card" onclick="showDetails('Between the Acts')">
-                    <img src="theatre.png" alt="Theatre stage" class="novel-icon">
-                    <h3>Between the Acts (1941)</h3>
-                    <p>Tra un atto e l'altro</p>
-                </div>
-            <div class="novel-card" onclick="showDetails('To the Lighthouse')">
-                    <img src="lighthouse.png" alt="Lighthouse image" class="novel-icon">
-                    <h3>To the Lighthouse (1927)</h3>
-                    <p>Gita al Faro</p>
-                </div>
-            </div>
+    <h2>Atlas of Virginia Woolf's Works</h2>
+    <div class="novels-grid">
+        <!-- Repeatable novel card component -->
+        <div class="novel-card" onclick="showDetails('The Voyage Out')">
+            <img src="cruise.png" alt="A cruise ship" class="novel-icon">
+            <h3>The Voyage Out (1915)</h3>
+            <p>La crociera</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('Night and Day')">
+            <img src="day-and-night-2.png" alt="Sun and Moon" class="novel-icon">
+            <h3>Night and Day (1919)</h3>
+            <p>Notte e giorno</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('Jacob\'s Room')">
+            <img src="room.png" alt="A room" class="novel-icon">
+            <h3>Jacob's Room (1922)</h3>
+            <p>La stanza di Jacob</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('Mrs Dalloway')">
+            <img src="beautiful.png" alt="A lady silhouette" class="novel-icon">
+            <h3>Mrs Dalloway (1925)</h3>
+            <p>La signora Dalloway</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('Orlando')">
+            <img src="mirror.png" alt="Orlando title" class="novel-icon">
+            <h3>Orlando: A Biography (1928)</h3>
+            <p>Orlando</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('The Waves')">
+            <img src="waves.png" alt="Waves" class="novel-icon">
+            <h3>The Waves (1931)</h3>
+            <p>Le onde</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('The Years')">
+            <img src="hourglass.png" alt="Calendar for The Years" class="novel-icon">
+            <h3>The Years (1937)</h3>
+            <p>Gli anni</p>
+        </div>
+        <div class="novel-card" onclick="showDetails('Between the Acts')">
+            <img src="theatre.png" alt="Theatre stage" class="novel-icon">
+            <h3>Between the Acts (1941)</h3>
+            <p>Tra un atto e l'altro</p>
         </div>
     </div>
-            </div>
-        </div>
+
+    <!-- To the Lighthouse as a prominent button -->
+    <div class="lighthouse-highlight" onclick="showDetails('To the Lighthouse')">
+        <img src="lighthouse.png" alt="Lighthouse image" class="lighthouse-icon">
+        <h3>To the Lighthouse (1927)</h3>
+        <p>Gita al Faro</p>
     </div>
+</div>
+
+            
 
     <div class="lighthouse-section">
         <button class="lighthouse-button" onclick="showDetails('To the Lighthouse')">
