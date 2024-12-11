@@ -161,7 +161,6 @@
             color: #caf0f8;
             font-size: 1rem;
         }
- 
         .novels-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -169,41 +168,40 @@
             margin-top: 20px;
             justify-items: center;
         }
-
+        
         .novel-card {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 250px;
             background-color: #023047;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            margin-bottom: 10px;
             overflow: hidden;
         }
-
+        
         .novel-card:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
         .novel-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
             border-radius: 5px;
         }
-
+        
         .novel-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
             display: flex;
             flex-direction: column;
@@ -214,19 +212,21 @@
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
-
+        
         .novel-card:hover .novel-overlay {
             opacity: 1;
             pointer-events: auto;
         }
+        
         .novel-card h3 {
-            font-size: 1rem; /* Dimensione uniforme del testo */
-            margin: 0 auto; /* Margine automatico per centratura */
-            height: 3rem; /* Altezza fissa */
-            overflow: hidden; /* Nasconde il testo che eccede */
-            text-overflow: ellipsis; /* Aggiunge "..." se il testo è troppo lungo */
-            white-space: nowrap; /* Evita che il testo vada a capo */
-            line-height: 1.5rem; /* Allinea il testo verticalmente */
+            font-size: 1rem;
+            margin: 0 auto;
+            white-space: normal; 
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
             .lighthouse-highlight {
             margin-top: 30px;
