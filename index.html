@@ -227,51 +227,42 @@
     <div class="novels-section">
     <h2>Atlas of Virginia Woolf's Works</h2>
     <div class="novels-grid">
-        <div class="novels-section">
-    <h2>Atlas of Virginia Woolf's Works</h2>
-    
-    <!-- Prima fila -->
-    <div class="novels-grid row">
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('The Voyage Out')">
             <img src="cruise.png" alt="A cruise ship" class="novel-icon">
             <h3>The Voyage Out (1915)</h3>
             <p>La crociera</p>
         </div>
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('Night and Day')">
             <img src="day-and-night-2.png" alt="Sun and Moon" class="novel-icon">
             <h3>Night and Day (1919)</h3>
             <p>Notte e giorno</p>
         </div>
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('Jacob\'s Room')">
             <img src="room.png" alt="A room" class="novel-icon">
             <h3>Jacob's Room (1922)</h3>
             <p>La stanza di Jacob</p>
         </div>
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('Mrs Dalloway')">
             <img src="beautiful.png" alt="A lady silhouette" class="novel-icon">
             <h3>Mrs Dalloway (1925)</h3>
             <p>La signora Dalloway</p>
         </div>
-    </div>
-
-    <!-- Seconda fila -->
-    <div class="novels-grid row">
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('Orlando')">
             <img src="mirror.png" alt="Orlando title" class="novel-icon">
             <h3>Orlando: A Biography (1928)</h3>
             <p>Orlando</p>
         </div>
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('The Waves')">
             <img src="waves.png" alt="Waves" class="novel-icon">
             <h3>The Waves (1931)</h3>
             <p>Le onde</p>
         </div>
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('The Years')">
             <img src="hourglass.png" alt="Calendar for The Years" class="novel-icon">
             <h3>The Years (1937)</h3>
             <p>Gli anni</p>
         </div>
-        <div class="novel-card">
+        <div class="novel-card" onclick="showDetails('Between the Acts')">
             <img src="theatre.png" alt="Theatre stage" class="novel-icon">
             <h3>Between the Acts (1941)</h3>
             <p>Tra un atto e l'altro</p>
@@ -279,17 +270,23 @@
     </div>
 </div>
 
-       
-
-
-
 <script>
-    function showWorkDetails(work) {
-        alert(`Approfondisci l'opera: ${work}`);
-        // Qui puoi integrare modali, iframe o sezioni dinamiche con ulteriori dettagli.
+    const novelDescriptions = {
+        "The Voyage Out": "Virginia Woolf’s debut novel, a voyage of self-discovery, set on a ship heading to South America.",
+        "Night and Day": "A story that contrasts romantic ideals with social conventions in Edwardian London.",
+        "Jacob's Room": "A groundbreaking modernist work exploring the life and memory of Jacob Flanders.",
+        "Mrs Dalloway": "An iconic narrative following a day in the life of Clarissa Dalloway as she prepares for a party.",
+        "Orlando": "A fantastical biography spanning centuries, exploring themes of identity and gender fluidity.",
+        "The Waves": "A poetic novel with soliloquies of six characters, reflecting on time and human connection.",
+        "The Years": "A family saga tracing the social and political changes of the early 20th century.",
+        "Between the Acts": "Woolf’s last novel, reflecting on art, war, and human experience through a village pageant."
+    };
+
+    function showDetails(title) {
+        const description = novelDescriptions[title] || "Description not available.";
+        alert(`${title}: ${description}`);
     }
 </script>
-
 
     <footer>
         <p>by Nicole Biscaro</p>
