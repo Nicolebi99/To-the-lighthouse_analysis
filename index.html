@@ -113,46 +113,46 @@
             transform: scale(1.05);
         }
 
-        .author-section {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-            padding: 20px;
-        }
-
         .author-photo {
-            width: 200px;
-            height: 200px;
+            width: 120px; /* Aumentato per maggiore visibilità */
+            height: 120px; /* Aumentato per maggiore visibilità */
             border-radius: 50%;
-            border: 5px solid #90e0ef;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            border: 4px solid #90e0ef; /* Leggermente più sottile */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombra un po' più soft */
         }
-
+        
         .author-bio {
-            max-width: 600px;
+            max-width: 240px; /* Più spazio per la biografia */
             color: #caf0f8;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Aumentato per leggibilità */
             text-align: left;
+            flex: 1;
         }
-
+        
         .book-cover-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            margin-top: 20px;
-            margin-bottom: 40px;
-         }
+            flex: 1;
+            max-width: 350px; /* Leggermente più largo per migliorare l'aspetto */
+        }
         
-         .book-cover {
-             width: 100%;
-             max-width: 450px;
-             border: 5px solid #90e0ef;
-             border-radius: 10px;
-             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-         }
+        .book-cover {
+            width: 100%;
+            max-width: 250px; /* Un po' più largo per migliorare l'aspetto */
+            border: 4px solid #90e0ef; /* Leggermente più sottile */
+            border-radius: 10px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più soft */
+            margin-bottom: 12px; /* Più spazio tra immagine e descrizione */
+        }
+        
+        .book-description {
+            color: #caf0f8;
+            font-size: 1rem; /* Aumento leggero per la leggibilità */
+            text-align: center;
+        }
+
+
         
          .novels-grid {
             display: grid;
