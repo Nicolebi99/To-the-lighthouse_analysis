@@ -7,57 +7,57 @@
     <title>Visualization - To the Lighthouse</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            color: white;
-            background: url('waves.jpg') no-repeat center center fixed;
-            background-size: cover;
-            background-blend-mode: overlay;
-            background-color: rgba(3, 4, 94, 0.9);
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        color: white;
+        background: url('waves.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-color: rgba(3, 4, 94, 0.9);
         }
-
-
+    
         header {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
             text-align: center;
         }
-
-       h1 {
+    
+        h1 {
             font-size: 3rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 0.2rem;
-            animation: typing 4s steps(30) 1s 1 normal forwards, blinkCaret 0.75s step-end infinite;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid #fff;
+            opacity: 0; /* Initially hidden */
+            animation: fadeIn 2s forwards 1s; /* Fade in after 1 second */
         }
-
+    
         h1 span {
             display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+            transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
             cursor: pointer;
         }
-
+    
         h1 span:hover {
-            transform: translateY(-5px);
-            color: #90e0ef;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+            transform: scale(1.1); /* Slight scaling on hover */
+            color: #90e0ef; /* Light blue color on hover */
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Soft glow on hover */
         }
-
-        @keyframes typing {
-            0% { width: 0; }
-            100% { width: 100%; }
+    
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
-
-        @keyframes blinkCaret {
-            50% { border-color: transparent; }
-        }
+    
+        /* Optional: Adjust the font-size for better responsiveness */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+           
 
         nav {
             background-color: #023047;
