@@ -113,44 +113,55 @@
             transform: scale(1.05);
         }
 
-        .author-photo {
-            width: 120px; /* Aumentato per maggiore visibilità */
-            height: 120px; /* Aumentato per maggiore visibilità */
-            border-radius: 50%;
-            border: 4px solid #90e0ef; /* Leggermente più sottile */
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombra un po' più soft */
+        .author-and-book-container {
+            display: flex;
+            justify-content: space-between; /* Distribute the items evenly */
+            align-items: center; /* Align items vertically */
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
         
-        .author-bio {
-            max-width: 240px; /* Più spazio per la biografia */
-            color: #caf0f8;
-            font-size: 1.1rem; /* Aumentato per leggibilità */
-            text-align: left;
-            flex: 1;
-        }
-        
+        .author-photo-container,
         .book-cover-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             flex: 1;
-            max-width: 350px; /* Leggermente più largo per migliorare l'aspetto */
+        }
+        
+        .author-photo {
+            width: 150px; /* Same width for both elements */
+            height: 150px; /* Same height for both elements */
+            border-radius: 50%;
+            border: 4px solid #90e0ef; /* Consistent border style */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Consistent shadow */
+            margin-bottom: 15px; /* Space between photo and bio */
+        }
+        
+        .author-bio {
+            color: #caf0f8;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 200px; /* Restrict width for better text alignment */
         }
         
         .book-cover {
-            width: 100%;
-            max-width: 250px; /* Un po' più largo per migliorare l'aspetto */
-            border: 4px solid #90e0ef; /* Leggermente più sottile */
+            width: 150px; /* Set the same width as the author photo */
+            height: 225px; /* Set a fixed height for book cover */
+            object-fit: cover; /* Ensure the book cover image maintains its aspect ratio */
+            border: 4px solid #90e0ef; /* Consistent border style */
             border-radius: 10px;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più soft */
-            margin-bottom: 12px; /* Più spazio tra immagine e descrizione */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Consistent shadow */
+            margin-bottom: 12px; /* Space between image and description */
         }
         
         .book-description {
             color: #caf0f8;
-            font-size: 1rem; /* Aumento leggero per la leggibilità */
+            font-size: 1rem;
             text-align: center;
         }
+
 
         
          .novels-grid {
