@@ -12,7 +12,10 @@
             padding: 0;
             height: 100%;
             color: white;
-            background-color: #03045e;
+            background: url('To-The-Lighthouse.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(3, 4, 94, 0.9);
         }
 
         header {
@@ -29,6 +32,7 @@
             justify-content: center;
             flex-wrap: wrap;
             position: relative;
+            transition: background-color 0.3s ease;
         }
 
         nav a {
@@ -36,10 +40,16 @@
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #90e0ef;
+            transform: scale(1.1);
         }
 
         .container {
-            background-color: #023047;
+            background-color: rgba(2, 48, 71, 0.9);
             padding: 20px;
             text-align: center;
             min-height: calc(100vh - 130px);
@@ -49,6 +59,7 @@
         .container h1 {
             font-size: 2.5rem;
             color: #90e0ef;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .container select {
@@ -61,6 +72,7 @@
             border: none;
             width: 300px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .container select:hover {
@@ -72,12 +84,27 @@
             margin-top: 20px;
             min-height: 400px;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
         #visualization iframe {
             width: 100%;
             height: 600px;
             border: none;
+            transition: transform 0.5s ease;
+        }
+
+        #visualization iframe:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         @media (max-width: 768px) {
@@ -112,6 +139,10 @@
             font-size: 0.8rem;
             padding-right: 20px;
             color: white;
+        }
+
+        footer p {
+            animation: fadeIn 2s ease-in-out;
         }
     </style>
     <script>
@@ -161,7 +192,7 @@
                 `;
                 visualizationContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll verso il grafico
             } else {
-                visualizationContainer.innerHTML = '<p>Visualizzazione non disponibile per questo personaggio.</p>';
+                visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
             }
         }
     </script>
@@ -184,6 +215,7 @@
 
     <div class="container">
         <h1>Characters' List</h1>
+        <p>Choose a character to explore their sentiment and role in Virginia Woolf's *To the Lighthouse*.</p>
         <label for="characterSelect">Choose a character:</label>
         <select id="characterSelect" onchange="loadVisualization(this.value)">
             <option value="">Select a character</option>
@@ -228,4 +260,3 @@
     </footer>
 </body>
 </html>
-
