@@ -315,12 +315,11 @@
     </nav>
 
     <div class="container">
-        <h1>Digital and Public Humanities' project about To the Lighthouse</h1>
+        <h1>Digital and Public Humanities' project about To the Lighthouse</h2>
 
         <div class="novels-section">
     <h2>Atlas of Virginia Woolf's Works</h2>
     <div class="novels-grid">
-        
         <!-- Repeatable novel card component -->
         <div class="novel-card" onclick="showDetails('The Voyage Out')">
             <img src="cruise.png" alt="A cruise ship" class="novel-icon">
@@ -408,25 +407,24 @@
         };
         
                 
-    // Funzione per mostrare il pop-up
-        function showDetails(title) {
-            const description = novelDescriptions[title] || "Description not available.";
-            
-            const popup = document.getElementById("popup");
-            const popupTitle = document.getElementById("popupTitle");
-            const popupDescription = document.getElementById("popupDescription");
-            
-            popupTitle.textContent = title;
-            popupDescription.textContent = description;
-            
-            popup.classList.add("show");
-        }
-    
-        // Funzione per chiudere il pop-up
-        function closePopup() {
-            const popup = document.getElementById("popup");
-            popup.classList.remove("show");
-            
+// Funzione per mostrare il pop-up
+    function showDetails(title) {
+        const description = novelDescriptions[title] || "Description not available.";
+        
+        const popup = document.getElementById("popup");
+        const popupTitle = document.getElementById("popupTitle");
+        const popupDescription = document.getElementById("popupDescription");
+        
+        popupTitle.textContent = title;
+        popupDescription.textContent = description;
+        
+        popup.classList.add("show");
+    }
+
+    // Funzione per chiudere il pop-up
+    function closePopup() {
+        const popup = document.getElementById("popup");
+        popup.classList.remove("show");
     </script>
 </body>
 </html>
