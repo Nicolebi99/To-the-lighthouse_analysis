@@ -80,11 +80,12 @@
         }
 
         .top-characters-section img {
-            max-width: 80%; /* Occupa una percentuale dello schermo */
+            max-width: 80%;
             border-radius: 10px;
             margin-top: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
+
         .top-characters-image:hover {
             transform: scale(1.05);
             transition: transform 0.3s ease;
@@ -94,21 +95,22 @@
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
-            border-radius: 25px; /* Bordi arrotondati */
+            border-radius: 25px;
             text-decoration: none;
             font-size: 1rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-            transition: all 0.3s ease; /* Transizione fluida */
-            margin-left: 20px; /* Posiziona a sinistra */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-left: 20px;
             display: inline-block;
         }
 
         .back-button:hover {
             background-color: #023047;
-            color: #90e0ef; /* Colore di evidenziazione */
-            transform: translateY(-3px); /* Effetto movimento */
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
+            color: #90e0ef;
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
+
         .show-image-button {
             background-color: #0077b6;
             color: white;
@@ -153,6 +155,11 @@
         function goBack() {
             window.history.back();
         }
+
+        function showTopCharactersImage() {
+            const container = document.getElementById('topCharactersImageContainer');
+            container.style.display = container.style.display === 'none' ? 'block' : 'none';
+        }
     </script>
 </head>
 <body>
@@ -166,7 +173,7 @@
         <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
         <a href="about.html">ABOUT ME</a>
     </nav>
-    <!-- Navigation back button -->
+
     <div class="navigation">
         <button class="back-button" onclick="goBack()">&#8592; Back</button>
     </div>
@@ -209,30 +216,23 @@
         </select>
         
         
-        <!-- Contenitore per le visualizzazioni -->
         <div id="visualization">
             <p>Select a character to view its sentiment within the story.</p>
         </div>
     </div>
-    
+
     <div class="top-characters-section">
-    <h2>Top 10 Characters by Appearances</h2>
-    <p>This chart shows the characters with the highest appearances in the novel.</p>
-    <button class="show-image-button" onclick="showTopCharactersImage()">View Top 10 Characters Chart</button>
-    <div id="topCharactersImageContainer" style="display: none; margin-top: 20px;">
-        <img src="path/to/top_10_characters_image.jpg" 
-             alt="Top 10 Characters Appearances" 
-             class="top-characters-image">
-    </div>
-</div>
-
-    <!-- Immagine fissa dei 10 personaggi più importanti -->
-        <img src="path/to/top_10_characters_image.jpg" 
-             alt="Top 10 Characters Appearances" 
-             class="top-characters-image">
+        <h2>Top 10 Characters by Appearances</h2>
+        <p>This chart shows the characters with the highest appearances in the novel.</p>
+        <button class="show-image-button" onclick="showTopCharactersImage()">View Top 10 Characters Chart</button>
+        <div id="topCharactersImageContainer" style="display: none; margin-top: 20px;">
+            <img src="path/to/top_10_characters_image.jpg" alt="Top 10 Characters Appearances" class="top-characters-image">
+        </div>
     </div>
 
-    <footer>
+
+     <footer>
+      
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
     </footer>
