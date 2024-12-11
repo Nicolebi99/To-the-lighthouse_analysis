@@ -183,25 +183,77 @@
             justify-items: center;
         }
         
-        .novel-card {
-            width: 150px;
-            height: 150px;
-            background-color: #023047;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            margin-bottom: 10px; /* Spazio sotto ogni card */
-        }
         
-        .novel-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
+          /* Styling delle etichette */
+    .novel-card {
+        width: 150px;
+        height: 150px;
+        background-color: #023047;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    
+    .novel-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    
+    /* Stile per il pop-up di descrizione */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #00aaff, #0077b6); /* Gradiente blu/azzurro */
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 90%;
+        text-align: center;
+        font-size: 1.2rem;
+        z-index: 1000;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .popup h3 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    /* Animazione di comparsa */
+    .popup.show {
+        display: block;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Bottone di chiusura per la pop-up */
+    .popup .close-btn {
+        background-color: #023047;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .popup .close-btn:hover {
+        background-color: #90e0ef;
+    }
         
         .lighthouse-highlight {
             margin-top: 30px;
@@ -319,7 +371,6 @@
     </div>
 </div>
 
-
     <div class="author-and-book-container">
     <div class="author-photo-container">
         <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
@@ -331,7 +382,12 @@
     </div>
 </div>
 
-
+<!-- Pop-up con descrizione -->
+<div id="popup" class="popup">
+    <h3 id="popupTitle"></h3>
+    <p id="popupDescription"></p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+</div>
     <footer>
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
@@ -353,6 +409,26 @@
             const description = novelDescriptions[title] || "Description not available.";
             alert(`${title}: ${description}`);
         }
+                
+    // Funzione per mostrare il pop-up
+        function showDetails(title) {
+            const description = novelDescriptions[title] || "Description not available.";
+            
+            const popup = document.getElementById("popup");
+            const popupTitle = document.getElementById("popupTitle");
+            const popupDescription = document.getElementById("popupDescription");
+            
+            popupTitle.textContent = title;
+            popupDescription.textContent = description;
+            
+            popup.classList.add("show");
+        }
+    
+        // Funzione per chiudere il pop-up
+        function closePopup() {
+            const popup = document.getElementById("popup");
+            popup.classList.remove("show");
+            
     </script>
 </body>
 </html>
