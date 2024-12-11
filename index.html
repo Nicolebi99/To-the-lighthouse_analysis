@@ -219,8 +219,16 @@
             opacity: 1;
             pointer-events: auto;
         }
-
-        .lighthouse-highlight {
+        .novel-card h3 {
+            font-size: 1rem; /* Dimensione uniforme del testo */
+            margin: 0 auto; /* Margine automatico per centratura */
+            height: 3rem; /* Altezza fissa */
+            overflow: hidden; /* Nasconde il testo che eccede */
+            text-overflow: ellipsis; /* Aggiunge "..." se il testo è troppo lungo */
+            white-space: nowrap; /* Evita che il testo vada a capo */
+            line-height: 1.5rem; /* Allinea il testo verticalmente */
+        }
+            .lighthouse-highlight {
             margin-top: 30px;
             padding: 40px;
             text-align: center;
@@ -371,9 +379,10 @@
             "To the Lighthouse": "An exploration of the Ramsay family and their visits to the Isle of Skye in Scotland, capturing the passage of time and the emotional depth of the characters."
         };
         function showDetails(title) {
-            const description = novelDescriptions[title] || "Description not available.";
-            alert(${title}: ${description});
-        }
+    const description = novelDescriptions[title] || "Description not available.";
+    alert(`${title}: ${description}`);
+}
+
     </script>
 </body>
 </html>
