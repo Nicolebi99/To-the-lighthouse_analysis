@@ -36,7 +36,6 @@
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
-            position: relative;
         }
 
         .container {
@@ -68,27 +67,23 @@
             background-color: #023047;
             color: #90e0ef;
         }
-        
-        .top-characters-section {
+
+        #visualization {
+            margin-top: 20px;
+            min-height: 400px;
             text-align: center;
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #0077b6;
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        .top-characters-section img {
-            max-width: 80%;
-            border-radius: 10px;
-            margin-top: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        #visualization iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
         }
 
-        .top-characters-image:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
+        @media (max-width: 768px) {
+            #visualization iframe {
+                height: 400px;
+            }
         }
 
         .back-button {
@@ -111,25 +106,6 @@
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .show-image-button {
-            background-color: #0077b6;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .show-image-button:hover {
-            background-color: #023047;
-            color: #90e0ef;
-            transform: translateY(-3px);
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-        }
-
         footer {
             margin-top: 20px;
             text-align: right;
@@ -137,108 +113,12 @@
             padding-right: 20px;
             color: white;
         }
-        
-        .iframe-container {
-            width: 100%;
-            height: 600px;
-            border: none;
-            margin: 20px 0;
-        }
-        
-        @media (max-width: 768px) {
-            .iframe-container {
-                height: 400px;
-            }
-        }
     </style>
     <script>
         function goBack() {
             window.history.back();
         }
 
-        function showTopCharactersImage() {
-            const container = document.getElementById('topCharactersImageContainer');
-            container.style.display = container.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <h1>To the Lighthouse's Visualization</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="project.html">THE PROJECT</a>
-        <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
-        <a href="about.html">ABOUT ME</a>
-    </nav>
-
-    <div class="navigation">
-        <button class="back-button" onclick="goBack()">&#8592; Back</button>
-    </div>
-
-    <div class="container">
-        <h1>Characters' List</h1>
-
-        <!-- Selezione del personaggio tramite menu a tendina -->
-        <label for="characterSelect">Choose a character:</label>
-        <select id="characterSelect" onchange="loadVisualization(this.value)">
-            <option value="">Select a character</option>
-            <option value="Narrator">Narrator</option>
-            <option value="Lily_Briscoe">Lily Briscoe</option>
-            <option value="Mr_Ramsay">Mr. Ramsay</option>
-            <option value="Mrs_Ramsay">Mrs. Ramsay</option>
-            <option value="James_Ramsay">James Ramsay</option>
-            <option value="Cam_Ramsay">Cam Ramsay</option>
-            <option value="Mr_Tansley">Mr. Tansley</option>
-            <option value="Mr_Carmichael">Mr. Carmichael</option>
-            <option value="William_Bankes">William Bankes</option>
-            <option value="Mrs_McNab">Mrs. McNab</option>
-            <option value="Andrew_Ramsay">Andrew Ramsay</option>
-            <option value="Prue_Ramsay">Prue Ramsay</option>
-            <option value="Jasper_Ramsay">Jasper Ramsay</option>
-            <option value="Nancy">Nancy</option>
-            <option value="Roger">Roger</option>
-            <option value="Minta_Doyle">Minta Doyle</option>
-            <option value="Sorley">Sorley</option>
-            <option value="Miss_Giddings">Miss Giddings</option>
-            <option value="Paul_Rayley">Paul Rayley</option>
-            <option value="Mrs_Bast">Mrs. Bast</option>
-            <option value="George">George</option>
-            <option value="Percy">Percy</option>
-            <option value="Mildred">Mildred</option>
-            <option value="Maggie">Maggie</option>
-            <option value="Mrs_Beckwith">Mrs. Beckwith</option>
-            <option value="Macalisters_boy">Macalister's boy</option>
-            <option value="Macalister">Macalister</option>
-            <option value="Charles">Charles</option>
-        </select>
-        
-        
-        <div id="visualization">
-            <p>Select a character to view its sentiment within the story.</p>
-        </div>
-    </div>
-
-    <div class="top-characters-section">
-        <h2>Top 10 Characters by Appearances</h2>
-        <p>This chart shows the characters with the highest appearances in the novel.</p>
-        <button class="show-image-button" onclick="showTopCharactersImage()">View Top 10 Characters Chart</button>
-        <div id="topCharactersImageContainer" style="display: none; margin-top: 20px;">
-            <img src="path/to/top_10_characters_image.jpg" alt="Top 10 Characters Appearances" class="top-characters-image">
-        </div>
-    </div>
-
-
-     <footer>
-      
-        <p>by Nicole Biscaro</p>
-        <p>CC BY-NC-SA 4.0</p>
-    </footer>
-
-    <script>
-        // Funzione per caricare la visualizzazione interattiva per i personaggi
         function loadVisualization(character) {
             const visualizationContainer = document.getElementById('visualization');
             const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
@@ -277,21 +157,75 @@
             if (characterFiles[character]) {
                 const fileUrl = `${githubPagesBaseUrl}${characterFiles[character]}`;
                 visualizationContainer.innerHTML = `
-                    <iframe src="${fileUrl}" class="iframe-container"></iframe>
+                    <iframe src="${fileUrl}"></iframe>
                 `;
+                visualizationContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll verso il grafico
             } else {
                 visualizationContainer.innerHTML = '<p>Visualizzazione non disponibile per questo personaggio.</p>';
             }
-            function showTopCharactersImage() {
-                const container = document.getElementById('topCharactersImageContainer');
-            if (container.style.display === 'none') {
-                container.style.display = 'block'; // Mostra l'immagine
-            } else {
-                container.style.display = 'none'; // Nasconde l'immagine
-            }
-        }
-
         }
     </script>
+</head>
+<body>
+    <header>
+        <h1>To the Lighthouse's Visualization</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="project.html">THE PROJECT</a>
+        <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
+        <a href="about.html">ABOUT ME</a>
+    </nav>
+
+    <div class="navigation">
+        <button class="back-button" onclick="goBack()">&#8592; Back</button>
+    </div>
+
+    <div class="container">
+        <h1>Characters' List</h1>
+        <label for="characterSelect">Choose a character:</label>
+        <select id="characterSelect" onchange="loadVisualization(this.value)">
+            <option value="">Select a character</option>
+            <option value="Narrator">Narrator</option>
+            <option value="Lily_Briscoe">Lily Briscoe</option>
+            <option value="Mr_Ramsay">Mr. Ramsay</option>
+            <option value="Mrs_Ramsay">Mrs. Ramsay</option>
+            <option value="James_Ramsay">James Ramsay</option>
+            <option value="Cam_Ramsay">Cam Ramsay</option>
+            <option value="Mr_Tansley">Mr. Tansley</option>
+            <option value="Mr_Carmichael">Mr. Carmichael</option>
+            <option value="William_Bankes">William Bankes</option>
+            <option value="Mrs_McNab">Mrs. McNab</option>
+            <option value="Andrew_Ramsay">Andrew Ramsay</option>
+            <option value="Prue_Ramsay">Prue Ramsay</option>
+            <option value="Jasper_Ramsay">Jasper Ramsay</option>
+            <option value="Nancy">Nancy</option>
+            <option value="Roger">Roger</option>
+            <option value="Minta_Doyle">Minta Doyle</option>
+            <option value="Sorley">Sorley</option>
+            <option value="Miss_Giddings">Miss Giddings</option>
+            <option value="Paul_Rayley">Paul Rayley</option>
+            <option value="Mrs_Bast">Mrs. Bast</option>
+            <option value="George">George</option>
+            <option value="Percy">Percy</option>
+            <option value="Mildred">Mildred</option>
+            <option value="Maggie">Maggie</option>
+            <option value="Mrs_Beckwith">Mrs. Beckwith</option>
+            <option value="Macalisters_boy">Macalister's boy</option>
+            <option value="Macalister">Macalister</option>
+            <option value="Charles">Charles</option>
+        </select>
+
+        <div id="visualization">
+            <p>Select a character to view its sentiment within the story.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>by Nicole Biscaro</p>
+        <p>CC BY-NC-SA 4.0</p>
+    </footer>
 </body>
 </html>
+
