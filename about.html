@@ -12,7 +12,10 @@
             padding: 0;
             height: 100%;
             color: white;
-            background-color: #03045e;
+            background: url('To-The-Lighthouse.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(3, 4, 94, 0.9);
         }
 
         header {
@@ -29,6 +32,7 @@
             justify-content: center;
             flex-wrap: wrap;
             position: relative;
+            transition: background-color 0.3s ease;
         }
 
         nav a {
@@ -36,36 +40,19 @@
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: #90e0ef;
-            transition: width 0.3s, left 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav a:hover {
             color: #90e0ef;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-            left: 0;
+            transform: scale(1.1);
         }
 
         .container {
-            background-color: #023047;
+            background-color: rgba(2, 48, 71, 0.9);
             padding: 20px;
             min-height: calc(100vh - 130px);
             display: flex;
-            flex-direction: row;
-            align-items: center;
             justify-content: center;
             gap: 20px;
             box-sizing: border-box;
@@ -80,6 +67,7 @@
             font-size: 2.5rem;
             color: #90e0ef;
             margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .bio p {
@@ -110,6 +98,7 @@
             font-size: 1rem;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            margin-left: 20px;
         }
 
         .back-button:hover {
@@ -125,6 +114,19 @@
             font-size: 0.8rem;
             padding-right: 20px;
             color: white;
+        }
+
+        footer p {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
     <script>
@@ -171,3 +173,4 @@
 
 </body>
 </html>
+
