@@ -6,140 +6,136 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Project - To the Lighthouse Analysis</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        color: white;
-        background-color: #03045e;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: white;
+            background: url('To-The-Lighthouse.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(3, 4, 94, 0.9);
+        }
 
-    header {
-        background-color: #0077b6;
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
 
-    nav {
-        margin-top: 10px;
-        background-color: #023047;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        position: relative;
-    }
+        nav {
+            margin-top: 10px;
+            background-color: #023047;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-        padding: 14px 20px;
-        font-weight: bold;
-        position: relative;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    /* Animazione sottolineatura */
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background-color: #90e0ef;
-        transition: width 0.3s, left 0.3s;
-    }
+        nav a:hover {
+            color: #90e0ef;
+            transform: scale(1.1);
+        }
 
-    nav a:hover {
-        color: #90e0ef;
-    }
+        .container {
+            background-color: rgba(2, 48, 71, 0.9);
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 130px);
+            box-sizing: border-box;
+        }
 
-    nav a:hover::after {
-        width: 100%;
-        left: 0;
-    }
+        .container h1 {
+            font-size: 2.5rem;
+            color: #90e0ef;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-    .container {
-        background-color: #023047;
-        padding: 20px;
-        text-align: center;
-        min-height: calc(100vh - 130px);
-        box-sizing: border-box;
-    }
+        .chapters-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    .container h1 {
-        font-size: 2.5rem;
-        color: #90e0ef;
-    }
+        .chapters-list li {
+            padding: 10px 0;
+            color: #90e0ef;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    .container p {
-        font-size: 1.2rem;
-        margin: 20px 0;
-        text-align: justify;
-        color: white;
-    }
+        .chapters-list li:hover {
+            color: #90e0ef;
+            transform: scale(1.05);
+        }
 
-    .chapters-list {
-        text-align: left;
-        margin: 20px auto;
-        max-width: 600px;
-    }
+        .abstract-content {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 15px;
+            background-color: #0077b6;
+            color: white;
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+        }
 
-    .chapters-list ul {
-        list-style-type: none;
-        padding: 0;
-    }
+        .navigation {
+            text-align: left;
+            margin: 20px;
+        }
 
-    .chapters-list li {
-        padding: 10px 0;
-        color: #90e0ef;
-    }
-
-    .abstract-content {
-        margin: 20px auto;
-        max-width: 600px;
-        padding: 15px;
-        background-color: #0077b6;
-        color: white;
-        border-radius: 5px;
-        display: none; /* Hidden by default */
-    }
-
-    .navigation {
-        text-align: left;
-        margin: 20px;
-    }
-
-    .back-button {
+        .back-button {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
-            border-radius: 25px; /* Bordi arrotondati */
+            border-radius: 25px;
             text-decoration: none;
             font-size: 1rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-            transition: all 0.3s ease; /* Transizione fluida */
-            margin-left: 20px; /* Posiziona a sinistra */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-left: 20px;
             display: inline-block;
         }
 
         .back-button:hover {
             background-color: #023047;
-            color: #90e0ef; /* Colore di evidenziazione */
-            transform: translateY(-3px); /* Effetto movimento */
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
+            color: #90e0ef;
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
 
+        footer {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 0.8rem;
+            padding-right: 20px;
+            color: white;
+        }
 
-    footer {
-        margin-top: 20px;
-        text-align: right;
-        font-size: 0.8rem;
-        padding-right: 20px;
-        color: white;
-    }
-</style>
+        footer p {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -154,11 +150,9 @@
         <a href="about.html">ABOUT ME</a>
     </nav>
 
-    
-   <div class="navigation">
-    <a class="back-button" onclick="goBack()">&#8592; Back</a>
-</div>
-
+    <div class="navigation">
+        <button class="back-button" onclick="goBack()">&#8592; Back</button>
+    </div>
 
     <div class="container">
         <h1>The Project - Capitoli della Tesi</h1>
@@ -198,11 +192,9 @@
         });
 
         function goBack() {
-    window.history.back();
-}
-
+            window.history.back();
+        }
     </script>
 
 </body>
 </html>
-
