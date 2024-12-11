@@ -109,6 +109,25 @@
             transform: translateY(-3px); /* Effetto movimento */
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
         }
+        .show-image-button {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .show-image-button:hover {
+            background-color: #023047;
+            color: #90e0ef;
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
         footer {
             margin-top: 20px;
             text-align: right;
@@ -199,9 +218,12 @@
     <div class="top-characters-section">
     <h2>Top 10 Characters by Appearances</h2>
     <p>This chart shows the characters with the highest appearances in the novel.</p>
-    <img src="path/to/top_10_characters_image.jpg" 
-         alt="Top 10 Characters Appearances" 
-         class="top-characters-image">
+    <button class="show-image-button" onclick="showTopCharactersImage()">View Top 10 Characters Chart</button>
+    <div id="topCharactersImageContainer" style="display: none; margin-top: 20px;">
+        <img src="path/to/top_10_characters_image.jpg" 
+             alt="Top 10 Characters Appearances" 
+             class="top-characters-image">
+    </div>
 </div>
 
     <!-- Immagine fissa dei 10 personaggi più importanti -->
