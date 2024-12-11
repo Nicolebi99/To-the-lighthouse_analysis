@@ -68,12 +68,14 @@
             background-color: #023047;
             color: #90e0ef;
         }
+        
         .top-characters-image {
             display: block;
             margin: 20px auto 0 auto; /* Centra l'immagine e aggiunge spazio sopra */
             max-width: 90%;
             height: auto;
         }
+
         .back-button {
             background-color: #0077b6;
             color: white;
@@ -83,9 +85,8 @@
             font-size: 1rem;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
             transition: all 0.3s ease; /* Transizione fluida */
-            margin-left: auto; /* Spinge il bottone a destra */
-            display: block;
-            width: fit-content;
+            margin-left: 20px; /* Posiziona a sinistra */
+            display: inline-block;
         }
 
         .back-button:hover {
@@ -94,7 +95,6 @@
             transform: translateY(-3px); /* Effetto movimento */
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
         }
-
         footer {
             margin-top: 20px;
             text-align: right;
@@ -174,15 +174,17 @@
             <option value="Macalister">Macalister</option>
             <option value="Charles">Charles</option>
         </select>
-        <!-- Immagine fissa dei 10 personaggi più importanti -->
-        <img src="path/to/top_10_characters_image.jpg" 
-             alt="Top 10 Characters Appearances" 
-             class="top-characters-image">
+        
         
         <!-- Contenitore per le visualizzazioni -->
         <div id="visualization">
             <p>Select a character to view its sentiment within the story.</p>
         </div>
+    </div>
+    <!-- Immagine fissa dei 10 personaggi più importanti -->
+        <img src="path/to/top_10_characters_image.jpg" 
+             alt="Top 10 Characters Appearances" 
+             class="top-characters-image">
     </div>
 
     <footer>
