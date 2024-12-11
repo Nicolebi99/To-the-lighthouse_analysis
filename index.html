@@ -78,7 +78,12 @@
             left: 0;
         }
 
-        /* Copertina del libro e faro */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .book-cover-container {
             position: relative;
             display: inline-block;
@@ -88,7 +93,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .book-cover {
             width: 100%;
             max-width: 300px;
@@ -96,7 +101,7 @@
             border-radius: 10px;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         .lighthouse-button {
             position: absolute;
             bottom: -40px;
@@ -115,22 +120,16 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .lighthouse-button:hover {
             background-color: #023047;
         }
-        
+
         .lighthouse-icon {
             width: 30px;
             height: 30px;
         }
 
-        .novels-button-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* Sezione Virginia Woolf */
         .author-section {
             display: flex;
             align-items: center;
@@ -138,8 +137,9 @@
             gap: 30px;
             margin-top: 30px;
             padding: 20px;
+            text-align: left;
         }
-        
+
         .author-photo {
             width: 150px;
             height: 150px;
@@ -147,12 +147,15 @@
             border: 5px solid #90e0ef;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         .author-bio {
             max-width: 600px;
-            text-align: left;
             color: #caf0f8;
             font-size: 1rem;
+        }
+
+        .novels-section {
+            margin-top: 30px;
         }
 
         .novels-grid {
@@ -191,47 +194,6 @@
         .novel-card p {
             font-size: 1rem;
             color: #caf0f8;
-        }
-
-        #work-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            color: #03045e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        #work-modal .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #03045e;
-        }
-
-        #work-modal img {
-            max-width: 100%;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
         }
 
         footer {
@@ -325,13 +287,6 @@
                     <p>Tra un atto e l'altro</p>
                 </div>
             </div>
-        </div>
-
-        <div class="novels-button-container">
-            <button class="lighthouse-button" onclick="showDetails('To the Lighthouse')">
-                <img src="lighthouse.png" alt="Lighthouse Icon" class="lighthouse-icon">
-                <span>More Info</span>
-            </button>
         </div>
     </div>
 
