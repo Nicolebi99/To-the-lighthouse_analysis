@@ -21,7 +21,7 @@
         header {
             background-color: #0077b6;
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
             text-align: left;
         }
 
@@ -54,12 +54,14 @@
             min-height: calc(100vh - 130px);
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 30px;
             box-sizing: border-box;
+            flex-direction: column;
         }
 
         .bio {
-            max-width: 50%;
+            max-width: 600px;
             text-align: left;
         }
 
@@ -79,9 +81,10 @@
         }
 
         .photo img {
-            max-width: 300px;
+            max-width: 200px;
             border-radius: 50%;
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         .navigation {
@@ -107,6 +110,7 @@
             transform: translateY(-3px);
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
+
         footer {
             margin-top: 20px;
             text-align: right;
@@ -127,7 +131,6 @@
                 opacity: 1;
             }
         }
-        
         
     </style>
     <script>
@@ -174,4 +177,5 @@
 
 </body>
 </html>
+
 
