@@ -195,6 +195,12 @@
             font-size: 1rem;
             color: #caf0f8;
         }
+        .note {
+            color: #caf0f8;
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+        }
 
         footer {
             margin-top: 30px;
@@ -221,27 +227,8 @@
     </nav>
 
     <div class="container">
-        <h2>Thorough analysis of the novel</h2>
+        <h2>Digital and Public Humanities' project about To the Lighthouse</h2>
         
-        <!-- Copertina del romanzo -->
-        <div class="book-cover-container">
-            <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
-            <!-- Bottone del faro per informazioni -->
-            <button class="lighthouse-button" onclick="showDetails('To the Lighthouse')">
-                <img src="lighthouse.png" alt="Lighthouse Icon" class="lighthouse-icon">
-                <span>More Info</span>
-            </button>
-        </div>
-
-        <p class="note">The Hogarth Press, London, 1927</p>
-
-        <!-- Sezione Virginia Woolf -->
-        <div class="author-section">
-            <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
-            <div class="author-bio">
-                <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author. She is best known for her novels, essays, and short stories that explore complex themes of consciousness and time...</p>
-            </div>
-        </div>
 
         <div class="novels-section">
             <h2>Atlas of Virginia Woolf's Works</h2>
@@ -289,6 +276,32 @@
             </div>
         </div>
     </div>
+<!-- Sezione dell'Atlante -->
+        <div class="lighthouse-section">
+            <img src="lighthouse.png" alt="Lighthouse Icon" class="lighthouse-icon">
+            <button class="lighthouse-button" onclick="showDetails('To the Lighthouse')">
+                More Info
+            </button>
+        </div>
+
+        <!-- Copertina del romanzo -->
+        <div class="book-cover-container">
+            <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
+        </div>
+
+        <!-- Didascalia -->
+        <p class="note">The Hogarth Press, London, 1927</p>
+
+        <!-- Sezione Virginia Woolf -->
+        <div class="author-section">
+            <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
+            <div class="author-bio">
+                <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author. She is best known for her novels, essays, and short stories that explore complex themes of consciousness and time...</p>
+            </div>
+        </div>
+
+    </div>
+
 
     <footer>
         <p>by Nicole Biscaro</p>
@@ -310,6 +323,16 @@
         function showDetails(title) {
             const description = novelDescriptions[title] || "Description not available.";
             alert(${title}: ${description});
+        }
+    </script>
+        <script>
+        const novelDescriptions = {
+            "To the Lighthouse": "An exploration of the Ramsay family and their visits to the Isle of Skye in Scotland, capturing the passage of time and the emotional depth of the characters."
+        };
+
+        function showDetails(title) {
+            const description = novelDescriptions[title] || "Description not available.";
+            alert(`${title}: ${description}`);
         }
     </script>
 </body>
