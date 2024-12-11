@@ -144,24 +144,27 @@
             align-items: center;
             margin-top: 20px;
             margin-bottom: 40px;
-        }
-
-        .book-cover {
-            width: 100%;
-            max-width: 450px;
-            border: 5px solid #90e0ef;
-            border-radius: 10px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .novels-grid {
+         }
+        
+         .book-cover {
+             width: 100%;
+             max-width: 450px;
+             border: 5px solid #90e0ef;
+             border-radius: 10px;
+             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+         }
+        
+         .novels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-top: 20px;
+            justify-items: center;
         }
         
         .novel-card {
+            width: 150px;
+            height: 150px;
             background-color: #023047;
             padding: 15px;
             border-radius: 10px;
@@ -176,16 +179,26 @@
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
         }
         
-         .lighthouse-highlight {
-            margin-bottom: 40px;
-            padding: 30px;
+        .novel-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .lighthouse-highlight {
+            margin-top: 30px;
+            padding: 40px;
             text-align: center;
             background-color: #0077b6;
             color: white;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .lighthouse-highlight:hover {
@@ -194,24 +207,23 @@
         }
         
         .lighthouse-icon {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 15px;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
             border-radius: 10px;
         }
         
         .lighthouse-highlight h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin: 10px 0;
             color: #90e0ef;
         }
         
         .lighthouse-highlight p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #caf0f8;
         }
         
-
         .note {
             color: #caf0f8;
             text-align: center;
