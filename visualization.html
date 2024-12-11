@@ -69,12 +69,23 @@
             color: #90e0ef;
         }
         
-        .top-characters-image {
-            display: block;
-            margin: 20px auto 0 auto; /* Centra l'immagine e aggiunge spazio sopra */
-            max-width: 90%;
-            height: auto;
+        .top-characters-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #0077b6;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+
+        .top-characters-section img {
+            max-width: 80%; /* Occupa una percentuale dello schermo */
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
 
         .back-button {
             background-color: #0077b6;
@@ -181,6 +192,15 @@
             <p>Select a character to view its sentiment within the story.</p>
         </div>
     </div>
+    
+    <div class="top-characters-section">
+    <h2>Top 10 Characters by Appearances</h2>
+    <p>This chart shows the characters with the highest appearances in the novel.</p>
+    <img src="path/to/top_10_characters_image.jpg" 
+         alt="Top 10 Characters Appearances" 
+         class="top-characters-image">
+</div>
+
     <!-- Immagine fissa dei 10 personaggi più importanti -->
         <img src="path/to/top_10_characters_image.jpg" 
              alt="Top 10 Characters Appearances" 
