@@ -39,7 +39,6 @@
             position: relative;
         }
 
-        /* Animazione sottolineatura */
         nav a::after {
             content: '';
             position: absolute;
@@ -63,23 +62,39 @@
         .container {
             background-color: #023047;
             padding: 20px;
-            text-align: center;
             min-height: calc(100vh - 130px);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
             box-sizing: border-box;
         }
 
-        .container h1 {
-            font-size: 2.5rem;
-            color: #90e0ef;
+        .bio {
+            max-width: 50%;
+            text-align: left;
         }
 
-        .container p {
+        .bio h1 {
+            font-size: 2.5rem;
+            color: #90e0ef;
+            margin-bottom: 10px;
+        }
+
+        .bio p {
             font-size: 1.2rem;
-            margin: 20px 0;
+            margin: 0;
             text-align: justify;
+            line-height: 1.6;
             color: white;
         }
-      
+
+        .photo img {
+            max-width: 300px;
+            border-radius: 50%;
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+        }
 
         .navigation {
             text-align: left;
@@ -90,18 +105,18 @@
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
-            border-radius: 25px; /* Bordi arrotondati */
+            border-radius: 25px;
             text-decoration: none;
             font-size: 1rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-            transition: all 0.3s ease; /* Transizione fluida */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .back-button:hover {
             background-color: #023047;
-            color: #90e0ef; /* Colore di evidenziazione */
-            transform: translateY(-3px); /* Effetto movimento */
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
+            color: #90e0ef;
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -131,18 +146,22 @@
         <a href="about.html">ABOUT ME</a>
     </nav>
 
-    <!-- Navigation back button -->
     <div class="navigation">
         <button class="back-button" onclick="goBack()">&#8592; Back</button>
     </div>
 
     <div class="container">
-        <h1>About Me</h1>
-        <p>
-            I am Nicole Biscaro, a student in Digital and Public Humanities, passionate about literature and data visualization.
-        </p>
-        <!-- Aggiungi l'immagine qui -->
-        <img src="https://nicolebi99.github.io/To-the-lighthouse_analysis/nicolebiscaro.jpg" alt="Nicole Biscaro" style="max-width: 300px; border-radius: 50%; margin-top: 20px;">
+        <div class="photo">
+            <img src="https://nicolebi99.github.io/To-the-lighthouse_analysis/nicolebiscaro.jpg" alt="Nicole Biscaro">
+        </div>
+        <div class="bio">
+            <h1>Nicole Biscaro</h1>
+            <p>
+                I am Nicole Biscaro, graduated in Digital and Public Humanities from Ca' Foscari University in Venice, where I am currently pursuing a Master's degree in the same field.
+                Passionate about literature, cinema, and data visualization, I aspire to bridge the gap between the humanities and digital tools. 
+                With this project, I aim to explore innovative ways to analyze a complex text like *To the Lighthouse* using digital methodologies, bringing new insights into its structure and themes.
+            </p>
+        </div>
     </div>
 
     <footer>
