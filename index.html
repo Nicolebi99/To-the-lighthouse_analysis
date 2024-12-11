@@ -26,23 +26,37 @@
             text-align: center;
         }
 
-        h1 {
-            font-size: 2.5rem;
+       h1 {
+            font-size: 3rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 0.2rem;
+            animation: typing 4s steps(30) 1s 1 normal forwards, blinkCaret 0.75s step-end infinite;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #fff;
         }
 
         h1 span {
             display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
             cursor: pointer;
         }
 
         h1 span:hover {
-            transform: rotate(-10deg) scale(1.3);
+            transform: translateY(-5px);
             color: #90e0ef;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes blinkCaret {
+            50% { border-color: transparent; }
         }
 
         nav {
