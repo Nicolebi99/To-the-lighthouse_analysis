@@ -197,7 +197,17 @@
         function loadAllCharacters() {
             const visualizationContainer = document.getElementById('visualization');
             const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/all_characters.html";
-            visualizationContainer.innerHTML = `<iframe src="${githubPagesBaseUrl}"></iframe>`;
+            
+            // Crea un iframe e carica la pagina di tutti i personaggi
+            const iframe = document.createElement('iframe');
+            iframe.src = githubPagesBaseUrl;
+            iframe.style.width = "100%";
+            iframe.style.height = "600px";
+            iframe.frameBorder = "0";
+            
+            // Rimuove contenuti precedenti e aggiunge l'iframe
+            visualizationContainer.innerHTML = '';
+            visualizationContainer.appendChild(iframe);
             visualizationContainer.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
@@ -241,11 +251,11 @@
             <option value="Andrew_Ramsay">Andrew Ramsay</option>
             <option value="Prue_Ramsay">Prue Ramsay</option>
             <option value="Jasper_Ramsay">Jasper Ramsay</option>
-            <option value="Nancy">Nancy</option>
+            <option value="Nancy">Nancy</option> <!-- Corretto -->
             <option value="Roger">Roger</option>
-            <option value="Minta_Doyle">Minta Doyle</option>
+            <option value="Minta_Doyle">Minta Doyle</option> <!-- Corretto -->
             <option value="Sorley">Sorley</option>
-            <option value="Miss_Giddings">Miss Giddings</option>
+            <option value="Miss_Giddings">Miss Giddings</option> <!-- Corretto -->
             <option value="Paul_Rayley">Paul Rayley</option>
             <option value="Mrs_Bast">Mrs. Bast</option>
             <option value="George">George</option>
@@ -269,6 +279,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
