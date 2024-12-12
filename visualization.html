@@ -188,15 +188,14 @@
             };
 
             if (characterFiles[character]) {
-                const fileUrl = ${githubPagesBaseUrl}${characterFiles[character]};
-                visualizationContainer.innerHTML = 
-                    <iframe src="${fileUrl}"></iframe>
-                ;
-                visualizationContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll verso il grafico
-            } else {
-                visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
-            }
-        }
+        const fileUrl = githubPagesBaseUrl + characterFiles[character];
+        visualizationContainer.innerHTML = `<iframe src="${fileUrl}"></iframe>`; // Inserisce l'iframe con il grafico
+    
+        visualizationContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll verso il grafico
+    } else {
+        visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
+    }
+
     </script>
 </head>
 <body>
