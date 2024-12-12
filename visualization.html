@@ -18,7 +18,6 @@
             background-color: rgba(3, 4, 94, 0.9);
         }
 
-
         header {
             background-color: #0077b6;
             color: white;
@@ -146,56 +145,63 @@
             animation: fadeIn 2s ease-in-out;
         }
     </style>
-   <script>
-    function goBack() {
-        window.history.back();
-    }
-
-    function loadVisualization(character) {
-        const visualizationContainer = document.getElementById('visualization');
-        const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
-
-        const characterFiles = {
-            'all_characters': 'all_characters.html',
-            'Narrator': 'Narrator.html',
-            'Lily_Briscoe': 'Lily_Briscoe.html',
-            'Mr_Ramsay': 'Mr_Ramsay.html',
-            'Mrs_Ramsay': 'Mrs_Ramsay.html',
-            'James_Ramsay': 'James_Ramsay.html',
-            'Cam_Ramsay': 'Cam_Ramsay.html',
-            'Mr_Tansley': 'Mr_Tansley.html',
-            'Andrew_Ramsay': 'Andrew_Ramsay.html',
-            'Prue_Ramsay': 'Prue_Ramsay.html',
-            'Mr_Carmichael': 'Mr_Carmichael.html',
-            'William_Bankes': 'William_Bankes.html',
-            'Mrs_McNab': 'Mrs_McNab.html',
-            'Nancy': 'Nancy.html',
-            'Jasper_Ramsay': 'Jasper_Ramsay.html',
-            'Roger': 'Roger.html',
-            'Minta_Doyle': 'Minta_Doyle.html',
-            'Sorley': 'Sorley.html',
-            'Miss_Giddings': 'Miss_Giddings.html',
-            'Paul_Rayley': 'Paul_Rayley.html',
-            'Mrs_Bast': 'Mrs_Bast.html',
-            'George': 'George.html',
-            'Percy': 'Percy.html',
-            'Mildred': 'Mildred.html',
-            'Maggie': 'Maggie.html',
-            'Mrs_Beckwith': 'Mrs_Beckwith.html',
-            'Macalisters_boy': 'Macalisters_boy.html',
-            'Macalister': 'Macalister.html',
-            'Charles': 'Charles.html'
-        };
-
-        if (characterFiles[character]) {
-            const fileUrl = githubPagesBaseUrl + characterFiles[character];
-            visualizationContainer.innerHTML = `<iframe src="${fileUrl}"></iframe>`;
-            visualizationContainer.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
+    <script>
+        function goBack() {
+            window.history.back();
         }
-    }
-</script>
+
+        function loadVisualization(character) {
+            const visualizationContainer = document.getElementById('visualization');
+            const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
+
+            const characterFiles = {
+                'all_characters': 'all_characters.html',
+                'Narrator': 'Narrator.html',
+                'Lily_Briscoe': 'Lily_Briscoe.html',
+                'Mr_Ramsay': 'Mr_Ramsay.html',
+                'Mrs_Ramsay': 'Mrs_Ramsay.html',
+                'James_Ramsay': 'James_Ramsay.html',
+                'Cam_Ramsay': 'Cam_Ramsay.html',
+                'Mr_Tansley': 'Mr_Tansley.html',
+                'Andrew_Ramsay': 'Andrew_Ramsay.html',
+                'Prue_Ramsay': 'Prue_Ramsay.html',
+                'Mr_Carmichael': 'Mr_Carmichael.html',
+                'William_Bankes': 'William_Bankes.html',
+                'Mrs_McNab': 'Mrs_McNab.html',
+                'Nancy': 'Nancy.html',
+                'Jasper_Ramsay': 'Jasper_Ramsay.html',
+                'Roger': 'Roger.html',
+                'Minta_Doyle': 'Minta_Doyle.html',
+                'Sorley': 'Sorley.html',
+                'Miss_Giddings': 'Miss_Giddings.html',
+                'Paul_Rayley': 'Paul_Rayley.html',
+                'Mrs_Bast': 'Mrs_Bast.html',
+                'George': 'George.html',
+                'Percy': 'Percy.html',
+                'Mildred': 'Mildred.html',
+                'Maggie': 'Maggie.html',
+                'Mrs_Beckwith': 'Mrs_Beckwith.html',
+                'Macalisters_boy': 'Macalisters_boy.html',
+                'Macalister': 'Macalister.html',
+                'Charles': 'Charles.html'
+            };
+
+            if (characterFiles[character]) {
+                const fileUrl = githubPagesBaseUrl + characterFiles[character];
+                visualizationContainer.innerHTML = `<iframe src="${fileUrl}"></iframe>`;
+                visualizationContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
+            }
+        }
+
+        function loadAllCharacters() {
+            const visualizationContainer = document.getElementById('visualization');
+            const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/all_characters.html";
+            visualizationContainer.innerHTML = `<iframe src="${githubPagesBaseUrl}"></iframe>`;
+            visualizationContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 
 </head>
 <body>
@@ -217,6 +223,10 @@
     <div class="container">
         <h1>Characters' List</h1>
         <p>Choose a character to explore their sentiment and role in Virginia Woolf's "To the Lighthouse".</p>
+        
+        <!-- Pulsante per All Characters -->
+        <button id="allCharactersButton" class="back-button" onclick="loadAllCharacters()">View All Characters</button>
+        
         <label for="characterSelect">Choose a character:</label>
         <select id="characterSelect" onchange="loadVisualization(this.value)">
             <option value="">Select a character</option>
@@ -262,3 +272,4 @@
     </footer>
 </body>
 </html>
+
