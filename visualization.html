@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Visualization of characters' sentiment and roles in Virginia Woolf's 'To the Lighthouse'.">
     <title>Visualization - To the Lighthouse</title>
     <style>
         body {
@@ -18,7 +19,6 @@
             background-color: rgba(3, 4, 94, 0.9);
         }
 
-
         header {
             background-color: #0077b6;
             color: white;
@@ -32,8 +32,6 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            position: relative;
-            transition: background-color 0.3s ease;
         }
 
         nav a {
@@ -172,29 +170,30 @@
                 'Jasper_Ramsay': 'Jasper_Ramsay.html',
                 'Roger': 'Roger.html',
                 'Minta_Doyle': 'Minta_Doyle.html',
-                'Sorley': 'Sorley.html',
-                'Miss_Giddings': 'Miss_Giddings.html',
-                'Paul_Rayley': 'Paul_Rayley.html',
-                'Mrs_Bast': 'Mrs_Bast.html',
-                'George': 'George.html',
-                'Percy': 'Percy.html',
-                'Mildred': 'Mildred.html',
-                'Maggie': 'Maggie.html',
-                'Mrs_Beckwith': 'Mrs_Beckwith.html',
-                'Macalisters_boy': 'Macalisters_boy.html',
-                'Macalister': 'Macalister.html',
-                'Charles': 'Charles.html'
+                'Paul_Rayley': 'Paul_Rayley.html'
             };
 
-            if (characterFiles[character]) {
-                const fileUrl = `${githubPagesBaseUrl}${characterFiles[character]}`;
-                visualizationContainer.innerHTML = `
-                    <iframe src="${fileUrl}"></iframe>
-                `;
-                visualizationContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll verso il grafico
+            const fileUrl = characterFiles[character]
+                ? `${githubPagesBaseUrl}${characterFiles[character]}`
+                : '';
+
+            if (fileUrl) {
+                visualizationContainer.innerHTML = `<iframe src="${fileUrl}" title="Visualization for ${character}"></iframe>`;
+                visualizationContainer.scrollIntoView({ behavior: 'smooth' });
             } else {
                 visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
             }
+        }
+
+        function loadAllCharacters() {
+            const visualizationContainer = document.getElementById('visualization');
+            const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/";
+            const fileUrl = `${githubPagesBaseUrl}all_characters.html`;
+
+            visualizationContainer.innerHTML = `
+                <iframe src="${fileUrl}" title="All Characters Visualization"></iframe>
+            `;
+            visualizationContainer.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </head>
@@ -204,21 +203,21 @@
     </header>
 
     <nav>
-        <a href="index.html">HOME</a>
-        <a href="project.html">THE PROJECT</a>
-        <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
-        <a href="about.html">ABOUT ME</a>
+        <a href="index.html" aria-label="Go to Home page">HOME</a>
+        <a href="project.html" aria-label="Learn about the project">THE PROJECT</a>
+        <a href="visualization.html" aria-label="View visualizations">TO THE LIGHTHOUSE'S VISUALIZATION</a>
+        <a href="about.html" aria-label="About the author">ABOUT ME</a>
     </nav>
 
     <div class="navigation">
-        <button class="back-button" onclick="goBack()">&#8592; Back</button>
+        <button class="back-button" onclick="goBack()" aria-label="Go back">&#8592; Back</button>
     </div>
 
     <div class="container">
         <h1>Characters' List</h1>
-        <p>Choose a character to explore their sentiment and role in Virginia Woolf's *To the Lighthouse*.</p>
+        <p>Choose a character to explore their sentiment and role in Virginia Woolf's "To the Lighthouse".</p>
         <label for="characterSelect">Choose a character:</label>
-        <select id="characterSelect" onchange="loadVisualization(this.value)">
+        <select id="characterSelect" onchange="loadVisualization(this.value)" aria-label="Select a character to visualize">
             <option value="">Select a character</option>
             <option value="Narrator">Narrator</option>
             <option value="Lily_Briscoe">Lily Briscoe</option>
@@ -236,22 +235,15 @@
             <option value="Nancy">Nancy</option>
             <option value="Roger">Roger</option>
             <option value="Minta_Doyle">Minta Doyle</option>
-            <option value="Sorley">Sorley</option>
-            <option value="Miss_Giddings">Miss Giddings</option>
             <option value="Paul_Rayley">Paul Rayley</option>
-            <option value="Mrs_Bast">Mrs. Bast</option>
-            <option value="George">George</option>
-            <option value="Percy">Percy</option>
-            <option value="Mildred">Mildred</option>
-            <option value="Maggie">Maggie</option>
-            <option value="Mrs_Beckwith">Mrs. Beckwith</option>
-            <option value="Macalisters_boy">Macalister's boy</option>
-            <option value="Macalister">Macalister</option>
-            <option value="Charles">Charles</option>
         </select>
 
         <div id="visualization">
             <p>Select a character to view its sentiment within the story.</p>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button class="back-button" onclick="loadAllCharacters()" aria-label="View all characters">View All Characters</button>
         </div>
     </div>
 
