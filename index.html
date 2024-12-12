@@ -170,12 +170,62 @@
             color: #90e0ef;
         }
 
+        .lighthouse-highlight {
+            text-align: center;
+            margin: 40px auto;
+            cursor: pointer;
+        }
+
+        .lighthouse-highlight img {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
         footer {
             margin-top: 30px;
             text-align: right;
             font-size: 0.8rem;
             padding-right: 20px;
             color: white;
+        }
+
+        .author-and-book-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            gap: 20px;
+        }
+
+        .book-cover-container, .author-photo-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .book-cover {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .author-photo {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            border-radius: 50%;
+        }
+
+        .book-description, .author-bio {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .author-and-book-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -211,68 +261,68 @@
                     <p>Notte e giorno</p>
                 </div>
                 <div class="novel-card" onclick="showDetails('Jacob\'s Room')">
-            <img src="room.png" alt="A room" class="novel-icon">
-            <h3>Jacob's Room (1922)</h3>
-            <p>La stanza di Jacob</p>
-        </div>
-        <div class="novel-card" onclick="showDetails('Mrs Dalloway')">
-            <img src="beautiful.png" alt="A lady silhouette" class="novel-icon">
-            <h3>Mrs Dalloway (1925)</h3>
-            <p>La signora Dalloway</p>
-        </div>
-        <div class="novel-card" onclick="showDetails('Orlando')">
-            <img src="mirror.png" alt="Orlando title" class="novel-icon">
-            <h3>Orlando: A Biography (1928)</h3>
-            <p>Orlando</p>
-        </div>
-        <div class="novel-card" onclick="showDetails('The Waves')">
-            <img src="waves.png" alt="Waves" class="novel-icon">
-            <h3>The Waves (1931)</h3>
-            <p>Le onde</p>
-        </div>
-        <div class="novel-card" onclick="showDetails('The Years')">
-            <img src="hourglass.png" alt="Calendar for The Years" class="novel-icon">
-            <h3>The Years (1937)</h3>
-            <p>Gli anni</p>
-        </div>
-        <div class="novel-card" onclick="showDetails('Between the Acts')">
-            <img src="theatre.png" alt="Theatre stage" class="novel-icon">
-            <h3>Between the Acts (1941)</h3>
-            <p>Tra un atto e l'altro</p>
+                    <img src="room.png" alt="A room" class="novel-icon">
+                    <h3>Jacob's Room (1922)</h3>
+                    <p>La stanza di Jacob</p>
+                </div>
+                <div class="novel-card" onclick="showDetails('Mrs Dalloway')">
+                    <img src="beautiful.png" alt="A lady silhouette" class="novel-icon">
+                    <h3>Mrs Dalloway (1925)</h3>
+                    <p>La signora Dalloway</p>
+                </div>
+                <div class="novel-card" onclick="showDetails('Orlando')">
+                    <img src="mirror.png" alt="Orlando title" class="novel-icon">
+                    <h3>Orlando: A Biography (1928)</h3>
+                    <p>Orlando</p>
+                </div>
+                <div class="novel-card" onclick="showDetails('The Waves')">
+                    <img src="waves.png" alt="Waves" class="novel-icon">
+                    <h3>The Waves (1931)</h3>
+                    <p>Le onde</p>
+                </div>
+                <div class="novel-card" onclick="showDetails('The Years')">
+                    <img src="hourglass.png" alt="Calendar for The Years" class="novel-icon">
+                    <h3>The Years (1937)</h3>
+                    <p>Gli anni</p>
+                </div>
+                <div class="novel-card" onclick="showDetails('Between the Acts')">
+                    <img src="theatre.png" alt="Theatre stage" class="novel-icon">
+                    <h3>Between the Acts (1941)</h3>
+                    <p>Tra un atto e l'altro</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Modal HTML -->
-    <div id="novel-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p id="modal-description"></p>
+        <!-- Modal HTML -->
+        <div id="novel-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+
+        <!-- To the Lighthouse as a prominent button -->
+        <div class="lighthouse-highlight" onclick="showDetails('To the Lighthouse')">
+            <img src="lighthouse.png" alt="Lighthouse image" class="lighthouse-icon">
+            <h3>To the Lighthouse (1927)</h3>
+            <p>Gita al Faro</p>
         </div>
     </div>
-        <!-- To the Lighthouse as a prominent button -->
-    <div class="lighthouse-highlight" onclick="showDetails('To the Lighthouse')">
-        <img src="lighthouse.png" alt="Lighthouse image" class="lighthouse-icon">
-        <h3>To the Lighthouse (1927)</h3>
-        <p>Gita al Faro</p>
-    </div>
-</div>
 
     <div class="author-and-book-container">
-    <div class="book-cover-container">
-        <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
-        <p class="book-description">The Hogarth Press, London, 1927</p>
-    </div>
+        <div class="author-photo-container">
+            <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
+            <div class="author-bio">
+                <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author.</p>
+            </div>
+        </div>
 
-    <div class="author-photo-container">
-        <img src="Virginia_Woolf.jpeg" alt="Virginia Woolf" class="author-photo">
-        <div class="author-bio">
-            <p><strong>Virginia Woolf</strong> (1882-1941) was an influential English modernist author.</p>
+        <div class="book-cover-container">
+            <img src="To-The-Lighthouse.jpg" alt="To the Lighthouse Cover" class="book-cover">
+            <p class="book-description">The Hogarth Press, London, 1927</p>
         </div>
     </div>
-</div>
-
 
     <footer>
         <p>by Nicole Biscaro</p>
@@ -290,7 +340,6 @@
             "The Years": "A family saga tracing the social and political changes of the early 20th century.",
             "Between the Acts": "Woolf’s last novel, reflecting on art, war, and human experience through a village pageant.",
             "To the Lighthouse": "An exploration of the Ramsay family and their visits to the Isle of Skye in Scotland, capturing the passage of time and the emotional depth of the characters."
-            
         };
 
         const modal = document.getElementById('novel-modal');
@@ -316,6 +365,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
