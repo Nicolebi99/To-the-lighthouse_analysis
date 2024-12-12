@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -193,23 +193,6 @@
                 visualizationContainer.innerHTML = '<p>No visualization available for this character. Please select another character.</p>';
             }
         }
-
-        function loadAllCharacters() {
-            const visualizationContainer = document.getElementById('visualization');
-            const githubPagesBaseUrl = "https://nicolebi99.github.io/To-the-lighthouse_analysis/all_characters.html";
-            
-            // Crea un iframe e carica la pagina di tutti i personaggi
-            const iframe = document.createElement('iframe');
-            iframe.src = githubPagesBaseUrl;
-            iframe.style.width = "100%";
-            iframe.style.height = "600px";
-            iframe.frameBorder = "0";
-            
-            // Rimuove contenuti precedenti e aggiunge l'iframe
-            visualizationContainer.innerHTML = '';
-            visualizationContainer.appendChild(iframe);
-            visualizationContainer.scrollIntoView({ behavior: 'smooth' });
-        }
     </script>
 </head>
 <body>
@@ -232,9 +215,6 @@
         <h1>Characters' List</h1>
         <p>Choose a character to explore their sentiment and role in Virginia Woolf's "To the Lighthouse".</p>
         
-        <!-- Pulsante per All Characters -->
-        <button id="allCharactersButton" class="back-button" onclick="loadAllCharacters()">View All Characters</button>
-        
         <label for="characterSelect">Choose a character:</label>
         <select id="characterSelect" onchange="loadVisualization(this.value)">
             <option value="">Select a character</option>
@@ -251,11 +231,11 @@
             <option value="Andrew_Ramsay">Andrew Ramsay</option>
             <option value="Prue_Ramsay">Prue Ramsay</option>
             <option value="Jasper_Ramsay">Jasper Ramsay</option>
-            <option value="Nancy">Nancy</option> <!-- Corretto -->
+            <option value="Nancy">Nancy</option>
             <option value="Roger">Roger</option>
-            <option value="Minta">Minta Doyle</option> <!-- Corretto -->
+            <option value="Minta">Minta Doyle</option>
             <option value="Sorley">Sorley</option>
-            <option value="Miss_Giddings">Miss Giddings</option> <!-- Corretto -->
+            <option value="Miss_Giddings">Miss Giddings</option>
             <option value="Paul_Rayley">Paul Rayley</option>
             <option value="Mrs_Bast">Mrs. Bast</option>
             <option value="George">George</option>
@@ -279,6 +259,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
