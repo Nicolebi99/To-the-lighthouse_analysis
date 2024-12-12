@@ -172,16 +172,35 @@
 
         .lighthouse-highlight {
             text-align: center;
-            margin: 40px auto;
+            margin: 60px auto; /* Sposta più in basso */
+            padding: 20px; /* Aggiunge spazio interno */
+            border: 3px solid #90e0ef; /* Contorno visibile */
+            border-radius: 10px; /* Angoli arrotondati */
+            background-color: rgba(3, 4, 94, 0.8); /* Sfondo scuro con trasparenza */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Effetto ombra */
             cursor: pointer;
+            max-width: 400px; /* Limita la larghezza massima */
         }
-
+        
         .lighthouse-highlight img {
             width: 120px;
             height: auto;
             display: block;
             margin: 0 auto 10px;
         }
+        
+        .lighthouse-highlight h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: #caf0f8; /* Colore leggermente più chiaro */
+        }
+        
+        .lighthouse-highlight p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #f1f1f1;
+        }
+        
 
         footer {
             margin-top: 30px;
@@ -302,13 +321,12 @@
             </div>
         </div>
 
-        <!-- To the Lighthouse as a prominent button -->
-        <div class="lighthouse-highlight" onclick="showDetails('To the Lighthouse')">
+                <div class="lighthouse-highlight" onclick="showDetails('To the Lighthouse')">
             <img src="lighthouse.png" alt="Lighthouse image" class="lighthouse-icon">
             <h3>To the Lighthouse (1927)</h3>
             <p>Gita al Faro</p>
         </div>
-    </div>
+
 
     <div class="author-and-book-container">
         <div class="author-photo-container">
