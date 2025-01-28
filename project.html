@@ -177,7 +177,6 @@
     <div id="text-segmentation-section" class="main-section">
     <h2>Text Segmentation</h2>
     <div class="content-section">
-        <button class="close-button">Close</button>
         <p>Explore the different segments of the text by selecting a section below:</p>
         <ul>
             <li><a href="#" data-target="section-1">1.1 Sample</a></li>
@@ -185,6 +184,7 @@
             <li><a href="#" data-target="section-3">1.3 Analysis</a></li>
             <li><a href="#" data-target="section-4">1.4 Results</a></li>
         </ul>
+        <button class="close-button">Close</button>
     </div>
 </div>
 
@@ -233,21 +233,22 @@
         <button class="close-button">Close</button>
         </div>
     
-    <!-- Emotion Analysis Section -->
-    <div id="emotion-analysis-section" class="main-section">
-        <h2>Emotion Analysis</h2>
+   <div id="emotion-analysis-section" class="main-section">
+    <h2>Emotion Analysis</h2>
+    <div class="content-section">
         <p>Explore the emotional impact of the novel, analyzing key passages and the feelings they evoke.</p>
         <button class="close-button">Close</button>
     </div>
 </div>
 
-    <!-- About the Novel -->
-    <div id="about-novel" class="main-section">
-        <h2>About the Novel</h2>
+<div id="about-novel" class="main-section">
+    <h2>About the Novel</h2>
+    <div class="content-section">
         <p>Matrix of Correlation, 10 top characters, Characters</p>
         <button class="close-button">Close</button>
     </div>
 </div>
+
 
 <footer>
     <p>by Nicole Biscaro</p>
@@ -256,28 +257,37 @@
     
 <script>
 
-   // Toggle visibility for the main sections
+  // Toggle visibility for the main sections
 document.querySelectorAll('.main-section').forEach(section => {
     section.addEventListener('click', () => {
-        // Hide all content sections first
+        // Nascondi tutte le sezioni di contenuto
         document.querySelectorAll('.content-section').forEach(content => {
             content.style.display = 'none';
         });
-        
-        // Then show the clicked section content
+
+        // Mostra la sezione specifica cliccata
         const contentSection = section.querySelector('.content-section');
         if (contentSection) {
-            contentSection.style.display = contentSection.style.display === 'none' ? 'block' : 'none';
+            contentSection.style.display = 'block';
         }
     });
 });
 
-// Toggle visibility for specific sections based on menu link click
-document.querySelectorAll('.main-section h2').forEach(heading => {
-    heading.addEventListener('click', (event) => {
-        const targetSection = event.target.nextElementSibling;
-        if (targetSection && targetSection.classList.contains('content-section')) {
-            targetSection.style.display = targetSection.style.display === 'none' ? 'block' : 'none';
+// Toggle specific sections from the Text Segmentation index
+document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault(); // Previene il comportamento di default del link
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+            // Nascondi tutte le altre sezioni
+            document.querySelectorAll('.content-section').forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Mostra solo la sezione target
+            targetSection.style.display = 'block';
         }
     });
 });
@@ -285,10 +295,10 @@ document.querySelectorAll('.main-section h2').forEach(heading => {
 // Close the content sections when the close button is clicked
 document.querySelectorAll('.close-button').forEach(button => {
     button.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent triggering the main section toggle
+        event.stopPropagation(); // Impedisce che l'evento si propaghi alla sezione principale
         const content = button.closest('.content-section');
         if (content) {
-            content.style.display = 'none'; // Hide the clicked content
+            content.style.display = 'none'; // Nasconde la sezione
         }
     });
 });
@@ -297,6 +307,7 @@ document.querySelectorAll('.close-button').forEach(button => {
 function goBack() {
     window.history.back();
 }
+
  
     
 </script>
