@@ -186,6 +186,13 @@
  <div class="navigation">
         <button class="back-button" onclick="goBack()">&#8592; Back</button>
     </div>
+
+    <nav>
+        <a href="#" data-target="abstract-section">Abstract</a>
+        <a href="#" data-target="text-segmentation-section">Text Segmentation</a>
+        <a href="#" data-target="emotion-analysis-section">Emotion Analysis</a>
+        <a href="#" data-target="about-novel-section">About the Novel</a>
+    </nav>
     
  <div id="abstract-section" class="main-section">
     <h2>Abstract</h2>
@@ -277,7 +284,7 @@
 </footer>
 
 <script>
-// Mostra/Nasconde il contenuto delle sezioni principali
+   // Mostra/Nasconde il contenuto delle sezioni principali
 document.querySelectorAll('.main-section').forEach(section => {
     section.addEventListener('click', (event) => {
         // Evita conflitti con il pulsante "Close"
