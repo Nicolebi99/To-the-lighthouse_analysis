@@ -45,8 +45,8 @@
             color: #90e0ef;
             transform: scale(1.1);
         }
-        
-         .back-button {
+
+        .back-button {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
@@ -55,10 +55,8 @@
             font-size: 1rem;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            margin-left: 20px;
+            margin: 20px;
             display: inline-block;
-            margin-top: 20px; /* Increased margin to balance the layout */
-            margin-bottom: 40px; /* Add space below the back button */
         }
 
         .back-button:hover {
@@ -67,7 +65,7 @@
             transform: translateY(-3px);
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
-        
+
         .container {
             padding: 20px;
             text-align: left;
@@ -84,11 +82,60 @@
             cursor: pointer;
         }
 
+        .content-section {
+            display: none; /* Start hidden */
+            padding: 15px;
+            background-color: #023047;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .close-button {
+            background-color: #90e0ef;
+            color: #023047;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .close-button:hover {
+            background-color: #023047;
+            color: white;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 0.8rem;
+            padding-right: 20px;
+            color: white;
+        }
+
+        /* Contenitori per le sezioni specifiche */
+        .abstract-container,
+        .text-segmentation-container,
+        .emotion-analysis-container,
+        .about-novel-container {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #0077b6;
+        }
+
+        .abstract-container p,
+        .text-segmentation-container p,
+        .emotion-analysis-container p,
+        .about-novel-container p {
+            margin: 10px 0;
+        }
+
         .section-index {
             list-style: none;
             padding: 0;
             margin: 20px 0;
-            display: none; /* Hide initially */
         }
 
         .section-index li {
@@ -112,62 +159,6 @@
             color: #90e0ef;
             transform: scale(1.1);
         }
-
-        footer {
-            margin-top: 20px;
-            text-align: right;
-            font-size: 0.8rem;
-            padding-right: 20px;
-            color: white;
-        }
-
-       
-     .content-section {
-            display: none; /* Start as hidden */
-            padding: 15px;
-             background-color: #023047;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-
-        .close-button {
-            background-color: #90e0ef;
-            color: #023047;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            border: none;
-            margin-top: 20px;
-        }
-
-        .close-button:hover {
-            background-color: #023047;
-            color: white;
-        }
-        
-        #text-segmentation-section ul li a {
-            display: block; /* Forza i link a occupare una riga intera */
-            margin: 10px auto; /* Spaziatura tra i link */
-            text-align: center;
-            background-color: #023047;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            max-width: 300px; /* Imposta una larghezza massima */
-        }
-        
-        #text-segmentation-section ul li a:hover {
-            background-color: #0077b6;
-            color: #90e0ef;
-            transform: scale(1.05);
-        }
-
     </style>
 </head>
 <body>
@@ -186,15 +177,9 @@
  <div class="navigation">
         <button class="back-button" onclick="goBack()">&#8592; Back</button>
     </div>
-
-    <nav>
-        <a href="#" data-target="abstract-section">Abstract</a>
-        <a href="#" data-target="text-segmentation-section">Text Segmentation</a>
-        <a href="#" data-target="emotion-analysis-section">Emotion Analysis</a>
-        <a href="#" data-target="about-novel-section">About the Novel</a>
-    </nav>
     
- <div id="abstract-section" class="main-section">
+    
+ <div class="abstract-container main-section" id="abstract-section">
     <h2>Abstract</h2>
     <div class="content-section">
         <p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT-4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
@@ -203,7 +188,7 @@
 </div>
 
 
-    <div id="text-segmentation-section" class="main-section">
+    <div class="text-segmentation-container main-section" id="text-segmentation-section">
     <h2>Text Segmentation</h2>
     <div class="content-section">
         <p>Explore the different segments of the text by selecting a section below:</p>
@@ -257,7 +242,7 @@
         <button class="close-button">Close</button>
         </div>
     
-   <div id="emotion-analysis-section" class="main-section">
+   <div class="emotion-analysis-container main-section" id="emotion-analysis-section">
     <h2>Emotion Analysis</h2>
     <div class="content-section">
         <p>Explore the emotional impact of the novel, analyzing key passages and the feelings they evoke.</p>
@@ -265,7 +250,7 @@
     </div>
 </div>
 
-<div id="about-novel" class="main-section">
+<div class="about-novel-container main-section" id="about-novel-section">
     <h2>About the Novel</h2>
     <div class="content-section">
         <p>Matrix of Correlation, 10 top characters, Characters</p>
@@ -278,61 +263,32 @@
     <p>by Nicole Biscaro</p>
     <p>CC BY-NC-SA 4.0</p>
 </footer>
-
 <script>
-   // Mostra/Nasconde il contenuto delle sezioni principali
-document.querySelectorAll('.main-section').forEach(section => {
-    section.addEventListener('click', (event) => {
-        // Evita conflitti con il pulsante "Close"
-        if (event.target.classList.contains('close-button')) {
-            return;
-        }
-
-        // Nasconde tutte le altre sezioni
-        document.querySelectorAll('.content-section').forEach(content => {
-            content.style.display = 'none';
+    // Mostra/Nasconde il contenuto delle sezioni principali
+    document.querySelectorAll('.main-section').forEach(section => {
+        section.addEventListener('click', (event) => {
+            if (event.target.classList.contains('close-button')) {
+                return;
+            }
+            document.querySelectorAll('.content-section').forEach(content => {
+                content.style.display = 'none';
+            });
+            const contentSection = section.querySelector('.content-section');
+            if (contentSection) {
+                contentSection.style.display = 'block';
+            }
         });
-
-        // Mostra solo la sezione cliccata
-        const contentSection = section.querySelector('.content-section');
-        if (contentSection) {
-            contentSection.style.display = 'block';
-        }
     });
-});
 
-// Navigazione nelle sezioni specifiche di "Text Segmentation"
-document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault(); // Blocca il comportamento predefinito del link
-
-        // Nasconde tutte le altre sezioni
-        document.querySelectorAll('.content-section').forEach(content => {
-            content.style.display = 'none';
+    document.querySelectorAll('.close-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const content = button.closest('.content-section');
+            if (content) {
+                content.style.display = 'none';
+            }
         });
-
-        // Mostra la sezione specifica
-        const targetId = link.getAttribute('data-target');
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            targetSection.style.display = 'block';
-        }
     });
-});
-
-// Pulsante "Close" per chiudere le sezioni
-document.querySelectorAll('.close-button').forEach(button => {
-    button.addEventListener('click', (event) => {
-        event.stopPropagation(); // Evita che il click si propaghi al genitore
-
-        // Nasconde la sezione contenente il pulsante "Close"
-        const content = button.closest('.content-section');
-        if (content) {
-            content.style.display = 'none';
-        }
-    });
-});
-
 </script>
 </body>
 </html>
