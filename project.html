@@ -45,20 +45,8 @@
             color: #90e0ef;
             transform: scale(1.1);
         }
-
-        .container {
-            padding: 20px;
-            text-align: left;
-            min-height: calc(100vh - 130px);
-            box-sizing: border-box;
-        }
-
-        .container h1 {
-            font-size: 2.5rem;
-            color: #90e0ef;
-        }
-
-          .back-button {
+        
+        .back-button {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
@@ -78,13 +66,19 @@
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
         }
         
-        .content-section {
+        .container {
+            padding: 20px;
+            text-align: left;
+            min-height: calc(100vh - 130px);
+            box-sizing: border-box;
+        }
+
+        .main-section {
             margin-bottom: 20px;
             padding: 15px;
             background-color: #0077b6;
             color: white;
             border-radius: 10px;
-            display: none; /* Hidden by default */
         }
 
         .section-index {
@@ -140,27 +134,42 @@
  <div class="navigation">
         <button class="back-button" onclick="goBack()">&#8592; Back</button>
     </div>
+    
+<!-- Abstract Section -->
+    <div id="abstract-section" class="main-section">
+        <h2>Abstract</h2>
+        <p>Here is the abstract content...</p>
+    </div>
+    
+    div class="container">
+    <!-- Abstract Section -->
+    <div id="abstract-section" class="main-section">
+        <h2>Abstract</h2>
+        <p>This section introduces the main ideas and goals of the analysis, focusing on the innovative approaches used in "To the Lighthouse."</p>
+    </div>
 
-    <h1>Text Segmentation</h1>
+    <!-- Text Segmentation Section -->
+    <div id="text-segmentation-section" class="main-section">
+        <h2>Text Segmentation</h2>
+        <p>Explore the different segments of the text by selecting a section below:</p>
 
-    <p>Explore the different segments of the text by selecting a section below:</p>
+        <!-- Table of contents -->
+        <ul class="section-index">
+            <li><a href="#" data-target="section-1">1.1 Sample</a></li>
+            <li><a href="#" data-target="section-2">1.2 Materials</a></li>
+            <li><a href="#" data-target="section-2">1.3 Analysis</a></li>
+            <li><a href="#" data-target="section-3">1.4 Results</a></li>
+        </ul>
 
-    <!-- Table of contents -->
-    <ul class="section-index">
-        <li><a href="#" data-target="section-1">1.1 Sample</a></li>
-        <li><a href="#" data-target="section-2">1.2 Analysis Method</a></li>
-        <li><a href="#" data-target="section-3">1.3 Results</a></li>
-    </ul>
-
-    <!-- Content sections -->
-    <div id="section-1" class="content-section">
-        <h2>1.1 Sample</h2>
+        <!-- Content sections -->
+        <div id="section-1" class="content-section">
+            <<h2>1.1 Sample</h2>
         <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of to the lighthouse in books.
             - H : Humanist (20, 19, 21, 30, 19, 54) 
             - NH : Non-humanist (86, 79, 69, 57, 77, 68, 49, 87)
             - B: Book : 28 (division of paragraphs in the original text)
             - GPT-4: 63.</p>
-    </div>
+        </div>
 
     <div id="section-2" class="content-section">
         <h2>1.2 Materials</h2>
@@ -175,8 +184,22 @@
     </div>
     
     <div id="section-4" class="content-section">
-        <h2>1.3 Results</h2>
+        <h2>1.4 Results</h2>
         <p>Here we present the results of the segmentation process, highlighting key patterns and insights discovered during the analysis.</p>
+    </div>
+</div>
+    
+    <!-- Emotion Analysis Section -->
+    <div id="emotion-analysis-section" class="main-section">
+        <h2>Emotion Analysis</h2>
+        <p>Explore the emotional impact of the novel, analyzing key passages and the feelings they evoke.</p>
+    </div>
+</div>
+
+    <!-- About the Novel -->
+    <div id="about-novel" class="main-section">
+        <h2>About the Novel</h2>
+        <p>EMatrix of Correlation, 10 top characters</p>
     </div>
 </div>
 
