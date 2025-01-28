@@ -211,10 +211,15 @@
         <h2>1.3 Analysis</h2>
         <p>Here we present the results of the segmentation process, highlighting key patterns and insights discovered during the analysis.</p>
      <div style="text-align: center; margin-top: 20px;">
+        <div style="text-align: center; margin-top: 20px;">
+        <figure>
         <img src="https://github.com/Nicolebi99/To-the-lighthouse_analysis/raw/main/Text_Segm.png" alt="Text Segmentation Analysis" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-         <button class="close-button">Close</button>
+        <figcaption><em>Figure 1: Text Segmentation Analysis, from the repository "To the Lighthouse Analysis"</em></figcaption>
+        </figure>
+        <button class="close-button">Close</button>
     </div>
-    </div>
+
+      
     
     <div id="section-4" class="content-section">
         <h2>1.4 Results</h2>
@@ -272,15 +277,14 @@
         });
     });
     
-     // Close button functionality
-    document.querySelectorAll('.close-button').forEach(button => {
+      document.querySelectorAll('.close-button').forEach(button => {
         button.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent triggering the main section toggle
             const content = button.parentElement;
-            content.style.display = 'none';
+            content.style.display = content.style.display === 'none' ? 'block' : 'none'; // Toggle visibility
         });
     });
-    
+
     // Function for back button
     function goBack() {
         window.history.back();
