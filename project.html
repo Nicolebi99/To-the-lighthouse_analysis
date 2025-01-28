@@ -278,6 +278,7 @@
     
 <script>
 
+<script>
 // Mostra il contenuto delle sezioni principali quando cliccate
 document.querySelectorAll('.main-section').forEach(section => {
     section.addEventListener('click', () => {
@@ -324,8 +325,15 @@ document.querySelectorAll('.close-button').forEach(button => {
     });
 });
 
- 
-    
+// Previeni conflitti con "Emotion Analysis" e "About the Novel"
+document.querySelectorAll('#emotion-analysis-section, #about-novel').forEach(section => {
+    section.addEventListener('click', () => {
+        const contentSection = section.querySelector('.content-section');
+        if (contentSection) {
+            contentSection.style.display = contentSection.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+});
 </script>
 </body>
 </html>
