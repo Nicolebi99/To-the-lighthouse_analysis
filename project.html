@@ -46,7 +46,7 @@
             transform: scale(1.1);
         }
         
-        .back-button {
+         .back-button {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
@@ -57,6 +57,7 @@
             transition: all 0.3s ease;
             margin-left: 20px;
             display: inline-block;
+            margin-top: 20px; /* Increased margin to balance the layout */
         }
 
         .back-button:hover {
@@ -85,6 +86,7 @@
             list-style: none;
             padding: 0;
             margin: 20px 0;
+            display: none; /* Hide initially */
         }
 
         .section-index li {
@@ -115,6 +117,15 @@
             font-size: 0.8rem;
             padding-right: 20px;
             color: white;
+        }
+
+        /* Add some spacing for better layout */
+        .content-section {
+            display: none; /* Initially hidden */
+            padding: 15px;
+            background-color: #023047;
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -200,9 +211,13 @@
     <p>by Nicole Biscaro</p>
     <p>CC BY-NC-SA 4.0</p>
 </footer>
-
 <script>
-    // Add event listeners to section links
+// Toggle sections and index visibility
+    document.querySelector('#text-segmentation-section h2').addEventListener('click', () => {
+        const index = document.querySelector('.section-index');
+        index.style.display = (index.style.display === 'none' || index.style.display === '') ? 'block' : 'none';
+    });
+
     document.querySelectorAll('.section-index a').forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent default anchor behavior
@@ -226,6 +241,5 @@
         window.history.back();
     }
 </script>
-
 </body>
 </html>
