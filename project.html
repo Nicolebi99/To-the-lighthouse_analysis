@@ -163,12 +163,12 @@
         <div class="chapters-list">
             <ul>
                 <li>
-                    <button id="abstract-button" style="background-color: #90e0ef; border: none; padding: 10px; font-weight: bold; cursor: pointer; color: #023047;">
+                    <button id="abstract-button" style="background-color: #90e0ef; border: none; padding: 20px; font-weight: bold; cursor: pointer; color: #023047;">
                         Abstract
                     </button>
                 </li>
                 <li>
-                    <button id="text-segmentation-button" style="background-color: #90e0ef; border: none; padding: 10px; font-weight: bold; cursor: pointer; color: #023047;">
+                    <button id="text-segmentation-button" style="background-color: #90e0ef; border: none; padding: 20px; font-weight: bold; cursor: pointer; color: #023047;">
                         Text Segmentation
                     </button>
                 </li>
@@ -220,63 +220,63 @@
             </div>
 
             <div id="analysis-content" style="display: none;">
-    <p><strong>1.3.4. Analysis</strong></p>
-    <p>In the first chapter of <em>To the Lighthouse</em>, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines. Each participant analyzed the text, inserting a segmentation bar where they thought a significant event ended. We then numbered the identified lines for each participant and converted the data to binary numbers (0 if no segmentation, 1 if the sample segmented into that line).</p>
-    <p>This conversion facilitated the graphical representation and classification of segmentations, allowing clear visualization of differences.</p>
-                
-    <h3>Tab. 3 Comparison Humans (Humanist and Non Humanist vs Editorial Segmentation)</h3>
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white; text-align: left;">
-        <thead style="background-color: #023047;">
-            <tr>
-                <th style="border: 1px solid #0077b6; padding: 8px;">HUMANS</th>
-                <th style="border: 1px solid #0077b6; padding: 8px;">HAMMING’s DISTANCE</th>
-                <th style="border: 1px solid #0077b6; padding: 8px;">JACCARD’s DISTANCE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="border: 1px solid #0077b6; padding: 8px;">H1: HUMANIST</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.070 (Similarity: 93%)</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.666 (Similarity: 33.4%)</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #0077b6; padding: 8px;">H2: HUMANIST</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.073 (92.7%)</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.675 (32.5%)</td>
-            </tr>
-        </tbody>
-    </table>
+            <p><strong>1.3.4. Analysis</strong></p>
+            <p>In the first chapter of <em>To the Lighthouse</em>, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines. Each participant analyzed the text, inserting a segmentation bar where they thought a significant event ended. We then numbered the identified lines for each participant and converted the data to binary numbers (0 if no segmentation, 1 if the sample segmented into that line).</p>
+            <p>This conversion facilitated the graphical representation and classification of segmentations, allowing clear visualization of differences.</p>
+                        
+            <h3>Tab. 3 Comparison Humans (Humanist and Non Humanist vs Editorial Segmentation)</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white; text-align: left;">
+                <thead style="background-color: #023047;">
+                    <tr>
+                        <th style="border: 1px solid #0077b6; padding: 8px;">HUMANS</th>
+                        <th style="border: 1px solid #0077b6; padding: 8px;">HAMMING’s DISTANCE</th>
+                        <th style="border: 1px solid #0077b6; padding: 8px;">JACCARD’s DISTANCE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #0077b6; padding: 8px;">H1: HUMANIST</td>
+                        <td style="border: 1px solid #0077b6; padding: 8px;">0.070 (Similarity: 93%)</td>
+                        <td style="border: 1px solid #0077b6; padding: 8px;">0.666 (Similarity: 33.4%)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #0077b6; padding: 8px;">H2: HUMANIST</td>
+                        <td style="border: 1px solid #0077b6; padding: 8px;">0.073 (92.7%)</td>
+                        <td style="border: 1px solid #0077b6; padding: 8px;">0.675 (32.5%)</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <h3>Tab. 4 Comparison Humans (Humanists and Non Humanists) vs GPT-4</h3>
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white; text-align: left;">
-        <thead style="background-color: #023047;">
-            <tr>
-                <th style="border: 1px solid #0077b6; padding: 8px;">HUMANS</th>
-                <th style="border: 1px solid #0077b6; padding: 8px;">HAMMING’s DISTANCE</th>
-                <th style="border: 1px solid #0077b6; padding: 8px;">JACCARD’s DISTANCE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="border: 1px solid #0077b6; padding: 8px;">H1: HUMANIST</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.143 (Similarity: 85.7%)</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.742 (Similarity: 25.8%)</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #0077b6; padding: 8px;">H2: HUMANIST</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.170 (83%)</td>
-                <td style="border: 1px solid #0077b6; padding: 8px;">0.816 (18.4%)</td>
-            </tr>
-        </tbody>
-    </table>
-    <button id="analysis-image-button" style="margin-top: 20px; background-color: #90e0ef; border: none; padding: 10px; font-weight: bold; cursor: pointer; color: #023047;">
-        Show Analysis Image
-    </button>
-    <div id="analysis-image-content" style="display: none; margin-top: 20px;">
-        <p><strong>Analysis Image:</strong></p>
-        <img src="Text_Segm.png" alt="Analysis Segmentation" style="max-width: 100%; height: auto; border: 3px solid #0077b6; border-radius: 10px;">
-    </div>
-</div>
+                <h3>Tab. 4 Comparison Humans (Humanists and Non Humanists) vs GPT-4</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white; text-align: left;">
+                    <thead style="background-color: #023047;">
+                        <tr>
+                            <th style="border: 1px solid #0077b6; padding: 8px;">HUMANS</th>
+                            <th style="border: 1px solid #0077b6; padding: 8px;">HAMMING’s DISTANCE</th>
+                            <th style="border: 1px solid #0077b6; padding: 8px;">JACCARD’s DISTANCE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid #0077b6; padding: 8px;">H1: HUMANIST</td>
+                            <td style="border: 1px solid #0077b6; padding: 8px;">0.143 (Similarity: 85.7%)</td>
+                            <td style="border: 1px solid #0077b6; padding: 8px;">0.742 (Similarity: 25.8%)</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #0077b6; padding: 8px;">H2: HUMANIST</td>
+                            <td style="border: 1px solid #0077b6; padding: 8px;">0.170 (83%)</td>
+                            <td style="border: 1px solid #0077b6; padding: 8px;">0.816 (18.4%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="analysis-image-button" style="margin-top: 20px; background-color: #90e0ef; border: none; padding: 10px; font-weight: bold; cursor: pointer; color: #023047;">
+                    Show Analysis Image
+                </button>
+                <div id="analysis-image-content" style="display: none; margin-top: 20px;">
+                    <p><strong>Analysis Image:</strong></p>
+                    <img src="Text_Segm.png" alt="Analysis Segmentation" style="max-width: 100%; height: auto; border: 3px solid #0077b6; border-radius: 10px;">
+                </div>
+            </div>
 <footer>
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
