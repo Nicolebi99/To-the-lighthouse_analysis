@@ -146,6 +146,28 @@
             background-color: #023047;
             color: white;
         }
+        
+        #text-segmentation-section ul li a {
+            display: block; /* Forza i link a occupare una riga intera */
+            margin: 10px auto; /* Spaziatura tra i link */
+            text-align: center;
+            background-color: #023047;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            max-width: 300px; /* Imposta una larghezza massima */
+        }
+        
+        #text-segmentation-section ul li a:hover {
+            background-color: #0077b6;
+            color: #90e0ef;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
@@ -187,6 +209,7 @@
         <button class="close-button">Close</button>
     </div>
 </div>
+
 
         <!-- Content sections -->
         <div id="section-1" class="content-section">
@@ -255,10 +278,10 @@
     
 <script>
 
-  // Toggle visibility for the main sections
+// Mostra il contenuto delle sezioni principali quando cliccate
 document.querySelectorAll('.main-section').forEach(section => {
     section.addEventListener('click', () => {
-        // Nascondi tutte le altre sezioni di contenuto
+        // Nasconde tutte le altre sezioni di contenuto
         document.querySelectorAll('.content-section').forEach(content => {
             content.style.display = 'none';
         });
@@ -271,7 +294,7 @@ document.querySelectorAll('.main-section').forEach(section => {
     });
 });
 
-// Toggle visibility for links in the Text Segmentation index
+// Mostra la sezione corretta quando clicchi sui link di "Text Segmentation"
 document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault(); // Previeni comportamento predefinito del link
@@ -279,32 +302,27 @@ document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => 
         const targetSection = document.getElementById(targetId);
 
         if (targetSection) {
-            // Nascondi tutte le altre sezioni
+            // Nasconde tutte le altre sezioni
             document.querySelectorAll('.content-section').forEach(content => {
                 content.style.display = 'none';
             });
 
-            // Mostra la sezione target specifica
+            // Mostra la sezione specificata
             targetSection.style.display = 'block';
         }
     });
 });
 
-// Close the content sections when the close button is clicked
+// Chiudi le sezioni quando clicchi sul pulsante "Close"
 document.querySelectorAll('.close-button').forEach(button => {
     button.addEventListener('click', (event) => {
-        event.stopPropagation(); // Evita propagazione dell'evento al genitore
+        event.stopPropagation(); // Evita che il click si propaghi al genitore
         const content = button.closest('.content-section');
         if (content) {
             content.style.display = 'none';
         }
     });
 });
-
-// Function to go back to the previous page
-function goBack() {
-    window.history.back();
-}
 
  
     
