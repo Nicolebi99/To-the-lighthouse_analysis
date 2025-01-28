@@ -282,29 +282,31 @@
         <p>CC BY-NC-SA 4.0</p>
     </footer>
 
-    <script>
-        // Toggle display function
+     <script>
+        // Function to toggle the visibility of a section
         function toggleSection(buttonId, contentId) {
-            document.getElementById(buttonId).addEventListener('click', function () {
-                const content = document.getElementById(contentId);
-                content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
-            });
+            const button = document.getElementById(buttonId);
+            const content = document.getElementById(contentId);
+
+            if (button && content) {
+                button.addEventListener('click', () => {
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                });
+            } else {
+                console.error(`Button or content not found for ID: ${buttonId} or ${contentId}`);
+            }
         }
 
-        // Abstract toggle
-        toggleSection('abstract-button', 'abstract-content');
+        // Main section toggle
+        toggleSection('text-segmentation-button', 'text-segmentation-content');
 
-        // Text Segmentation subsections toggle
+        // Subsections toggle
         toggleSection('research-question-button', 'research-question-content');
         toggleSection('sample-button', 'sample-content');
         toggleSection('materials-button', 'materials-content');
-        toggleSection('analysis-image-button', 'analysis-image-content');
+        toggleSection('analysis-button', 'analysis-content');
         toggleSection('discussion-button', 'discussion-content');
-
-        // Back button functionality
-        function goBack() {
-            window.history.back();
-        }
     </script>
 
 </body>
