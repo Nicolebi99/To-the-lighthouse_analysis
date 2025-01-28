@@ -183,131 +183,54 @@
             </p>
         </div>
 
-        <div id="text-segmentation-content" class="extra-content">
-            <h2>Text Segmentation</h2>
-            <button id="research-question-button">1.1 Research Question</button>
-            <button id="sample-button">1.2 Sample</button>
-            <button id="materials-button">1.3 Materials</button>
-            <button id="analysis-button">1.4 Analysis</button>
-            <button id="discussion-button">1.5 Discussion and Limits</button>
+        <div class="container">
+        <div class="index">
+            <h2>Index</h2>
+            <ul>
+                <li><a href="#research-question">1.1 Research Question</a></li>
+                <li><a href="#sample">1.2 Sample</a></li>
+                <li><a href="#materials">1.3 Materials</a></li>
+                <li><a href="#analysis">1.4 Analysis</a></li>
+                <li><a href="#discussion">1.5 Discussion and Limits</a></li>
+            </ul>
+        </div>
 
-            <div id="research-question-content" style="display: none;">
-                <p><strong>Research Question:</strong></p>
-                <p>General Research Question: How does GPT-4 compare with segmentations performed by human participants?</p>
-                <p><strong>Specific Research Questions:</strong></p>
-                <ul>
-                    <li>Do humanistic participants tend to segment the text more closely to the original narrative structure than non-humanistic participants?</li>
-                    <li>Which metrics are most effective in assessing the adherence and accuracy of segmentations (e.g., Hamming Distance vs. Jaccard Index)?</li>
-                    <li>Does GPT-4 show greater similarity with segmentations of humanistic participants or non-humanistic participants? Or does it take an intermediate approach?</li>
-                </ul>
-            </div>
+        <section id="research-question">
+            <h2>1.1 Research Question</h2>
+            <p><strong>General Research Question:</strong> How does GPT-4 compare with segmentations performed by human participants?</p>
+            <ul>
+                <li>Do humanistic participants tend to segment the text more closely to the original narrative structure than non-humanistic participants?</li>
+                <li>Which metrics are most effective in assessing the adherence and accuracy of segmentations (e.g., Hamming Distance vs. Jaccard Index)?</li>
+                <li>Does GPT-4 show greater similarity with segmentations of humanistic participants or non-humanistic participants? Or does it take an intermediate approach?</li>
+            </ul>
+        </section>
 
-            <div id="sample-content" style="display: none;">
-                <p><strong>1.3.2. Sample</strong></p>
-                <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of To the Lighthouse in books.</p>
-                <ul>
-                    <li>H : Humanist (20, 19, 21, 30, 19, 54)</li>
-                    <li>NH : Non-humanist (86, 79, 69, 57, 77, 68, 49, 87)</li>
-                    <li>B: Book : 28 (division of paragraphs in the original text)</li>
-                    <li>GPT-4: 63</li>
-                </ul>
-            </div>
+        <section id="sample">
+            <h2>1.2 Sample</h2>
+            <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT).</p>
+        </section>
 
-            <div id="materials-content" style="display: none;">
-                <p><strong>1.3.3. Materials</strong></p>
-                                <p>During the analysis phase of the segmentations from the first chapter of *To the Lighthouse*, we used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations.</p>
-                <p><strong>Python libraries used:</strong> pandas, matplotlib, numpy, seaborn.</p>
-            </div>
+        <section id="materials">
+            <h2>1.3 Materials</h2>
+            <p>During the analysis phase of the segmentations from the first chapter of <em>To the Lighthouse</em>, we used Excel to create a dataset containing binary information about the segmentations identified by participants.</p>
+            <p><strong>Python libraries used:</strong> pandas, matplotlib, numpy, seaborn.</p>
+        </section>
 
-            <div id="analysis-content" style="display: none;">
-            <p><strong>1.3.4. Analysis</strong></p>
-            <p>In the first chapter of <em>To the Lighthouse</em>, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines. Each participant analyzed the text, inserting a segmentation bar where they thought a significant event ended. We then numbered the identified lines for each participant and converted the data to binary numbers (0 if no segmentation, 1 if the sample segmented into that line).</p>
-            <p>This conversion facilitated the graphical representation and classification of segmentations, allowing clear visualization of differences.</p>
-                        
-            <h3>Tab. 3 Comparison Humans (Humanist and Non Humanist vs Editorial Segmentation)</h3>
-            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white; text-align: left;">
-                <thead style="background-color: #023047;">
-                    <tr>
-                        <th style="border: 1px solid #0077b6; padding: 8px;">HUMANS</th>
-                        <th style="border: 1px solid #0077b6; padding: 8px;">HAMMING’s DISTANCE</th>
-                        <th style="border: 1px solid #0077b6; padding: 8px;">JACCARD’s DISTANCE</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="border: 1px solid #0077b6; padding: 8px;">H1: HUMANIST</td>
-                        <td style="border: 1px solid #0077b6; padding: 8px;">0.070 (Similarity: 93%)</td>
-                        <td style="border: 1px solid #0077b6; padding: 8px;">0.666 (Similarity: 33.4%)</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #0077b6; padding: 8px;">H2: HUMANIST</td>
-                        <td style="border: 1px solid #0077b6; padding: 8px;">0.073 (92.7%)</td>
-                        <td style="border: 1px solid #0077b6; padding: 8px;">0.675 (32.5%)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="analysis">
+            <h2>1.4 Analysis</h2>
+            <p>In the first chapter of <em>To the Lighthouse</em>, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines.</p>
+            <p><strong>Tab. 3:</strong> Comparison Humans (Humanist and Non Humanist vs Editorial Segmentation)</p>
+            <p><strong>Tab. 4:</strong> Comparison Humans (Humanists and Non Humanists) vs GPT-4</p>
+        </section>
 
-                <h3>Tab. 4 Comparison Humans (Humanists and Non Humanists) vs GPT-4</h3>
-                <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white; text-align: left;">
-                    <thead style="background-color: #023047;">
-                        <tr>
-                            <th style="border: 1px solid #0077b6; padding: 8px;">HUMANS</th>
-                            <th style="border: 1px solid #0077b6; padding: 8px;">HAMMING’s DISTANCE</th>
-                            <th style="border: 1px solid #0077b6; padding: 8px;">JACCARD’s DISTANCE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="border: 1px solid #0077b6; padding: 8px;">H1: HUMANIST</td>
-                            <td style="border: 1px solid #0077b6; padding: 8px;">0.143 (Similarity: 85.7%)</td>
-                            <td style="border: 1px solid #0077b6; padding: 8px;">0.742 (Similarity: 25.8%)</td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #0077b6; padding: 8px;">H2: HUMANIST</td>
-                            <td style="border: 1px solid #0077b6; padding: 8px;">0.170 (83%)</td>
-                            <td style="border: 1px solid #0077b6; padding: 8px;">0.816 (18.4%)</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button id="analysis-image-button" style="margin-top: 20px; background-color: #90e0ef; border: none; padding: 10px; font-weight: bold; cursor: pointer; color: #023047;">
-                    Show Analysis Image
-                </button>
-                <div id="analysis-image-content" style="display: none; margin-top: 20px;">
-                    <p><strong>Analysis Image:</strong></p>
-                    <img src="Text_Segm.png" alt="Analysis Segmentation" style="max-width: 100%; height: auto; border: 3px solid #0077b6; border-radius: 10px;">
-                </div>
-            </div>
+        <section id="discussion">
+            <h2>1.5 Discussion and Limits</h2>
+            <p>This section discusses the implications and limitations of the analysis. Key findings and future research directions are highlighted.</p>
+        </section>
+    </div>
 <footer>
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
     </footer>
-
-     <script>
-        // Function to toggle the visibility of a section
-        function toggleSection(buttonId, contentId) {
-            const button = document.getElementById(buttonId);
-            const content = document.getElementById(contentId);
-
-            if (button && content) {
-                button.addEventListener('click', () => {
-                    const isVisible = content.style.display === 'block';
-                    content.style.display = isVisible ? 'none' : 'block';
-                });
-            } else {
-                console.error(`Button or content not found for ID: ${buttonId} or ${contentId}`);
-            }
-        }
-
-        // Main section toggle
-        toggleSection('text-segmentation-button', 'text-segmentation-content');
-
-        // Subsections toggle
-        toggleSection('research-question-button', 'research-question-content');
-        toggleSection('sample-button', 'sample-content');
-        toggleSection('materials-button', 'materials-content');
-        toggleSection('analysis-button', 'analysis-content');
-        toggleSection('discussion-button', 'discussion-content');
-    </script>
-
 </body>
 </html>
