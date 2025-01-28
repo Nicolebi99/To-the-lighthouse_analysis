@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Project - To the Lighthouse Analysis</title>
+    <title>To the Lighthouse Analysis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,9 +30,6 @@
             background-color: #023047;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
-            transition: background-color 0.3s ease;
         }
 
         nav a {
@@ -40,83 +37,35 @@
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #90e0ef;
-            transform: scale(1.1);
         }
 
         .container {
-            background-color: rgba(2, 48, 71, 0.9);
             padding: 20px;
-            text-align: center;
+            text-align: left;
             min-height: calc(100vh - 130px);
             box-sizing: border-box;
         }
 
-        .container h1 {
-            font-size: 2.5rem;
-            color: #90e0ef;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .chapters-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .chapters-list li {
-            padding: 10px 0;
-            color: #90e0ef;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .chapters-list li:hover {
-            color: #90e0ef;
-            transform: scale(1.05);
-        }
-
-        .extra-content {
-            margin: 20px auto;
-            max-width: 800px;
+        .content-section, .main-section {
+            display: none; /* Hidden by default */
+            margin-bottom: 20px;
             padding: 15px;
             background-color: #0077b6;
             color: white;
             border-radius: 5px;
-            display: none; /* Hidden by default */
         }
 
-        .extra-content p {
-            margin: 10px 0;
+        .section-index {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
         }
 
-        .navigation {
-            text-align: left;
-            margin: 20px;
-        }
-
-        .back-button {
-            background-color: #0077b6;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            margin-left: 20px;
-            display: inline-block;
-        }
-
-        .back-button:hover {
-            background-color: #023047;
+        .section-index a {
             color: #90e0ef;
-            transform: translateY(-3px);
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         footer {
@@ -126,131 +75,107 @@
             padding-right: 20px;
             color: white;
         }
-
-        footer p {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>The Project</h1>
-    </header>
+<header>
+    <h1>To the Lighthouse Analysis</h1>
+</header>
 
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="project.html">THE PROJECT</a>
-        <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
-        <a href="about.html">ABOUT ME</a>
-    </nav>
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="project.html">THE PROJECT</a>
+    <a href="visualization.html">VISUALIZATION</a>
+    <a href="about.html">ABOUT ME</a>
+</nav>
 
-    <div class="navigation">
-        <button class="back-button" onclick="goBack()">&#8592; Back</button>
+<div class="container">
+    <h1>Select a Section</h1>
+    <button class="main-button" data-section="abstract-section">Abstract</button>
+    <button class="main-button" data-section="text-segmentation-section">Text Segmentation</button>
+    <button class="main-button" data-section="emotion-analysis-section">Emotion Analysis</button>
+    <button class="main-button" data-section="about-novel-section">About the Novel</button>
+
+    <!-- Abstract Section -->
+    <div id="abstract-section" class="main-section">
+        <h2>Abstract</h2>
+        <p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT-4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.  </p>
     </div>
 
-    <div class="container">
-        <h1>The Project - Thesis's Chapters</h1>
-        <div class="chapters-list">
-            <ul>
-                <li>
-                    <button id="abstract-button" style="background-color: #90e0ef; border: none; padding: 20px; font-weight: bold; cursor: pointer; color: #023047;">
-                        Abstract
-                    </button>
-                </li>
-                <li>
-                    <button id="text-segmentation-button" style="background-color: #90e0ef; border: none; padding: 20px; font-weight: bold; cursor: pointer; color: #023047;">
-                        Text Segmentation
-                    </button>
-                </li>
-                <li>Emotion Analysis</li>
-                <li>About the Novel</li>
-            </ul>
+    <!-- Text Segmentation Section -->
+    <div id="text-segmentation-section" class="main-section">
+        <h2>Text Segmentation</h2>
+        <ul class="section-index">
+            <li><a href="#" data-target="sample-section">1.1 Sample</a></li>
+            <li><a href="#" data-target="analysis-method-section">1.2 Analysis Method</a></li>
+            <li><a href="#" data-target="results-section">1.3 Results</a></li>
+        </ul>
+
+        <!-- Subsections -->
+        <div id="sample-section" class="content-section">
+            <h3>1.1 Sample</h3>
+            <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of to the lighthouse in books. 
+                - H : Humanist (20, 19, 21, 30, 19, 54) 
+                - NH : Non-humanist (86, 79, 69, 57, 77, 68, 49, 87)
+                - B: Book : 28 (division of paragraphs in the original text)
+                - GPT-4: 63.</p>
         </div>
-
-        <div id="abstract-content" class="extra-content">
-            <p>
-                This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT-4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.  
-            </p>
+        <div id="analysis-method-section" class="content-section">
+            <h3>1.2 Analysis Method</h3>
+            <p>This section describes the methods used...</p>
         </div>
-
-        <div class="container">
-        <div class="index">
-            <h2>Index</h2>
-            <ul>
-                <li><a href="#research-question">1.1 Research Question</a></li>
-                <li><a href="#sample">1.2 Sample</a></li>
-                <li><a href="#materials">1.3 Materials</a></li>
-                <li><a href="#analysis">1.4 Analysis</a></li>
-                <li><a href="#discussion">1.5 Discussion and Limits</a></li>
-            </ul>
+        <div id="results-section" class="content-section">
+            <h3>1.3 Results</h3>
+            <p>Here we present the results...</p>
         </div>
-
-        <section id="research-question">
-            <h2>1.1 Research Question</h2>
-            <p><strong>General Research Question:</strong> How does GPT-4 compare with segmentations performed by human participants?</p>
-            <ul>
-                <li>Do humanistic participants tend to segment the text more closely to the original narrative structure than non-humanistic participants?</li>
-                <li>Which metrics are most effective in assessing the adherence and accuracy of segmentations (e.g., Hamming Distance vs. Jaccard Index)?</li>
-                <li>Does GPT-4 show greater similarity with segmentations of humanistic participants or non-humanistic participants? Or does it take an intermediate approach?</li>
-            </ul>
-        </section>
-
-        <section id="sample">
-            <h2>1.2 Sample</h2>
-            <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT).</p>
-        </section>
-
-        <section id="materials">
-            <h2>1.3 Materials</h2>
-            <p>During the analysis phase of the segmentations from the first chapter of <em>To the Lighthouse</em>, we used Excel to create a dataset containing binary information about the segmentations identified by participants.</p>
-            <p><strong>Python libraries used:</strong> pandas, matplotlib, numpy, seaborn.</p>
-        </section>
-
-        <section id="analysis">
-            <h2>1.4 Analysis</h2>
-            <p>In the first chapter of <em>To the Lighthouse</em>, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines.</p>
-            <p><strong>Tab. 3:</strong> Comparison Humans (Humanist and Non Humanist vs Editorial Segmentation)</p>
-            <p><strong>Tab. 4:</strong> Comparison Humans (Humanists and Non Humanists) vs GPT-4</p>
-        </section>
-
-        <section id="discussion">
-            <h2>1.5 Discussion and Limits</h2>
-            <p>This section discusses the implications and limitations of the analysis. Key findings and future research directions are highlighted.</p>
-        </section>
     </div>
+
+    <!-- Emotion Analysis Section -->
+    <div id="emotion-analysis-section" class="main-section">
+        <h2>Emotion Analysis</h2>
+        <p>Emotion Analysis content...</p>
+    </div>
+
+    <!-- About the Novel Section -->
+    <div id="about-novel-section" class="main-section">
+        <h2>About the Novel</h2>
+        <p>About the Novel content...</p>
+    </div>
+</div>
+
 <footer>
-        <p>by Nicole Biscaro</p>
-        <p>CC BY-NC-SA 4.0</p>
-    </footer>
+    <p>by Nicole Biscaro</p>
+    <p>CC BY-NC-SA 4.0</p>
+</footer>
+
 <script>
-    // Add event listeners to section links
+    // Handle main section buttons
+    document.querySelectorAll('.main-button').forEach(button => {
+        button.addEventListener('click', () => {
+            // Hide all main sections
+            document.querySelectorAll('.main-section').forEach(section => section.style.display = 'none');
+
+            // Show the clicked section
+            const sectionId = button.getAttribute('data-section');
+            document.getElementById(sectionId).style.display = 'block';
+        });
+    });
+
+    // Handle subsection links
     document.querySelectorAll('.section-index a').forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default anchor behavior
+            event.preventDefault();
 
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-            });
+            // Hide all subsections
+            document.querySelectorAll('.content-section').forEach(section => section.style.display = 'none');
 
-            // Show the targeted section
-            const targetId = event.target.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-            }
+            // Show the targeted subsection
+            const targetId = link.getAttribute('data-target');
+            document.getElementById(targetId).style.display = 'block';
         });
     });
 </script>
+
 </body>
 </html>
