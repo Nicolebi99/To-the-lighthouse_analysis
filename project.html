@@ -232,5 +232,31 @@
         <p>by Nicole Biscaro</p>
         <p>CC BY-NC-SA 4.0</p>
     </footer>
+<script>
+    // Toggle visibility of the index
+    document.getElementById('toggle-index').addEventListener('click', () => {
+        const indexList = document.getElementById('index-list');
+        indexList.style.display = indexList.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Add event listeners to section links
+    document.querySelectorAll('.section-index a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the targeted section
+            const targetId = event.target.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        });
+    });
+</script>
 </body>
 </html>
