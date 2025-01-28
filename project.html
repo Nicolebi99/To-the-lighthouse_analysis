@@ -121,14 +121,15 @@
             color: white;
         }
 
-        /* Add some spacing for better layout */
-        .content-section {
-            display: none; /* Initially hidden */
+       
+     .content-section {
+            display: none; /* Start as hidden */
             padding: 15px;
-            background-color: #023047;
+             background-color: #023047;
             border-radius: 10px;
             margin-top: 20px;
         }
+
 
         .close-button {
             background-color: #90e0ef;
@@ -252,44 +253,51 @@
     <p>by Nicole Biscaro</p>
     <p>CC BY-NC-SA 4.0</p>
 </footer>
+    
 <script>
-// Toggle sections and index visibility
-    document.querySelector('#text-segmentation-section h2').addEventListener('click', () => {
-        const index = document.querySelector('.section-index');
-        index.style.display = (index.style.display === 'none' || index.style.display === '') ? 'block' : 'none';
-    });
 
-    document.querySelectorAll('.section-index a').forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default anchor behavior
-
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Show the targeted section
-            const targetId = event.target.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-            }
+   // Toggle visibility for the main sections
+document.querySelectorAll('.main-section').forEach(section => {
+    section.addEventListener('click', () => {
+        // Hide all content sections first
+        document.querySelectorAll('.content-section').forEach(content => {
+            content.style.display = 'none';
         });
+        
+        // Then show the clicked section content
+        const contentSection = section.querySelector('.content-section');
+        if (contentSection) {
+            contentSection.style.display = contentSection.style.display === 'none' ? 'block' : 'none';
+        }
     });
-    
-      document.querySelectorAll('.close-button').forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent triggering the main section toggle
-            const content = button.parentElement;
-            content.style.display = content.style.display === 'none' ? 'block' : 'none'; // Toggle visibility
-        });
-    });
+});
 
-    // Function for back button
-    function goBack() {
-        window.history.back();
-    }
-    
+// Toggle visibility for specific sections based on menu link click
+document.querySelectorAll('.main-section h2').forEach(heading => {
+    heading.addEventListener('click', (event) => {
+        const targetSection = event.target.nextElementSibling;
+        if (targetSection && targetSection.classList.contains('content-section')) {
+            targetSection.style.display = targetSection.style.display === 'none' ? 'block' : 'none';
+        }
+    });
+});
+
+// Close the content sections when the close button is clicked
+document.querySelectorAll('.close-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent triggering the main section toggle
+        const content = button.closest('.content-section');
+        if (content) {
+            content.style.display = 'none'; // Hide the clicked content
+        }
+    });
+});
+
+// Function to go back to the previous page
+function goBack() {
+    window.history.back();
+}
+ 
     
 </script>
 </body>
