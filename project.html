@@ -275,19 +275,22 @@
     <p>by Nicole Biscaro</p>
     <p>CC BY-NC-SA 4.0</p>
 </footer>
-    
-<script>
 
 <script>
-// Mostra il contenuto delle sezioni principali quando cliccate
+// Mostra/Nasconde il contenuto delle sezioni principali
 document.querySelectorAll('.main-section').forEach(section => {
-    section.addEventListener('click', () => {
-        // Nasconde tutte le altre sezioni di contenuto
+    section.addEventListener('click', (event) => {
+        // Evita conflitti con il pulsante "Close"
+        if (event.target.classList.contains('close-button')) {
+            return;
+        }
+
+        // Nasconde tutte le altre sezioni
         document.querySelectorAll('.content-section').forEach(content => {
             content.style.display = 'none';
         });
 
-        // Mostra il contenuto della sezione cliccata
+        // Mostra solo la sezione cliccata
         const contentSection = section.querySelector('.content-section');
         if (contentSection) {
             contentSection.style.display = 'block';
@@ -295,29 +298,31 @@ document.querySelectorAll('.main-section').forEach(section => {
     });
 });
 
-// Mostra la sezione corretta quando clicchi sui link di "Text Segmentation"
+// Navigazione nelle sezioni specifiche di "Text Segmentation"
 document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => {
     link.addEventListener('click', (event) => {
-        event.preventDefault(); // Previeni comportamento predefinito del link
+        event.preventDefault(); // Blocca il comportamento predefinito del link
+
+        // Nasconde tutte le altre sezioni
+        document.querySelectorAll('.content-section').forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // Mostra la sezione specifica
         const targetId = link.getAttribute('data-target');
         const targetSection = document.getElementById(targetId);
-
         if (targetSection) {
-            // Nasconde tutte le altre sezioni
-            document.querySelectorAll('.content-section').forEach(content => {
-                content.style.display = 'none';
-            });
-
-            // Mostra la sezione specificata
             targetSection.style.display = 'block';
         }
     });
 });
 
-// Chiudi le sezioni quando clicchi sul pulsante "Close"
+// Pulsante "Close" per chiudere le sezioni
 document.querySelectorAll('.close-button').forEach(button => {
     button.addEventListener('click', (event) => {
         event.stopPropagation(); // Evita che il click si propaghi al genitore
+
+        // Nasconde la sezione contenente il pulsante "Close"
         const content = button.closest('.content-section');
         if (content) {
             content.style.display = 'none';
@@ -325,15 +330,6 @@ document.querySelectorAll('.close-button').forEach(button => {
     });
 });
 
-// Previeni conflitti con "Emotion Analysis" e "About the Novel"
-document.querySelectorAll('#emotion-analysis-section, #about-novel').forEach(section => {
-    section.addEventListener('click', () => {
-        const contentSection = section.querySelector('.content-section');
-        if (contentSection) {
-            contentSection.style.display = contentSection.style.display === 'block' ? 'none' : 'block';
-        }
-    });
-});
 </script>
 </body>
 </html>
