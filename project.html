@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Text Segmentation - To the Lighthouse Analysis</title>
     <style>
-         body {
+            body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -21,7 +21,7 @@
         header {
             background-color: #0077b6;
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
             text-align: left;
         }
 
@@ -112,52 +112,6 @@
             font-size: 0.8rem;
             padding-right: 20px;
             color: white;
-        }
-
-        /* Contenitori per le sezioni specifiche */
-        .abstract-container,
-        .text-segmentation-container,
-        .emotion-analysis-container,
-        .about-novel-container {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 10px;
-            background-color: #0077b6;
-        }
-
-        .abstract-container p,
-        .text-segmentation-container p,
-        .emotion-analysis-container p,
-        .about-novel-container p {
-            margin: 10px 0;
-        }
-
-        .section-index {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        .section-index li {
-            margin: 10px 0;
-        }
-
-        .section-index a {
-            display: inline-block;
-            background-color: #023047;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .section-index a:hover {
-            background-color: #0077b6;
-            color: #90e0ef;
-            transform: scale(1.1);
         }
     </style>
 </head>
@@ -264,29 +218,32 @@
     <p>CC BY-NC-SA 4.0</p>
 </footer>
 <script>
-    // Mostra/Nasconde il contenuto delle sezioni principali
+    function goBack() {
+        window.history.back();
+    }
+
     document.querySelectorAll('.main-section').forEach(section => {
-        section.addEventListener('click', (event) => {
-            if (event.target.classList.contains('close-button')) {
-                return;
-            }
-            document.querySelectorAll('.content-section').forEach(content => {
-                content.style.display = 'none';
-            });
-            const contentSection = section.querySelector('.content-section');
-            if (contentSection) {
-                contentSection.style.display = 'block';
+        section.addEventListener('click', function (event) {
+            if (!event.target.closest('.close-button')) {
+                document.querySelectorAll('.content-section').forEach(content => content.style.display = 'none');
+                section.querySelector('.content-section').style.display = 'block';
             }
         });
     });
 
     document.querySelectorAll('.close-button').forEach(button => {
-        button.addEventListener('click', (event) => {
+        button.addEventListener('click', function (event) {
             event.stopPropagation();
-            const content = button.closest('.content-section');
-            if (content) {
-                content.style.display = 'none';
-            }
+            button.closest('.content-section').style.display = 'none';
+        });
+    });
+
+    document.querySelectorAll('[data-target]').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const targetId = link.getAttribute('data-target');
+            document.querySelectorAll('.content-section').forEach(content => content.style.display = 'none');
+            document.getElementById(targetId).style.display = 'block';
         });
     });
 </script>
