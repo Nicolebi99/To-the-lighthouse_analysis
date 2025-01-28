@@ -33,19 +33,22 @@
             flex-wrap: wrap;
         }
 
-        nav a {
+        nav a, #text-segmentation-section ul li a {
             color: white;
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 25px;
+            background-color: #0077b6; /* Colore di sfondo per un design migliore */
         }
 
-        nav a:hover {
+        nav a:hover, #text-segmentation-section ul li a:hover {
             color: #90e0ef;
             transform: scale(1.1);
+            background-color: #023047; /* Cambia il colore dello sfondo al passaggio del mouse */
         }
-        
+
          .back-button {
             background-color: #0077b6;
             color: white;
@@ -260,12 +263,12 @@
   // Toggle visibility for the main sections
 document.querySelectorAll('.main-section').forEach(section => {
     section.addEventListener('click', () => {
-        // Nascondi tutte le sezioni di contenuto
+        // Nascondi tutte le altre sezioni di contenuto
         document.querySelectorAll('.content-section').forEach(content => {
             content.style.display = 'none';
         });
 
-        // Mostra la sezione specifica cliccata
+        // Mostra il contenuto della sezione cliccata
         const contentSection = section.querySelector('.content-section');
         if (contentSection) {
             contentSection.style.display = 'block';
@@ -273,10 +276,10 @@ document.querySelectorAll('.main-section').forEach(section => {
     });
 });
 
-// Toggle specific sections from the Text Segmentation index
+// Toggle visibility for links in the Text Segmentation index
 document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => {
     link.addEventListener('click', (event) => {
-        event.preventDefault(); // Previene il comportamento di default del link
+        event.preventDefault(); // Previeni comportamento predefinito del link
         const targetId = link.getAttribute('data-target');
         const targetSection = document.getElementById(targetId);
 
@@ -286,7 +289,7 @@ document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => 
                 content.style.display = 'none';
             });
 
-            // Mostra solo la sezione target
+            // Mostra la sezione target specifica
             targetSection.style.display = 'block';
         }
     });
@@ -295,10 +298,10 @@ document.querySelectorAll('#text-segmentation-section ul li a').forEach(link => 
 // Close the content sections when the close button is clicked
 document.querySelectorAll('.close-button').forEach(button => {
     button.addEventListener('click', (event) => {
-        event.stopPropagation(); // Impedisce che l'evento si propaghi alla sezione principale
+        event.stopPropagation(); // Evita propagazione dell'evento al genitore
         const content = button.closest('.content-section');
         if (content) {
-            content.style.display = 'none'; // Nasconde la sezione
+            content.style.display = 'none';
         }
     });
 });
