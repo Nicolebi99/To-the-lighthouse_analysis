@@ -44,6 +44,15 @@
             margin: 20px;
             display: inline-block;
         }
+        p {
+            line-height: 1.6; /* Aumenta lo spazio tra le righe */
+            margin-bottom: 15px; /* Aggiunge spazio sotto ogni paragrafo */
+        }
+        .highlight {
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
         .container {
             padding: 20px;
             text-align: left;
@@ -198,11 +207,11 @@
             <p>In the first chapter of To the Lighthouse, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines. Each participant analyzed the text, inserting a segmentation bar where they thought a significant event ended. We then numbered the identified lines for each participant and converted the data to binary numbers (0 if no segmentation, 1 if the sample segmented into that line). This conversion facilitated the graphical representation and classification of segmentations, allowing clear visualization of differences.</p>
             <img src="Text_Segm.png" alt="Text Segmentation Analysis" style="width:100%; max-width:800px; display:block; margin:auto;">
        
-            <p>Then we continued the analysis by calculating Hamming Distance, a measure commonly used in text segmentation studies to assess similarity between segments (Michelmann et al., 2023). This measure is concerned with analyzing the dissimilarity between two binary sequences (sequences composed of only “0”s and “1”s); by counting how many positions differ between the two vectors. This value thus indicates how similar or different the detected segment boundaries are relative to the reference profile, considering not only the shared segmentation points but also the positions where the boundaries differ (including the “0”s).
+            <p>Then we continued the analysis by calculating <span class="highlight">Hamming Distance</span>, a measure commonly used in text segmentation studies to assess similarity between segments (Michelmann et al., 2023). This measure is concerned with analyzing the dissimilarity between two binary sequences (sequences composed of only “0”s and “1”s); by counting how many positions differ between the two vectors. This value thus indicates how similar or different the detected segment boundaries are relative to the reference profile, considering not only the shared segmentation points but also the positions where the boundaries differ (including the “0”s).
 For example, out of a total of 100 positions (341 in our case), if the two vectors (human and GPT-4 samples) differ in 10 positions, the Hamming Distance would be 10/100 = 0.1. This indicates that 10% of the positions are different between the two vectors.
 In the case of the first human sample, presented in Table 3 below, with a total of 341 positions (rows in the first chapter), a Hamming Distance of 0.070 indicates that 7% of the positions differ from the book’s segmentation model, corresponding to 24/341. The greater the distance, the greater the dissimilarity between the segmentations compared to the original structure.
-Second, we calculated the Jaccard Distance, a statistical metric commonly used to measure the dissimilarity between two binary sets. The Jaccard Distance evaluates the agreement of segmentation points (where both vectors have a “1”) only at the points in common, without considering the positions where they differ.
-For example, in the case of the first human sample, which shows a dissimilarity of 7% according to Hamming Distance (thus a similarity of 93% with the segmentation provided by the editorial text), Jaccard’s Distance indicates a 66.6% dissimilarity. This means that 33.4% of the segmentation points (positions with a “1”) are shared between the two vectors.
+Second, we calculated the <span class="highlight">Jaccard Distance</span>, a statistical metric commonly used to measure the dissimilarity between two binary sets. The Jaccard Distance evaluates the agreement of segmentation points (where both vectors have a “1”) only at the points in common, without considering the positions where they differ.
+For example, in the case of the first human sample, which shows a dissimilarity of <span class="hightlight">7%</span> according to Hamming Distance (thus a similarity of 93% with the segmentation provided by the editorial text), Jaccard’s Distance indicates a 66.6% dissimilarity. This means that 33.4% of the segmentation points (positions with a “1”) are shared between the two vectors.
 Consequently, the Hamming Distance is effective in assessing the overall global dissimilarity, while the Jaccard Distance is more specific in evaluating the shared segmentation points.
 </p>
             <table>
