@@ -62,6 +62,31 @@
             border-radius: 10px;
             margin-top: 20px;
         }
+        .index-section {
+            background-color: #0077b6;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .index-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .index-section li {
+            padding: 5px 0;
+        }
+
+        .index-section a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .index-section a:hover {
+            color: #90e0ef;
+        }
         .close-button {
             background-color: #90e0ef;
             color: #023047;
@@ -100,7 +125,7 @@
 <div class="abstract-container main-section">
     <h2>Abstract</h2>
     <div class="content-section">
-        <p>TThis thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT- 4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
+        <p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT- 4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
         <button class="close-button">Close</button>
     </div>
 </div>
@@ -112,6 +137,26 @@
         <button class="close-button">Close</button>
     </div>
 </div>
+
+<div class="index-section">
+    <h2>Index</h2>
+    <ul>
+        <li><a href="#section-1">1.1 Sample</a></li>
+        <li><a href="#section-2">1.2 Materials</a></li>
+        <li><a href="#section-3">1.3 Analysis</a></li>
+        <li><a href="#section-4">1.4 Results</a></li>
+    </ul>
+</div>
+
+    <div id="section-1" class="content-section">
+    <h2>1.1 Sample</h2>
+    <p>My sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. I divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, I included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of To the Lighthouse in books.</p>
+    <p>Humanities 2023/2024 - H : Humanist (20, 19, 21, 30, 19, 54)<br>
+    - NH : Non-humanist (86, 79, 69, 57, 77, 68, 49, 87)<br>
+    - B: Book : 28 (division of paragraphs in the original text) - GPT-4: 63.</p>
+    <button class="close-button">Close</button>
+</div>
+
 
 <div class="emotion-analysis-container main-section">
     <h2>Emotion Analysis</h2>
