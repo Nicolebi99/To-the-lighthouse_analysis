@@ -3,49 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Text Segmentation - To the Lighthouse Analysis</title>
     <style>
-            body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
             color: white;
             background: url('waves.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-blend-mode: overlay;
             background-color: rgba(3, 4, 94, 0.9);
         }
-
         header {
             background-color: #0077b6;
             color: white;
             padding: 10px 20px;
             text-align: left;
         }
-
         nav {
-            margin-top: 10px;
             background-color: #023047;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            padding: 10px 0;
         }
-
         nav a {
             color: white;
             text-decoration: none;
             padding: 14px 20px;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
         }
-
-        nav a:hover {
-            color: #90e0ef;
-            transform: scale(1.1);
-        }
-
         .back-button {
             background-color: #0077b6;
             color: white;
@@ -53,43 +40,27 @@
             border-radius: 25px;
             text-decoration: none;
             font-size: 1rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
             margin: 20px;
             display: inline-block;
         }
-
-        .back-button:hover {
-            background-color: #023047;
-            color: #90e0ef;
-            transform: translateY(-3px);
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-        }
-
         .container {
             padding: 20px;
             text-align: left;
-            min-height: calc(100vh - 130px);
-            box-sizing: border-box;
         }
-
         .main-section {
             margin-bottom: 20px;
             padding: 15px;
             background-color: #0077b6;
-            color: white;
             border-radius: 10px;
             cursor: pointer;
         }
-
         .content-section {
-            display: none; /* Start hidden */
+            display: none;
             padding: 15px;
             background-color: #023047;
             border-radius: 10px;
             margin-top: 20px;
         }
-
         .close-button {
             background-color: #90e0ef;
             color: #023047;
@@ -100,12 +71,6 @@
             border: none;
             margin-top: 20px;
         }
-
-        .close-button:hover {
-            background-color: #023047;
-            color: white;
-        }
-
         footer {
             margin-top: 20px;
             text-align: right;
@@ -116,7 +81,6 @@
     </style>
 </head>
 <body>
-
 <header>
     <h1>Exploring To the Lighthouse through Digital and Public Humanities</h1>
 </header>
@@ -124,104 +88,55 @@
 <nav>
     <a href="index.html">HOME</a>
     <a href="project.html">THE PROJECT</a>
-    <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
+    <a href="visualization.html">VISUALIZATION</a>
     <a href="about.html">ABOUT ME</a>
 </nav>
 
- <div class="navigation">
-        <button class="back-button" onclick="goBack()">&#8592; Back</button>
-    </div>
-    
-    
- <div class="abstract-container main-section" id="abstract-section">
+<div class="navigation">
+    <button class="back-button" onclick="goBack()">&#8592; Back</button>
+</div>
+
+<div class="abstract-container main-section">
     <h2>Abstract</h2>
     <div class="content-section">
-        <p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT-4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
-    <button class="close-button">Close</button>
+        <p>This thesis aims to conduct a comparative analysis of human and AI capability in understanding Virginia Woolf’s work.</p>
+        <button class="close-button">Close</button>
     </div>
 </div>
 
-
-    <div class="text-segmentation-container main-section" id="text-segmentation-section">
+<div class="text-segmentation-container main-section">
     <h2>Text Segmentation</h2>
     <div class="content-section">
-        <p>Explore the different segments of the text by selecting a section below:</p>
-        <ul>
-            <li><a href="#" data-target="section-1">1.1 Sample</a></li>
-            <li><a href="#" data-target="section-2">1.2 Materials</a></li>
-            <li><a href="#" data-target="section-3">1.3 Analysis</a></li>
-            <li><a href="#" data-target="section-4">1.4 Results</a></li>
-        </ul>
+        <p>Explore different segments of the text.</p>
         <button class="close-button">Close</button>
     </div>
 </div>
 
-
-        <!-- Content sections -->
-        <div id="section-1" class="content-section">
-            <h2>1.1 Sample</h2>
-        <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of to the lighthouse in books.
-            - H : Humanist (20, 19, 21, 30, 19, 54) 
-            - NH : Non-humanist (86, 79, 69, 57, 77, 68, 49, 87)
-            - B: Book : 28 (division of paragraphs in the original text)
-            - GPT-4: 63.</p>
-            <button class="close-button">Close</button>
-        </div>
-
-    <div id="section-2" class="content-section">
-        <h2>1.2 Materials</h2>
-        <p>During the analysis phase of the segmentations from the first chapter of To the Lighthouse, we used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations.
-            Python libraries used: pandas, matplotlib, numpy, seaborn.
-            <button class="close-button">Close</button>
-        </p>
-    </div>
-
-    <div id="section-3" class="content-section">
-        <h2>1.3 Analysis</h2>
-        <p>Here we present the results of the segmentation process, highlighting key patterns and insights discovered during the analysis.</p>
-     <div style="text-align: center; margin-top: 20px;">
-        <div style="text-align: center; margin-top: 20px;">
-        <button class="close-button">Close</button>
-    </div>
-      
-    
-    <div id="section-4" class="content-section">
-        <h2>1.4 Results</h2>
-        <p>In the first section of the study, the method of Text Segmentation, a fundamental tool for analyzing the division of text into events, was introduced in both human and automated methods. To this end, it was decided to compare the first chapter of the novel To the Lighthouse with segmentations obtained from a human sample (53 segmentations) and from GPT-4 (63 segmentations). To measure the similarity between segmentations, Hamming and Jaccard distances were calculated by transforming the data into binary vectors (where 1 indicates the presence of a segmentation in a sentence, and 0 its absence, out of a total of 341 sentences). The results showed a Hamming distance of 0.138 (similarity: 86.16%) and a Jaccard distance of 0.564 (similarity: 43.60%). The higher similarity shown by Hamming’s distance reflects the many common points where segmentation does not occur, while Jaccard’s distance focuses exclusively on segmentation points, showing that less than half of the segmentations coincide.
-            The human sample was then separated into two groups: Humanists and Non Humanists, based on their undergraduate background, on which the same distance analysis was carried out, comparing in the former case, the textual segmentation provided by the editorial paragraphing, then the division of sections within the book; and that by GPT-4 containing the 63 segments.
-            Both in the individual cases and in the overall analysis, humanists showed a greater closeness to editorial paragraphing, with a mean Hamming distance of 0.08 (similarity: 91.98%) and a Jaccard distance of 0.645 (similarity: 35.55%). In detail, the minimum values found for humanists were a Hamming distance of 0.137 (86.3%) and a Jaccard distance of 0.734 (26.6%), while the maximum values were 0.035 (96.5%) and 0.387 (61.3%), respectively. For Non Humanists, Hamming’s average distance was 0.153 (84.73%) and Jaccard’s was 0.686 (31.36%). The lowest values recorded were a Hamming distance of 0.202 (79.8%) and a Jaccard distance of 0.758 (24.2%), while the highest values were 0.111 (88.9%) and 0.629 (37.1%), respectively. 
-            Analyzing the GPT-4 data in relation to the two groups, it is observed that humanists obtained a mean Hamming distance of 0.145 (similarity: 85.43%) and a Jaccard distance of 0.714 (similarity: 28.58%). Non Humanists, on the other hand, reported a mean Hamming distance of 0.132 (similarity: 86.71%) and a Jaccard distance of 0.451 (similarity: 54.86%), indicating a greater affinity with this group than humanists in the segmentation generated by GPT-4.
-            These data suggest that humanists tend to segment text more like editorial paragraphes, with fewer segmentations, probably related to a more literary approach. In contrast, non-humanists exhibit more frequent and standardized segmentation, reflecting a more analytical approach. GPT-4 stands as an average between the two groups, with a numerical distribution of segmentations similar to humanists and greater agreement with Non Humanists at segmentation points.
-            </p>
-        <button class="close-button">Close</button>
-        </div>
-    
-   <div class="emotion-analysis-container main-section" id="emotion-analysis-section">
+<div class="emotion-analysis-container main-section">
     <h2>Emotion Analysis</h2>
     <div class="content-section">
-        <p>Explore the emotional impact of the novel, analyzing key passages and the feelings they evoke.</p>
+        <p>Explore the emotional impact of the novel.</p>
         <button class="close-button">Close</button>
     </div>
 </div>
 
-<div class="about-novel-container main-section" id="about-novel-section">
+<div class="about-novel-container main-section">
     <h2>About the Novel</h2>
     <div class="content-section">
-        <p>Matrix of Correlation, 10 top characters, Characters</p>
+        <p>Key insights on characters and themes.</p>
         <button class="close-button">Close</button>
     </div>
 </div>
-
 
 <footer>
     <p>by Nicole Biscaro</p>
     <p>CC BY-NC-SA 4.0</p>
 </footer>
+
 <script>
     function goBack() {
         window.history.back();
     }
-
     document.querySelectorAll('.main-section').forEach(section => {
         section.addEventListener('click', function (event) {
             if (!event.target.closest('.close-button')) {
@@ -230,22 +145,13 @@
             }
         });
     });
-
     document.querySelectorAll('.close-button').forEach(button => {
         button.addEventListener('click', function (event) {
             event.stopPropagation();
             button.closest('.content-section').style.display = 'none';
         });
     });
-
-    document.querySelectorAll('[data-target]').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const targetId = link.getAttribute('data-target');
-            document.querySelectorAll('.content-section').forEach(content => content.style.display = 'none');
-            document.getElementById(targetId).style.display = 'block';
-        });
-    });
 </script>
 </body>
 </html>
+
