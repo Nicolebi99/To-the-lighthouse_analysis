@@ -189,6 +189,10 @@ color: white;
 <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
 <a href="about.html">ABOUT ME</a>
 </nav>
+  <div class="navigation">
+        <button class="back-button" onclick="goBack()">&#8592; Back</button>
+    </div>
+  
 <div class="container">
 <div class="section">
 <h2>Abstract</h2>
@@ -232,11 +236,13 @@ color: white;
 </tr>
 </tbody>
 </table>
+<button class="close-button">Close</button>
 </div>
 
 <div id="section-2" class="subsection">
 <h3>1.2 Materials</h3>
 <p>During the analysis phase of the segmentations from the first chapter of To the Lighthouse, I used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations. Python libraries used: pandas, matplotlib, numpy, seaborn.</p>
+<button class="close-button">Close</button>
 </div>
 
 <div id="section-3" class="subsection">
@@ -302,6 +308,7 @@ Consequently, the Hamming Distance is effective in assessing the overall global 
 <tr><td>H14: HUMANIST</td><td>0.129 (Similarity: 87.1%)</td><td>0.550 (Similarity: 45%)</td></tr>
 </table>
 <p class="caption">Tab. 4: Comparison Humans (Humanists and Non-Humanists) vs GPT-4.</p>
+<button class="close-button">Close</button>
 </div>
 
 <div id="section-4" class="subsection">
@@ -335,11 +342,14 @@ Overall, this study represents a useful and potentially fruitful experiment for 
 <h3>2.1 Sample</h3>
                 <p>Descrizione del campione usato per l'analisi emotiva...</p>
                 <p>The experiment was conducted on a sample of 26 human participants, consisting of 15 women and 11 men, comprising between 25 and 30 years of age.</p>
+<button class="close-button">Close</button>
 </div>
+  
 <div id="emotion-2" class="subsection">
 <h3>2.2 Materials</h3>
                 <p>Strumenti e metodi utilizzati per l'analisi emotiva...</p>
                 <p>To conduct this Emotion Analysis (EA) study, we prepared a document containing instructions and steps to analyze distributed to participants via word of mouth and social networks. The collected data were organized into a JSON file, which was later imported into Python for processing and creating the graphical visualizations. For data analysis and representation, we used Python libraries pandas, matplotlib, seaborn.</p>
+<button class="close-button">Close</button>
 </div>
 
 <div id="section-3" class="subsection">
@@ -348,7 +358,9 @@ Overall, this study represents a useful and potentially fruitful experiment for 
         <p>Three separate passages from the novel To the Lighthouse were chosen for the following analysis, each representative of one of the novel's three main sections (The Window, Time Passes and The Lighthouse). Before subjecting the texts to analysis, a brief contextualization of each passage was provided to the human participants, as GPT-4, due to its knowledge of the novel, had an advantage over human readers in understanding the narrative context.
 
 </p>
+<button class="close-button">Close</button>
 </div>
+  
 <div id="emotion-4" class="subsection">
 <h3>2.4 Results</h3>
 <p>Risultati dell'analisi emotiva confrontati con diversi metodi...</p>
@@ -388,16 +400,19 @@ The journey, however, turns out to be full of conflicts and difficulties, which 
 
 <br>
 <iframe src="top_10_characters_appearances.html" width="100%" height="600px" style="border:none;"></iframe>
+<button class="close-button">Close</button>
 </div>
 
 <div id="novel-2" class="subsection">
 <h3>2. Comparison between Vader and GPT-4</h3>
 <p>Analisi comparativa tra Vader e GPT-4 nell'interpretazione del testo...</p>
+<button class="close-button">Close</button>
 </div>
 
 <div id="novel-3" class="subsection">
 <h3>3. Matrix of Correlation</h3>
 <p>Presentazione della matrice di correlazione tra emozioni e segmentazione...</p>
+  <button class="close-button">Close</button>
 </div>
 </div>
 </div>
@@ -405,136 +420,7 @@ The journey, however, turns out to be full of conflicts and difficulties, which 
 <p>by Nicole Biscaro</p>
 <p>CC BY-NC-SA 4.0</p>
 </footer>
-
-<script>
-function goBack() {
-window.history.back();
-}
-document.querySelectorAll('.main-section').forEach(section => {
-section.addEventListener('click', function (event) {
-if (!event.target.closest('.close-button')) {
-document.querySelectorAll('.content-section').forEach(content => content.style.display = 'none');
-section.querySelector('.content-section').style.display = 'block';
-}
-});
-});
-document.querySelectorAll('.close-button').forEach(button => {
-button.addEventListener('click', function (event) {
-event.stopPropagation();
-button.closest('.content-section').style.display = 'none';
-});
-});
-
-function toggleSection(sectionId) {
-var section = document.getElementById(sectionId);
-if (section.style.display === "none" || section.style.display === "") {
-section.style.display = "block";
-} else {
-section.style.display = "none";
-}
-}
-</script>
-</body>
-</html>
-    <h1>Exploring To the Lighthouse through Digital and Public Humanities</h1>
-</header>
-
-<nav>
-    <a href="index.html">HOME</a>
-    <a href="project.html">THE PROJECT</a>
-    <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
-    <a href="about.html">ABOUT ME</a>
-</nav>
-
- <div class="navigation">
-        <button class="back-button" onclick="goBack()">&#8592; Back</button>
-    </div>
-    
-    
- <div class="abstract-container main-section" id="abstract-section">
-    <h2>Abstract</h2>
-    <div class="content-section">
-        <p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT-4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
-    <button class="close-button">Close</button>
-    </div>
-</div>
-
-
-    <div class="text-segmentation-container main-section" id="text-segmentation-section">
-    <h2>Text Segmentation</h2>
-    <div class="content-section">
-        <p>Explore the different segments of the text by selecting a section below:</p>
-        <ul>
-            <li><a href="#" data-target="section-1">1.1 Sample</a></li>
-            <li><a href="#" data-target="section-2">1.2 Materials</a></li>
-            <li><a href="#" data-target="section-3">1.3 Analysis</a></li>
-            <li><a href="#" data-target="section-4">1.4 Results</a></li>
-        </ul>
-        <button class="close-button">Close</button>
-    </div>
-</div>
-
-
-        <!-- Content sections -->
-        <div id="section-1" class="content-section">
-            <h2>1.1 Sample</h2>
-        <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of to the lighthouse in books.
-            - H : Humanist (20, 19, 21, 30, 19, 54) 
-            - NH : Non-humanist (86, 79, 69, 57, 77, 68, 49, 87)
-            - B: Book : 28 (division of paragraphs in the original text)
-            - GPT-4: 63.</p>
-            <button class="close-button">Close</button>
-        </div>
-
-    <div id="section-2" class="content-section">
-        <h2>1.2 Materials</h2>
-        <p>During the analysis phase of the segmentations from the first chapter of To the Lighthouse, we used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations.
-            Python libraries used: pandas, matplotlib, numpy, seaborn.
-            <button class="close-button">Close</button>
-        </p>
-    </div>
-
-    <div id="section-3" class="content-section">
-        <h2>1.3 Analysis</h2>
-        <p>Here we present the results of the segmentation process, highlighting key patterns and insights discovered during the analysis.</p>
-     <div style="text-align: center; margin-top: 20px;">
-        <div style="text-align: center; margin-top: 20px;">
-        <button class="close-button">Close</button>
-    </div>
-      
-    
-    <div id="section-4" class="content-section">
-        <h2>1.4 Results</h2>
-        <p>In the first section of the study, the method of Text Segmentation, a fundamental tool for analyzing the division of text into events, was introduced in both human and automated methods. To this end, it was decided to compare the first chapter of the novel To the Lighthouse with segmentations obtained from a human sample (53 segmentations) and from GPT-4 (63 segmentations). To measure the similarity between segmentations, Hamming and Jaccard distances were calculated by transforming the data into binary vectors (where 1 indicates the presence of a segmentation in a sentence, and 0 its absence, out of a total of 341 sentences). The results showed a Hamming distance of 0.138 (similarity: 86.16%) and a Jaccard distance of 0.564 (similarity: 43.60%). The higher similarity shown by Hamming’s distance reflects the many common points where segmentation does not occur, while Jaccard’s distance focuses exclusively on segmentation points, showing that less than half of the segmentations coincide.
-            The human sample was then separated into two groups: Humanists and Non Humanists, based on their undergraduate background, on which the same distance analysis was carried out, comparing in the former case, the textual segmentation provided by the editorial paragraphing, then the division of sections within the book; and that by GPT-4 containing the 63 segments.
-            Both in the individual cases and in the overall analysis, humanists showed a greater closeness to editorial paragraphing, with a mean Hamming distance of 0.08 (similarity: 91.98%) and a Jaccard distance of 0.645 (similarity: 35.55%). In detail, the minimum values found for humanists were a Hamming distance of 0.137 (86.3%) and a Jaccard distance of 0.734 (26.6%), while the maximum values were 0.035 (96.5%) and 0.387 (61.3%), respectively. For Non Humanists, Hamming’s average distance was 0.153 (84.73%) and Jaccard’s was 0.686 (31.36%). The lowest values recorded were a Hamming distance of 0.202 (79.8%) and a Jaccard distance of 0.758 (24.2%), while the highest values were 0.111 (88.9%) and 0.629 (37.1%), respectively. 
-            Analyzing the GPT-4 data in relation to the two groups, it is observed that humanists obtained a mean Hamming distance of 0.145 (similarity: 85.43%) and a Jaccard distance of 0.714 (similarity: 28.58%). Non Humanists, on the other hand, reported a mean Hamming distance of 0.132 (similarity: 86.71%) and a Jaccard distance of 0.451 (similarity: 54.86%), indicating a greater affinity with this group than humanists in the segmentation generated by GPT-4.
-            These data suggest that humanists tend to segment text more like editorial paragraphes, with fewer segmentations, probably related to a more literary approach. In contrast, non-humanists exhibit more frequent and standardized segmentation, reflecting a more analytical approach. GPT-4 stands as an average between the two groups, with a numerical distribution of segmentations similar to humanists and greater agreement with Non Humanists at segmentation points.
-            </p>
-        <button class="close-button">Close</button>
-        </div>
-    
-   <div class="emotion-analysis-container main-section" id="emotion-analysis-section">
-    <h2>Emotion Analysis</h2>
-    <div class="content-section">
-        <p>Explore the emotional impact of the novel, analyzing key passages and the feelings they evoke.</p>
-        <button class="close-button">Close</button>
-    </div>
-</div>
-
-<div class="about-novel-container main-section" id="about-novel-section">
-    <h2>About the Novel</h2>
-    <div class="content-section">
-        <p>Matrix of Correlation, 10 top characters, Characters</p>
-        <button class="close-button">Close</button>
-    </div>
-</div>
-
-
-<footer>
-    <p>by Nicole Biscaro</p>
-    <p>CC BY-NC-SA 4.0</p>
-</footer>
+ 
 <script>
     function goBack() {
         window.history.back();
