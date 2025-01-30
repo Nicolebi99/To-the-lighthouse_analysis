@@ -236,13 +236,11 @@ color: white;
 </tr>
 </tbody>
 </table>
-<button class="close-button">Close</button>
 </div>
 
 <div id="section-2" class="subsection">
 <h3>1.2 Materials</h3>
 <p>During the analysis phase of the segmentations from the first chapter of To the Lighthouse, I used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations. Python libraries used: pandas, matplotlib, numpy, seaborn.</p>
-<button class="close-button">Close</button>
 </div>
 
 <div id="section-3" class="subsection">
@@ -308,7 +306,6 @@ Consequently, the Hamming Distance is effective in assessing the overall global 
 <tr><td>H14: HUMANIST</td><td>0.129 (Similarity: 87.1%)</td><td>0.550 (Similarity: 45%)</td></tr>
 </table>
 <p class="caption">Tab. 4: Comparison Humans (Humanists and Non-Humanists) vs GPT-4.</p>
-<button class="close-button">Close</button>
 </div>
 
 <div id="section-4" class="subsection">
@@ -342,14 +339,12 @@ Overall, this study represents a useful and potentially fruitful experiment for 
 <h3>2.1 Sample</h3>
                 <p>Descrizione del campione usato per l'analisi emotiva...</p>
                 <p>The experiment was conducted on a sample of 26 human participants, consisting of 15 women and 11 men, comprising between 25 and 30 years of age.</p>
-<button class="close-button">Close</button>
 </div>
   
 <div id="emotion-2" class="subsection">
 <h3>2.2 Materials</h3>
                 <p>Strumenti e metodi utilizzati per l'analisi emotiva...</p>
                 <p>To conduct this Emotion Analysis (EA) study, we prepared a document containing instructions and steps to analyze distributed to participants via word of mouth and social networks. The collected data were organized into a JSON file, which was later imported into Python for processing and creating the graphical visualizations. For data analysis and representation, we used Python libraries pandas, matplotlib, seaborn.</p>
-<button class="close-button">Close</button>
 </div>
 
 <div id="section-3" class="subsection">
@@ -358,7 +353,6 @@ Overall, this study represents a useful and potentially fruitful experiment for 
         <p>Three separate passages from the novel To the Lighthouse were chosen for the following analysis, each representative of one of the novel's three main sections (The Window, Time Passes and The Lighthouse). Before subjecting the texts to analysis, a brief contextualization of each passage was provided to the human participants, as GPT-4, due to its knowledge of the novel, had an advantage over human readers in understanding the narrative context.
 
 </p>
-<button class="close-button">Close</button>
 </div>
   
 <div id="emotion-4" class="subsection">
@@ -400,7 +394,6 @@ The journey, however, turns out to be full of conflicts and difficulties, which 
 
 <br>
 <iframe src="top_10_characters_appearances.html" width="100%" height="600px" style="border:none;"></iframe>
-<button class="close-button">Close</button>
 </div>
 
 <div id="novel-2" class="subsection">
@@ -435,12 +428,6 @@ The journey, however, turns out to be full of conflicts and difficulties, which 
         });
     });
 
-    document.querySelectorAll('.close-button').forEach(button => {
-        button.addEventListener('click', function (event) {
-            event.stopPropagation();
-            button.closest('.content-section').style.display = 'none';
-        });
-    });
 
     document.querySelectorAll('[data-target]').forEach(link => {
         link.addEventListener('click', function (event) {
