@@ -331,26 +331,23 @@ Overall, this study represents a useful and potentially fruitful experiment for 
 <div class="section">
 <h2 class="toggle-button" onclick="toggleSection('emotion-analysis')">Emotion Analysis</h2>
 <ul>
-<li><a href="#" onclick="toggleSection('emotion-1')">2.1 Sample</a></li>
-<li><a href="#" onclick="toggleSection('emotion-2')">2.2 Materials</a></li>
-<li><a href="#" onclick="toggleSection('emotion-3')">2.3 Analysis</a></li>
-<li><a href="#" onclick="toggleSection('emotion-4')">2.4 Results</a></li>
+<li><a href="#" onclick="toggleSection('emotion-1', event)">2.1 Sample</a></li>
+<li><a href="#" onclick="toggleSection('emotion-2', event)">2.2 Materials</a></li>
+<li><a href="#" onclick="toggleSection('emotion-3', event)">2.3 Analysis</a></li>
+<li><a href="#" onclick="toggleSection('emotion-4', event)">2.4 Results</a></li>
 </ul>
 <div id="emotion-1" class="subsection">
 <h3>2.1 Sample</h3>
-                <p>Descrizione del campione usato per l'analisi emotiva...</p>
                 <p>The experiment was conducted on a sample of 26 human participants, consisting of 15 women and 11 men, comprising between 25 and 30 years of age.</p>
 </div>
   
 <div id="emotion-2" class="subsection">
 <h3>2.2 Materials</h3>
-                <p>Strumenti e metodi utilizzati per l'analisi emotiva...</p>
                 <p>To conduct this Emotion Analysis (EA) study, we prepared a document containing instructions and steps to analyze distributed to participants via word of mouth and social networks. The collected data were organized into a JSON file, which was later imported into Python for processing and creating the graphical visualizations. For data analysis and representation, we used Python libraries pandas, matplotlib, seaborn.</p>
 </div>
 
 <div id="section-3" class="subsection">
 <h3>2.3 Analysis</h3>
-        <p>Risultati del processo di segmentazione evidenziando pattern chiave...</p>
         <p>Three separate passages from the novel To the Lighthouse were chosen for the following analysis, each representative of one of the novel's three main sections (The Window, Time Passes and The Lighthouse). Before subjecting the texts to analysis, a brief contextualization of each passage was provided to the human participants, as GPT-4, due to its knowledge of the novel, had an advantage over human readers in understanding the narrative context.
 
 </p>
@@ -358,16 +355,35 @@ Overall, this study represents a useful and potentially fruitful experiment for 
   
 <div id="emotion-4" class="subsection">
 <h3>2.4 Results</h3>
-<p>Risultati dell'analisi emotiva confrontati con diversi metodi...</p>
+<p><strong>LIMITATIONS</strong></p>
+  <br>
+<p>In conclusion of the analysis conducted on the three different steps of To the Lighthouse on the comparison between the human and GPT-4 samples, it is necessary to point out the limitations present in the experiment: limitations of the human sample (26 participants, with a predominance of females), all belonging to the same age group (25-30 years old) and the same region of origin (Veneto).
+As in the previous chapter, this, leads to a certain cultural and generational bias, where participants because of the same background, could influence the results obtained.
+Because of this reason, it would therefore be useful to expand the experiment to a larger sample, both in terms of age and cultural background.
+On the other hand, if we consider the limitations of the systems used, we can point out, how, emotions such as surprise or disgust, may be interpreted differently by human readers than emotions of easier agreement (joy, sadness, fear).</p>
+<br>
+  <br>
+<p><strong>DISCUSSION</strong></p>
+<br>
+<p>To the general Research Question, whether the emotional perceptions between humans and GPT-4 differ in the analyzed steps of To the Lighthouse, the answer is largely negative: the data show significant agreement between the human and AI samples’ evaluations, with a high overall similarity of 83.33% (15 out of 18 emotions are found to be similar or oscillating by a single value), based on the values in Fig. 10. Nevertheless, there are three notable oscillations, two of which are present in the second step, and one in the third.
+
+Recall that the points where the samples diverge is the sadness in the second passage (9/10 for GPT-4 and 4/10 for humans), probably derived from the fact that GPT-4 can recognize symbolic and descriptive elements that emphasize a sense of abandonment and loss; such as the destructive, progressive decaying nature of the home, and especially the sudden death of Mrs. Ramsay. It is therefore likely that ChatGPT’s algorithm recognizes such sentiments as absolutely negative, while humans are able to pick up more subtle, melancholic undertones within the text.
+Also in the same passage, an unusual value is the 7/10 fear from GPT-4 and 4/10 from humans; which could always stem from the way the AI handles the interpretation of language and visual images in the text: elements such as “wind and destruction,” along with the void left by Mrs. Ramsay's disappearance. Ramsay and the aforementioned description of the house, may be perceived as signals of vulnerability and danger, intensifying the level of fear; which is insufficient in human perception, perhaps because they are perceived by the samples as inevitable happenings or an existential reflection rather than a real source of threat.
+Finally, in the third passage a significant difference emerges between sadness ratings, rated 7/10 by humans and 3/10 by GPT-4. In this passage, the scene describes a moment of contentment on the part of James Ramsay, who finally receives his father's approval as he steers the ship toward the lighthouse, together with his sister Cam. GPT-4 probably focuses particularly on the aspect of pride and satisfaction on James's part, neglecting the side of melancholy dictated by the desire for paternal approval and the remembrance of the trip to the lighthouse in the first chapter of the novel when he was a child and the family had not yet overcome the tragedies that occurred later. 
+Turning instead to the specific question, in which it was asked whether there was any difference in male and female analysis on the same passages in the novel, only 2 passages out of 18 would be considered “different” (by more than one point), resulting in a similarity of 88.89%. precisely, the discrepancies concern the feeling of disgust in the second passage, where women attributed 1/10, and men 3/10; and fear in the third passage (women 1/10 and men 4/10). Interestingly, these slight discrepancies reflect interpretations between genders on issues such as abandonment and paternal judgment. 
+In conclusion, the analysis conducted on the passages in To the Lighthouse suggests that GPT-4 represents a valuable tool for the Emotion analysis of complex literary texts, capturing the subtlety of the six emotions used, as opposed to the simple “positive, neutral and negative” polarity seen in previous studies; with some relevant differences, due to the different interpretation of symbolic elements and complex emotional situations that are subjectively analyzed by the individual subject; particularly in subtle emotions such as the sphere of sadness and disgust. 
+This study wishes to suggest a yet unexplored ground for analysis, where very large datasets (100,000 or more samples) should be included to simplify the work of understanding or analyzing a complex text for any kind of study or audience, in order to arrive at a deeper understanding of the emotional response to literary works such as Woolf’s.</p>
+
+
 </div>
 </div>
 
 <div class="section">
 <h2 class="toggle-button" onclick="toggleSection('about-novel')">About the Novel</h2>
 <ul>
-<li><a href="#" onclick="toggleSection('novel-1')">1. Information about To the Lighthouse</a></li>
-<li><a href="#" onclick="toggleSection('novel-2')">2. Comparison between Vader and GPT-4</a></li>
-<li><a href="#" onclick="toggleSection('novel-3')">3. Matrix of Correlation</a></li>
+<li><a href="#" onclick="toggleSection('novel-1', event)">1. Information about To the Lighthouse</a></li>
+<li><a href="#" onclick="toggleSection('novel-2', event)">2. Comparison between Vader and GPT-4</a></li>
+<li><a href="#" onclick="toggleSection('novel-3', event)">3. Matrix of Correlation</a></li>
 </ul>
 <div id="novel-1" class="subsection">
 <h3>1. Information about To the Lighthouse</h3>
