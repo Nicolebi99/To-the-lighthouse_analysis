@@ -35,14 +35,28 @@ padding: 14px 20px;
 font-weight: bold;
 }
 .back-button {
-background-color: #0077b6;
-color: white;
-padding: 10px 20px;
-border-radius: 25px;
-text-decoration: none;
-font-size: 1rem;
-margin: 20px;
-display: inline-block;
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 20px 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.close-button {
+    background-color: #90e0ef;
+    color: #023047;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    display: block;
+    width: fit-content;
 }
 p {
 line-height: 1.6; /* Aumenta lo spazio tra le righe */
@@ -87,9 +101,6 @@ table {
 width: 100%;
 font-size: 0.9rem;
 }
-}
-
-
 .container {
 padding: 20px;
 text-align: left;
@@ -158,17 +169,6 @@ cursor: pointer;
 color: white; 
 text-decoration: underline; 
 }
-
-.close-button {
-background-color: #90e0ef;
-color: #023047;
-padding: 10px 20px;
-border-radius: 25px;
-cursor: pointer;
-font-weight: bold;
-border: none;
-margin-top: 20px;
-}
 footer {
 margin-top: 20px;
 text-align: right;
@@ -184,232 +184,237 @@ color: white;
 </header>
 
 <nav>
-<a href="index.html">HOME</a>
-<a href="project.html">THE PROJECT</a>
-<a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
-<a href="about.html">ABOUT ME</a>
+  <a href="index.html">HOME</a>
+  <a href="project.html">THE PROJECT</a>
+  <a href="visualization.html">TO THE LIGHTHOUSE'S VISUALIZATION</a>
+  <a href="about.html">ABOUT ME</a>
 </nav>
-<div class="container">
-<div class="section">
-<h2>Abstract</h2>
-<p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT- 4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
-</div>
-<div class="section">
-<h2 class="toggle-button" onclick="toggleSection('text-segmentation')">Text Segmentation</h2>
-<ul>
-<li><a href="#" onclick="toggleSection('section-1')">1.1 Sample</a></li>
-<li><a href="#" onclick="toggleSection('section-2')">1.2 Materials</a></li>
-<li><a href="#" onclick="toggleSection('section-3')">1.3 Analysis</a></li>
-<li><a href="#" onclick="toggleSection('section-4')">1.4 Results</a></li>
-</ul>
-<div id="section-1" class="subsection">
-<h3>1.1 Sample</h3>
-<p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of to the lighthouse in books.
-</p>
-<table border="1" style="width: 100%; text-align: center; border-collapse: collapse; background-color: white; color: black;">
-<thead>
-<tr>
-<th>Group</th>
-<th>Segmentations</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Humanist (H)</td>
-<td>20, 19, 21, 30, 19, 54</td>
-</tr>
-<tr>
-<td>Non-Humanist (NH)</td>
-<td>86, 79, 69, 57, 77, 68, 49, 87</td>
-</tr>
-<tr>
-<td>Book (B)</td>
-<td>28 (original paragraph divisions)</td>
-</tr>
-<tr>
-<td>GPT-4</td>
-<td>63</td>
-</tr>
-</tbody>
-</table>
-</div>
+  
+  <a class="back-button" onclick="goBack()">← Back</a>
+  
+    <div class="container">
+    <div class="section">
+    <h2>Abstract</h2>
+    <p>This thesis aims to conduct a comparative analysis of the human and AI capability in understanding Virginia Woolf’s work “To the Lighthouse”, with the goal of assessing the machine’s ability to segment text and analyze emotions in the novel. Specifically, in the first task, we ask a large language model (ChatGPT-4) and a group of human readers to segment the first chapter of the novel. In the second task, we ask instead to assess the emotional perception conveyed by three different passages of the novel, considering a spectrum of six different emotions. In particular, we found that ChatGPT- 4 aligns more with STEM-background persons in terms of segmentation capabilities, while people from humanities adopt a segmentation approach that is more adherent to the editorial structure of the text. In the Emotion Analysis, the results obtained show a high correlation between the two samples, with no substantial differences between the male and female participants; though notable differences arise in its emphasis on subtle emotions, such as sadness and fear, where the model tends to amplify symbolic and descriptive elements compared to human readers. Finally, we include a navigable web resource that showcases visualizations of the emotional analysis conducted by ChatGPT-4. This platform traces the emotional evolution of the characters in the text and identifies key emotional dynamics at specific narrative moments, enabling an in-depth exploration of the potential of AI as an assistant for literary analysis.</p>
+    </div>
+  
+    <div class="section">
+    <h2 class="toggle-button" onclick="toggleSection('text-segmentation')">Text Segmentation</h2>
+    <ul>
+    <li><a href="#" onclick="toggleSection('section-1')">1.1 Sample</a></li>
+    <li><a href="#" onclick="toggleSection('section-2')">1.2 Materials</a></li>
+    <li><a href="#" onclick="toggleSection('section-3')">1.3 Analysis</a></li>
+    <li><a href="#" onclick="toggleSection('section-4')">1.4 Results</a></li>
+    </ul>
+      
+      <div id="section-1" class="subsection">
+      <h3>1.1 Sample</h3>
+      <p>The sample includes 14 participants aged 24-30, all with master’s degrees and from the Veneto region. We divided the group into humanists, i.e., those who studied in classical fields (such as literature and law), and non-humanists, from scientific-economic fields (economics, engineering). In addition, we included a comparison with the segmentation performed by GPT-4 (ChatGPT), to analyze whether and how an artificial intelligence model differed from human judgments in the perception of narrative events; and the BOOK, i.e., the original paragraph of the first chapter of to the lighthouse in books.
+      </p>
+      <table border="1" style="width: 100%; text-align: center; border-collapse: collapse; background-color: white; color: black;">
+      <thead>
+      <tr>
+      <th>Group</th>
+      <th>Segmentations</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td>Humanist (H)</td>
+      <td>20, 19, 21, 30, 19, 54</td>
+      </tr>
+      <tr>
+      <td>Non-Humanist (NH)</td>
+      <td>86, 79, 69, 57, 77, 68, 49, 87</td>
+      </tr>
+      <tr>
+      <td>Book (B)</td>
+      <td>28 (original paragraph divisions)</td>
+      </tr>
+      <tr>
+      <td>GPT-4</td>
+      <td>63</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
 
-<div id="section-2" class="subsection">
-<h3>1.2 Materials</h3>
-<p>During the analysis phase of the segmentations from the first chapter of To the Lighthouse, I used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations. Python libraries used: pandas, matplotlib, numpy, seaborn.</p>
-</div>
+    <div id="section-2" class="subsection">
+    <h3>1.2 Materials</h3>
+    <p>During the analysis phase of the segmentations from the first chapter of To the Lighthouse, I used Excel to create a dataset containing binary information about the segmentations identified by participants. This dataset was then processed using various Python libraries to create visualizations. Python libraries used: pandas, matplotlib, numpy, seaborn.</p>
+    </div>
 
-<div id="section-3" class="subsection">
-<h3>1.3 Analysis</h3>
-<p>In the first chapter of To the Lighthouse, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines. Each participant analyzed the text, inserting a segmentation bar where they thought a significant event ended. We then numbered the identified lines for each participant and converted the data to binary numbers (0 if no segmentation, 1 if the sample segmented into that line). This conversion facilitated the graphical representation and classification of segmentations, allowing clear visualization of differences.</p>
-<br>
-<img src="Text_Segm.png" alt="Text Segmentation Analysis" style="width:100%; max-width:800px; display:block; margin:auto;">
-<br>
+  <div id="section-3" class="subsection">
+  <h3>1.3 Analysis</h3>
+  <p>In the first chapter of To the Lighthouse, we conducted an in-depth analysis, dividing the text into individual sentences and segmenting it into a total of 341 lines. Each participant analyzed the text, inserting a segmentation bar where they thought a significant event ended. We then numbered the identified lines for each participant and converted the data to binary numbers (0 if no segmentation, 1 if the sample segmented into that line). This conversion facilitated the graphical representation and classification of segmentations, allowing clear visualization of differences.</p>
+  <br>
+  <img src="Text_Segm.png" alt="Text Segmentation Analysis" style="width:100%; max-width:800px; display:block; margin:auto;">
+  <br>
+  <p>Then we continued the analysis by calculating <span class="highlight">Hamming Distance</span>, a measure commonly used in text segmentation studies to assess similarity between segments (Michelmann et al., 2023). This measure is concerned with analyzing the dissimilarity between two binary sequences (sequences composed of only “0”s and “1”s); by counting how many positions differ between the two vectors. This value thus indicates how similar or different the detected segment boundaries are relative to the reference profile, considering not only the shared segmentation points but also the positions where the boundaries differ (including the “0”s).
+    For example, out of a total of 100 positions (341 in our case), if the two vectors (human and GPT-4 samples) differ in 10 positions, the Hamming Distance would be 10/100 = 0.1. This indicates that 10% of the positions are different between the two vectors.
+    In the case of the first human sample, presented in Table 3 below, with a total of 341 positions (rows in the first chapter), a Hamming Distance of 0.070 indicates that 7% of the positions differ from the book’s segmentation model, corresponding to 24/341. The greater the distance, the greater the dissimilarity between the segmentations compared to the original structure.
+    Second, we calculated the <span class="highlight">Jaccard Distance</span>, a statistical metric commonly used to measure the dissimilarity between two binary sets. The Jaccard Distance evaluates the agreement of segmentation points (where both vectors have a “1”) only at the points in common, without considering the positions where they differ.
+    For example, in the case of the first human sample, which shows a dissimilarity of <span class="hightlight">7%</span> according to Hamming Distance (thus a similarity of 93% with the segmentation provided by the editorial text), Jaccard’s Distance indicates a 66.6% dissimilarity. This means that 33.4% of the segmentation points (positions with a “1”) are shared between the two vectors.
+    Consequently, the Hamming Distance is effective in assessing the overall global dissimilarity, while the Jaccard Distance is more specific in evaluating the shared segmentation points.</p>        
+    
+    <br>
 
-<p>Then we continued the analysis by calculating <span class="highlight">Hamming Distance</span>, a measure commonly used in text segmentation studies to assess similarity between segments (Michelmann et al., 2023). This measure is concerned with analyzing the dissimilarity between two binary sequences (sequences composed of only “0”s and “1”s); by counting how many positions differ between the two vectors. This value thus indicates how similar or different the detected segment boundaries are relative to the reference profile, considering not only the shared segmentation points but also the positions where the boundaries differ (including the “0”s).
-For example, out of a total of 100 positions (341 in our case), if the two vectors (human and GPT-4 samples) differ in 10 positions, the Hamming Distance would be 10/100 = 0.1. This indicates that 10% of the positions are different between the two vectors.
-In the case of the first human sample, presented in Table 3 below, with a total of 341 positions (rows in the first chapter), a Hamming Distance of 0.070 indicates that 7% of the positions differ from the book’s segmentation model, corresponding to 24/341. The greater the distance, the greater the dissimilarity between the segmentations compared to the original structure.
-Second, we calculated the <span class="highlight">Jaccard Distance</span>, a statistical metric commonly used to measure the dissimilarity between two binary sets. The Jaccard Distance evaluates the agreement of segmentation points (where both vectors have a “1”) only at the points in common, without considering the positions where they differ.
-For example, in the case of the first human sample, which shows a dissimilarity of <span class="hightlight">7%</span> according to Hamming Distance (thus a similarity of 93% with the segmentation provided by the editorial text), Jaccard’s Distance indicates a 66.6% dissimilarity. This means that 33.4% of the segmentation points (positions with a “1”) are shared between the two vectors.
-Consequently, the Hamming Distance is effective in assessing the overall global dissimilarity, while the Jaccard Distance is more specific in evaluating the shared segmentation points.
-</p>        
+    <table>
+    <tr>
+    <th>HUMANS</th>
+    <th>HAMMING'S DISTANCE</th>
+    <th>JACCARD'S DISTANCE</th>
+    </tr>
+    <tr><td>H1: HUMANIST</td><td>0.070 (93%)</td><td>0.666 (33.4%)</td></tr>
+    <tr><td>H2: HUMANIST</td><td>0.073 (92.7%)</td><td>0.675 (32.5%)</td></tr>
+    <tr><td>H3: NON HUMANIST</td><td>0.202 (79.8%)</td><td>0.758 (24.2%)</td></tr>
+    <tr><td>H4: NON HUMANIST</td><td>0.170 (83%)</td><td>0.707 (29.3%)</td></tr>
+    <tr><td>H5: NON HUMANIST</td><td>0.143 (85.7%)</td><td>0.671 (32.9%)</td></tr>
+    <tr><td>H6: HUMANIST</td><td>0.035 (96.5%)</td><td>0.387 (61.3%)</td></tr>
+    <tr><td>H7: HUMANIST</td><td>0.093 (90.7%)</td><td>0.711 (28.9%)</td></tr>
+    <tr><td>H8: NON HUMANIST</td><td>0.114 (88.6%)</td><td>0.629 (37.1%)</td></tr>
+    <tr><td>H9: HUMANIST</td><td>0.073 (92.7%)</td><td>0.694 (30.6%)</td></tr>
+    <tr><td>H10: NON HUMANIST</td><td>0.158 (84.2%)</td><td>0.683 (31.7%)</td></tr>
+    <tr><td>H11: NON HUMANIST</td><td>0.146 (85.4%)</td><td>0.684 (31.6%)</td></tr>
+    <tr><td>H12: NON HUMANIST</td><td>0.111 (88.9%)</td><td>0.666 (33.4%)</td></tr>
+    <tr><td>H13: NON HUMANIST</td><td>0.178 (82.2%)</td><td>0.693 (30.7%)</td></tr>
+    <tr><td>H14: HUMANIST</td><td>0.137 (86.3%)</td><td>0.734 (26.6%)</td></tr>
+    </table>
+    <p class="caption">Tab. 3: Comparison of Humanists and Non-Humanists vs Editorial Segmentation.</p>
+    
+    <br>
+    <table>
+    <tr>
+    <th>HUMANS</th>
+    <th>HAMMING’S DISTANCE</th>
+    <th>JACCARD’S DISTANCE</th>
+    </tr>
+    <tr><td>H1: HUMANIST</td><td>0.143 (Similarity: 85.7%)</td><td>0.742 (Similarity: 25.8%)</td></tr>
+    <tr><td>H2: HUMANIST</td><td>0.170 (Similarity: 83%)</td><td>0.816 (Similarity: 18.4%)</td></tr>
+    <tr><td>H3: NON HUMANIST</td><td>0.140 (Similarity: 86%)</td><td>0.489 (Similarity: 51.1%)</td></tr>
+    <tr><td>H4: NON HUMANIST</td><td>0.096 (Similarity: 90.4%)</td><td>0.379 (Similarity: 62.1%)</td></tr>
+    <tr><td>H5: NON HUMANIST</td><td>0.152 (Similarity: 84.8%)</td><td>0.565 (Similarity: 43.5%)</td></tr>
+    <tr><td>H6: HUMANIST</td><td>0.137 (Similarity: 86.3%)</td><td>0.712 (Similarity: 28.8%)</td></tr>
+    <tr><td>H7: HUMANIST</td><td>0.137 (Similarity: 86.3%)</td><td>0.671 (Similarity: 32.9%)</td></tr>
+    <tr><td>H8: NON HUMANIST</td><td>0.117 (Similarity: 88.3%)</td><td>0.500 (Similarity: 50%)</td></tr>
+    <tr><td>H9: HUMANIST</td><td>0.158 (Similarity: 84.2%)</td><td>0.794 (Similarity: 20.6%)</td></tr>
+    <tr><td>H10: NON HUMANIST</td><td>0.126 (Similarity: 87.4%)</td><td>0.472 (Similarity: 52.8%)</td></tr>
+    <tr><td>H11: NON HUMANIST</td><td>0.161 (Similarity: 83.9%)</td><td>0.591 (Similarity: 40.9%)</td></tr>
+    <tr><td>H12: NON HUMANIST</td><td>0.131 (Similarity: 86.9%)</td><td>0.131 (Similarity: 86.9%)</td></tr>
+    <tr><td>H13: NON HUMANIST</td><td>0.140 (Similarity: 86%)</td><td>0.484 (Similarity: 51.6%)</td></tr>
+    <tr><td>H14: HUMANIST</td><td>0.129 (Similarity: 87.1%)</td><td>0.550 (Similarity: 45%)</td></tr>
+    </table>
+    <p class="caption">Tab. 4: Comparison Humans (Humanists and Non-Humanists) vs GPT-4.</p>
+    </div>
+    
+    <div id="section-4" class="subsection">
+    <h3>1.4 Results</h3>
+    <p><strong>LIMITATIONS</strong>
+    This study presents some important limitations to consider; the sample size is relatively small, consisting of only 14 participants. This limited number stems from logistical and practical challenges in recruiting individuals for a task that goes beyond a simple questionnaire. 
+    Another limitation might relate to the demographic composition of the participants; as they all come from the same region (Veneto), are between 24 and 30 years old. This homogeneity may influence the results, reducing the variability of responses due to the overly specific. To improve this research, it would be of interest to include more varied samples, allowing us to explore the impacts of these variables through textual segmentation analysis.
+    <br>
+    <br>
+    <strong>DISCUSSION</strong>
+    The results suggest a significant difference between Humanists and Non Humanists groups in relation to the segmentation criteria adopted: Humanists participants tend to identify segmentations that align more closely with the original structure of the narrative text (28 segments), as indicated by the lower Hamming Distance relative to the book’s segmentation (Tab. 3: Hamming similarity: 91.98%; Jaccard Distance similarity: 35.55%). In this context, Hamming Distance proves useful for measuring absolute positional differences, providing a clear indication of the degree of adherence to the original text structure. 
+    The Jaccard Distance, meanwhile, is particularly useful for assessing overlap in segmentation points, making it an effective tool for comparing how segments are placed. The complementarity of these measures reveals, in the first experiment (Table 3), a significant alignment of the Humanist sample with the author’s editorial model, suggesting a predisposition among humanities participants toward editorial-style segmentation. In the subsequent experiment, where segment positions were compared using both distance metrics, the Hamming Distance was nearly identical for Humanists (0.145) and Non Humanists participants (0.132), with a slight advantage for Non Humanists. However, a notable disparity emerged in the Jaccard Distance: Non Humanists participants demonstrated a significant numerical advantage, with 54.86% similarity compared to 28.58% for Humanists participants.
+    The nature of the text may have influenced these results; as a novel, it is intuitive that participants with a humanities background, more accustomed to literary reading, would be more in tune with the author’s narrative intentions. Non-humanities participants, on the other hand, may have applied a more analytical approach typical of reading scientific documents, leading to a more detailed and fragmented segmentation.
+    The segmentation performed by GPT-4 which resulted in 63 segments, aligns closely with that of the Non Humanists participants; indicating a preference for a more analytical breakdown of the text. Interestingly, this figure also approaches the overall average of 53 segments identified by the human sample. This observation suggests that GPT-4 may occupy a middle ground, bridging the gap between the more intuitive and organic approach seen in Humanists participants and the more fragmented and detailed style typical of Non Humanists participants.
+    This study highlights the potential utility of AI models such as ChatGPT (GPT-4) for the automatic segmentation of complex texts. An interesting extension could include a larger and more diverse sample as well as the segmentation of scientific texts to explore whether the same distinction between Humanists and Non Humanists participants holds. Comparison with scientific texts could further clarify whether academic training influences the perception of narrative structures and, thus, the way individuals (and AI models) segment a complex text.
+    Overall, this study represents a useful and potentially fruitful experiment for future research on the possibility of using models like ChatGPT for automatic text segmentation, which requires a sophisticated interaction between content understanding and recognition of narrative structures.
+    
+    </p>
+    </div>
+    </div>
 
-<br>
+    <div class="section">
+    <h2 class="toggle-button" onclick="toggleSection('emotion-analysis')">Emotion Analysis</h2>
+    <ul>
+    <li><a href="#" onclick="toggleSection('emotion-1')">2.1 Sample</a></li>
+    <li><a href="#" onclick="toggleSection('emotion-2')">2.2 Materials</a></li>
+    <li><a href="#" onclick="toggleSection('emotion-3')">2.3 Analysis</a></li>
+    <li><a href="#" onclick="toggleSection('emotion-4')">2.4 Results</a></li>
+    </ul>
+    <div id="emotion-1" class="subsection">
+    <h3>2.1 Sample</h3>
+                    <p>Descrizione del campione usato per l'analisi emotiva...</p>
+                    <p>The experiment was conducted on a sample of 26 human participants, consisting of 15 women and 11 men, comprising between 25 and 30 years of age.</p>
+    </div>
+    <div id="emotion-2" class="subsection">
+    <h3>2.2 Materials</h3>
+                    <p>Strumenti e metodi utilizzati per l'analisi emotiva...</p>
+                    <p>To conduct this Emotion Analysis (EA) study, we prepared a document containing instructions and steps to analyze distributed to participants via word of mouth and social networks. The collected data were organized into a JSON file, which was later imported into Python for processing and creating the graphical visualizations. For data analysis and representation, we used Python libraries pandas, matplotlib, seaborn.</p>
+    </div>
+    
+    <div id="section-3" class="subsection">
+    <h3>2.3 Analysis</h3>
+            <p>Risultati del processo di segmentazione evidenziando pattern chiave...</p>
+            <p>Three separate passages from the novel To the Lighthouse were chosen for the following analysis, each representative of one of the novel's three main sections (The Window, Time Passes and The Lighthouse). Before subjecting the texts to analysis, a brief contextualization of each passage was provided to the human participants, as GPT-4, due to its knowledge of the novel, had an advantage over human readers in understanding the narrative context.
+    
+    </p>
+    </div>
+    <div id="emotion-4" class="subsection">
+    <h3>2.4 Results</h3>
+    <p>Risultati dell'analisi emotiva confrontati con diversi metodi...</p>
+    </div>
+    </div>
+    
+    <div class="section">
+    <h2 class="toggle-button" onclick="toggleSection('about-novel')">About the Novel</h2>
+    <ul>
+    <li><a href="#" onclick="toggleSection('novel-1')">1. Information about To the Lighthouse</a></li>
+    <li><a href="#" onclick="toggleSection('novel-2')">2. Comparison between Vader and GPT-4</a></li>
+    <li><a href="#" onclick="toggleSection('novel-3')">3. Matrix of Correlation</a></li>
+    </ul>
+    <div id="novel-1" class="subsection">
+    <h3>1. Information about To the Lighthouse</h3>
+    <p><strong>ABOUT THE AUTHOR</strong></p>
+    <br>
+    <p>Virginia Woolf (London, January 25, 1882 - Lewes, March 28, 1941) was born as Adeline Virginia Stephen, daughter of Leslie Stephen, literary critic and historian; and Julia Prinsep Jackson. From an early age she showed considerable interest in the literary arts: collaborating with her brother Toby on the Hyde Park Gate newspaper and having access to her father’s library, where she developed a passion for the classics and the art of writing (Reid, 2024).
+    During her teenage years, however, she was marked by several family tragedies, including, in 1895, the death of her mother, which caused, in addition to intense personal grief, the sale of her seaside home, Talland House, a place that influenced the writing of To the Lighthouse. Subsequently, she faced further significant losses while studying literature and history at King's College London; such as the death of his half-sister Stella, and in, 1904, that of his father.
+    It is important to note her life later in Bloomsbury, where she moved with her brothers Toby and Vanessa, and where she met her future husband, and “partner” Leonard Woolf. Together with her future husband, Virginia would enter literary circles with prominent intellectuals of the time including Bertrand Russell, Ludwig Wittnenstein, and others, and founded the publishing house Hogarth Press, which published Sigmund Freud, James Joyce, Italo Svevo, and Virginia Woolf herself (Reid, 2024).
+    Despite considering that period of her life and her marriage to Leonard as happy moments, Virginia Woolf always struggled with deep psychological issues. These are now attributed to probable bipolar disorder, in which she alternated between euphoric moments and emotional breakdowns.
+    Virginia unfortunately, along with the heavy family losses suffered at a young age, she and her sister Vanessa were victims of sexual abuse by their half-brothers George and Gerald for many years. These traumas certainly influenced to a sense of alienation and left indelible marks on her psyche, which are reflected in several of her works, where she critiques social issues such as misogyny, violence, and the relationship between body and identity (Bond, 2000).
+    One particular study (Mishra & al., 2018) analyzed the novel The Waves (1931), through a semantic analysis, aiming to recognize the reference to the author’s suicidal tendencies: significant words such as “no,” “life,” and “death,” were found to appear approximately 1408, 130, and 44 times, respectively, throughout the novel.
+    In fact, it was found that Woolf uses expressions to create an atmosphere in which death turns out to be “positive” and “glorious,” the only solution for the attainment of serenity; in this context, the character Rhoda, represents anxieties and insecurities of the writer, later freeing herself through suicide. According to this study, in the novel, compared to her letters, in which she would seem more contained, Woolf dives free rein to her psychic frustrations, as she can hide behind the fiction of the novel. 
+    Virginia Woolf stands out in the modernist literary landscape for her innovative style that departs from the conventions of the classical 19th-century novel. As previously discussed, (Ch. I, paragraph 1, p. 5), she abandons the figure of the omniscient narrator and replaces it with the narrative technique of the stream of consciousness, which aims to represent the continuous flow of thought of the characters; paying more attention to the emotional aspect than to the interweaving of plot or external events (Sang, 2010).</p>
+    <br>
+    <p><strong>TO THE LIGHTHOUSE</strong></p>
+    <br>
+    <p>The novel in question, To the Lighthouse (1927), perfectly embodies these characteristics, as highlighted by its structure, divided into three main parts: The Window, Time Passes, and The Lighthouse.
+    Although the first and last parts are the most extended, both take place over the course of a single day, making the time in the novel reflect more psychological than real time.
+    The story is thus set between 1910 and 1920 and follows the family dynamics of the Ramsay family at their summer home on the Isle of Skye in the Hebrides, Scotland. 
+    The first part of the novel (consisting of 19 chapters) focuses on the Ramsay family (consisting the patriarch Mr. Ramsay, his wife Mrs. Ramsay and their eight children) as well as various friends and servants (Lily Briscoe, a painter who is painting a portrait of Mrs. Ramsay, Charles Tansley, William Bakes, Paul Raylely, Augustus Carmichael and others). The novel opens with six-year-old James Ramsay’s request to visit the lighthouse, a request that will immediately be denied by his father due to poor weather forecasts.
+    The second part, Time passes (consisting of 10 chapters), is set ten years later and begins with the deaths of several central characters (Mrs. Ramsay, Adrian the eldest son, and Prue from complications during childbirth) during World War. It also explores the psychological and physical desolation caused by the events. Central to this section is the figure of the housekeeper, Mrs. McNab, who returns to care for the now gloomy and dilapidated house and prepare it for the family’s return.
+    The last part, The Lighthouse (consisting of 13 chapters), sees Mr. Ramsay fulfill the promise he made to young James years earlier: to visit the lighthouse with him and his sister Cam.
+    The journey, however, turns out to be full of conflicts and difficulties, which find resolution upon reaching the destination. Meanwhile, the poet Augustus Carmichael and the painter Lily Briscoe do not participate in the trip; she resumes work on her painting of Mrs. Ramsay, and by overcoming her insecurities and doubts, she manages to complete it, finding a sense of artistic fulfillment in its realization. The novel concludes with the completion of the painting, symbolizing not only the young woman’s artistic return but also her acceptance of loss.
+    </p>
 
-<table>
-<tr>
-<th>HUMANS</th>
-<th>HAMMING'S DISTANCE</th>
-<th>JACCARD'S DISTANCE</th>
-</tr>
-<tr><td>H1: HUMANIST</td><td>0.070 (93%)</td><td>0.666 (33.4%)</td></tr>
-<tr><td>H2: HUMANIST</td><td>0.073 (92.7%)</td><td>0.675 (32.5%)</td></tr>
-<tr><td>H3: NON HUMANIST</td><td>0.202 (79.8%)</td><td>0.758 (24.2%)</td></tr>
-<tr><td>H4: NON HUMANIST</td><td>0.170 (83%)</td><td>0.707 (29.3%)</td></tr>
-<tr><td>H5: NON HUMANIST</td><td>0.143 (85.7%)</td><td>0.671 (32.9%)</td></tr>
-<tr><td>H6: HUMANIST</td><td>0.035 (96.5%)</td><td>0.387 (61.3%)</td></tr>
-<tr><td>H7: HUMANIST</td><td>0.093 (90.7%)</td><td>0.711 (28.9%)</td></tr>
-<tr><td>H8: NON HUMANIST</td><td>0.114 (88.6%)</td><td>0.629 (37.1%)</td></tr>
-<tr><td>H9: HUMANIST</td><td>0.073 (92.7%)</td><td>0.694 (30.6%)</td></tr>
-<tr><td>H10: NON HUMANIST</td><td>0.158 (84.2%)</td><td>0.683 (31.7%)</td></tr>
-<tr><td>H11: NON HUMANIST</td><td>0.146 (85.4%)</td><td>0.684 (31.6%)</td></tr>
-<tr><td>H12: NON HUMANIST</td><td>0.111 (88.9%)</td><td>0.666 (33.4%)</td></tr>
-<tr><td>H13: NON HUMANIST</td><td>0.178 (82.2%)</td><td>0.693 (30.7%)</td></tr>
-<tr><td>H14: HUMANIST</td><td>0.137 (86.3%)</td><td>0.734 (26.6%)</td></tr>
-</table>
-<p class="caption">Tab. 3: Comparison of Humanists and Non-Humanists vs Editorial Segmentation.</p>
-
-<br>
-<table>
-<tr>
-<th>HUMANS</th>
-<th>HAMMING’S DISTANCE</th>
-<th>JACCARD’S DISTANCE</th>
-</tr>
-<tr><td>H1: HUMANIST</td><td>0.143 (Similarity: 85.7%)</td><td>0.742 (Similarity: 25.8%)</td></tr>
-<tr><td>H2: HUMANIST</td><td>0.170 (Similarity: 83%)</td><td>0.816 (Similarity: 18.4%)</td></tr>
-<tr><td>H3: NON HUMANIST</td><td>0.140 (Similarity: 86%)</td><td>0.489 (Similarity: 51.1%)</td></tr>
-<tr><td>H4: NON HUMANIST</td><td>0.096 (Similarity: 90.4%)</td><td>0.379 (Similarity: 62.1%)</td></tr>
-<tr><td>H5: NON HUMANIST</td><td>0.152 (Similarity: 84.8%)</td><td>0.565 (Similarity: 43.5%)</td></tr>
-<tr><td>H6: HUMANIST</td><td>0.137 (Similarity: 86.3%)</td><td>0.712 (Similarity: 28.8%)</td></tr>
-<tr><td>H7: HUMANIST</td><td>0.137 (Similarity: 86.3%)</td><td>0.671 (Similarity: 32.9%)</td></tr>
-<tr><td>H8: NON HUMANIST</td><td>0.117 (Similarity: 88.3%)</td><td>0.500 (Similarity: 50%)</td></tr>
-<tr><td>H9: HUMANIST</td><td>0.158 (Similarity: 84.2%)</td><td>0.794 (Similarity: 20.6%)</td></tr>
-<tr><td>H10: NON HUMANIST</td><td>0.126 (Similarity: 87.4%)</td><td>0.472 (Similarity: 52.8%)</td></tr>
-<tr><td>H11: NON HUMANIST</td><td>0.161 (Similarity: 83.9%)</td><td>0.591 (Similarity: 40.9%)</td></tr>
-<tr><td>H12: NON HUMANIST</td><td>0.131 (Similarity: 86.9%)</td><td>0.131 (Similarity: 86.9%)</td></tr>
-<tr><td>H13: NON HUMANIST</td><td>0.140 (Similarity: 86%)</td><td>0.484 (Similarity: 51.6%)</td></tr>
-<tr><td>H14: HUMANIST</td><td>0.129 (Similarity: 87.1%)</td><td>0.550 (Similarity: 45%)</td></tr>
-</table>
-<p class="caption">Tab. 4: Comparison Humans (Humanists and Non-Humanists) vs GPT-4.</p>
-</div>
-
-<div id="section-4" class="subsection">
-<h3>1.4 Results</h3>
-<p><strong>LIMITATIONS</strong>
-This study presents some important limitations to consider; the sample size is relatively small, consisting of only 14 participants. This limited number stems from logistical and practical challenges in recruiting individuals for a task that goes beyond a simple questionnaire. 
-Another limitation might relate to the demographic composition of the participants; as they all come from the same region (Veneto), are between 24 and 30 years old. This homogeneity may influence the results, reducing the variability of responses due to the overly specific. To improve this research, it would be of interest to include more varied samples, allowing us to explore the impacts of these variables through textual segmentation analysis.
-<br>
-<br>
-<strong>DISCUSSION</strong>
-The results suggest a significant difference between Humanists and Non Humanists groups in relation to the segmentation criteria adopted: Humanists participants tend to identify segmentations that align more closely with the original structure of the narrative text (28 segments), as indicated by the lower Hamming Distance relative to the book’s segmentation (Tab. 3: Hamming similarity: 91.98%; Jaccard Distance similarity: 35.55%). In this context, Hamming Distance proves useful for measuring absolute positional differences, providing a clear indication of the degree of adherence to the original text structure. 
-The Jaccard Distance, meanwhile, is particularly useful for assessing overlap in segmentation points, making it an effective tool for comparing how segments are placed. The complementarity of these measures reveals, in the first experiment (Table 3), a significant alignment of the Humanist sample with the author’s editorial model, suggesting a predisposition among humanities participants toward editorial-style segmentation. In the subsequent experiment, where segment positions were compared using both distance metrics, the Hamming Distance was nearly identical for Humanists (0.145) and Non Humanists participants (0.132), with a slight advantage for Non Humanists. However, a notable disparity emerged in the Jaccard Distance: Non Humanists participants demonstrated a significant numerical advantage, with 54.86% similarity compared to 28.58% for Humanists participants.
-The nature of the text may have influenced these results; as a novel, it is intuitive that participants with a humanities background, more accustomed to literary reading, would be more in tune with the author’s narrative intentions. Non-humanities participants, on the other hand, may have applied a more analytical approach typical of reading scientific documents, leading to a more detailed and fragmented segmentation.
-The segmentation performed by GPT-4 which resulted in 63 segments, aligns closely with that of the Non Humanists participants; indicating a preference for a more analytical breakdown of the text. Interestingly, this figure also approaches the overall average of 53 segments identified by the human sample. This observation suggests that GPT-4 may occupy a middle ground, bridging the gap between the more intuitive and organic approach seen in Humanists participants and the more fragmented and detailed style typical of Non Humanists participants.
-This study highlights the potential utility of AI models such as ChatGPT (GPT-4) for the automatic segmentation of complex texts. An interesting extension could include a larger and more diverse sample as well as the segmentation of scientific texts to explore whether the same distinction between Humanists and Non Humanists participants holds. Comparison with scientific texts could further clarify whether academic training influences the perception of narrative structures and, thus, the way individuals (and AI models) segment a complex text.
-Overall, this study represents a useful and potentially fruitful experiment for future research on the possibility of using models like ChatGPT for automatic text segmentation, which requires a sophisticated interaction between content understanding and recognition of narrative structures.
-
-</p>
-</div>
-</div>
-
-<div class="section">
-<h2 class="toggle-button" onclick="toggleSection('emotion-analysis')">Emotion Analysis</h2>
-<ul>
-<li><a href="#" onclick="toggleSection('emotion-1')">2.1 Sample</a></li>
-<li><a href="#" onclick="toggleSection('emotion-2')">2.2 Materials</a></li>
-<li><a href="#" onclick="toggleSection('emotion-3')">2.3 Analysis</a></li>
-<li><a href="#" onclick="toggleSection('emotion-4')">2.4 Results</a></li>
-</ul>
-<div id="emotion-1" class="subsection">
-<h3>2.1 Sample</h3>
-                <p>Descrizione del campione usato per l'analisi emotiva...</p>
-                <p>The experiment was conducted on a sample of 26 human participants, consisting of 15 women and 11 men, comprising between 25 and 30 years of age.</p>
-</div>
-<div id="emotion-2" class="subsection">
-<h3>2.2 Materials</h3>
-                <p>Strumenti e metodi utilizzati per l'analisi emotiva...</p>
-                <p>To conduct this Emotion Analysis (EA) study, we prepared a document containing instructions and steps to analyze distributed to participants via word of mouth and social networks. The collected data were organized into a JSON file, which was later imported into Python for processing and creating the graphical visualizations. For data analysis and representation, we used Python libraries pandas, matplotlib, seaborn.</p>
-</div>
-
-<div id="section-3" class="subsection">
-<h3>2.3 Analysis</h3>
-        <p>Risultati del processo di segmentazione evidenziando pattern chiave...</p>
-        <p>Three separate passages from the novel To the Lighthouse were chosen for the following analysis, each representative of one of the novel's three main sections (The Window, Time Passes and The Lighthouse). Before subjecting the texts to analysis, a brief contextualization of each passage was provided to the human participants, as GPT-4, due to its knowledge of the novel, had an advantage over human readers in understanding the narrative context.
-
-</p>
-</div>
-<div id="emotion-4" class="subsection">
-<h3>2.4 Results</h3>
-<p>Risultati dell'analisi emotiva confrontati con diversi metodi...</p>
-</div>
-</div>
-
-<div class="section">
-<h2 class="toggle-button" onclick="toggleSection('about-novel')">About the Novel</h2>
-<ul>
-<li><a href="#" onclick="toggleSection('novel-1')">1. Information about To the Lighthouse</a></li>
-<li><a href="#" onclick="toggleSection('novel-2')">2. Comparison between Vader and GPT-4</a></li>
-<li><a href="#" onclick="toggleSection('novel-3')">3. Matrix of Correlation</a></li>
-</ul>
-<div id="novel-1" class="subsection">
-<h3>1. Information about To the Lighthouse</h3>
-<p><strong>ABOUT THE AUTHOR</strong></p>
-<br>
-<p>Virginia Woolf (London, January 25, 1882 - Lewes, March 28, 1941) was born as Adeline Virginia Stephen, daughter of Leslie Stephen, literary critic and historian; and Julia Prinsep Jackson. From an early age she showed considerable interest in the literary arts: collaborating with her brother Toby on the Hyde Park Gate newspaper and having access to her father’s library, where she developed a passion for the classics and the art of writing (Reid, 2024).
-During her teenage years, however, she was marked by several family tragedies, including, in 1895, the death of her mother, which caused, in addition to intense personal grief, the sale of her seaside home, Talland House, a place that influenced the writing of To the Lighthouse. Subsequently, she faced further significant losses while studying literature and history at King's College London; such as the death of his half-sister Stella, and in, 1904, that of his father.
-It is important to note her life later in Bloomsbury, where she moved with her brothers Toby and Vanessa, and where she met her future husband, and “partner” Leonard Woolf. Together with her future husband, Virginia would enter literary circles with prominent intellectuals of the time including Bertrand Russell, Ludwig Wittnenstein, and others, and founded the publishing house Hogarth Press, which published Sigmund Freud, James Joyce, Italo Svevo, and Virginia Woolf herself (Reid, 2024).
-Despite considering that period of her life and her marriage to Leonard as happy moments, Virginia Woolf always struggled with deep psychological issues. These are now attributed to probable bipolar disorder, in which she alternated between euphoric moments and emotional breakdowns.
-Virginia unfortunately, along with the heavy family losses suffered at a young age, she and her sister Vanessa were victims of sexual abuse by their half-brothers George and Gerald for many years. These traumas certainly influenced to a sense of alienation and left indelible marks on her psyche, which are reflected in several of her works, where she critiques social issues such as misogyny, violence, and the relationship between body and identity (Bond, 2000).
-One particular study (Mishra & al., 2018) analyzed the novel The Waves (1931), through a semantic analysis, aiming to recognize the reference to the author’s suicidal tendencies: significant words such as “no,” “life,” and “death,” were found to appear approximately 1408, 130, and 44 times, respectively, throughout the novel.
-In fact, it was found that Woolf uses expressions to create an atmosphere in which death turns out to be “positive” and “glorious,” the only solution for the attainment of serenity; in this context, the character Rhoda, represents anxieties and insecurities of the writer, later freeing herself through suicide. According to this study, in the novel, compared to her letters, in which she would seem more contained, Woolf dives free rein to her psychic frustrations, as she can hide behind the fiction of the novel. 
-Virginia Woolf stands out in the modernist literary landscape for her innovative style that departs from the conventions of the classical 19th-century novel. As previously discussed, (Ch. I, paragraph 1, p. 5), she abandons the figure of the omniscient narrator and replaces it with the narrative technique of the stream of consciousness, which aims to represent the continuous flow of thought of the characters; paying more attention to the emotional aspect than to the interweaving of plot or external events (Sang, 2010).</p>
-<br>
-<p><strong>TO THE LIGHTHOUSE</strong></p>
-<br>
-<p>The novel in question, To the Lighthouse (1927), perfectly embodies these characteristics, as highlighted by its structure, divided into three main parts: The Window, Time Passes, and The Lighthouse.
-Although the first and last parts are the most extended, both take place over the course of a single day, making the time in the novel reflect more psychological than real time.
-The story is thus set between 1910 and 1920 and follows the family dynamics of the Ramsay family at their summer home on the Isle of Skye in the Hebrides, Scotland. 
-The first part of the novel (consisting of 19 chapters) focuses on the Ramsay family (consisting the patriarch Mr. Ramsay, his wife Mrs. Ramsay and their eight children) as well as various friends and servants (Lily Briscoe, a painter who is painting a portrait of Mrs. Ramsay, Charles Tansley, William Bakes, Paul Raylely, Augustus Carmichael and others). The novel opens with six-year-old James Ramsay’s request to visit the lighthouse, a request that will immediately be denied by his father due to poor weather forecasts.
-The second part, Time passes (consisting of 10 chapters), is set ten years later and begins with the deaths of several central characters (Mrs. Ramsay, Adrian the eldest son, and Prue from complications during childbirth) during World War. It also explores the psychological and physical desolation caused by the events. Central to this section is the figure of the housekeeper, Mrs. McNab, who returns to care for the now gloomy and dilapidated house and prepare it for the family’s return.
-The last part, The Lighthouse (consisting of 13 chapters), sees Mr. Ramsay fulfill the promise he made to young James years earlier: to visit the lighthouse with him and his sister Cam.
-The journey, however, turns out to be full of conflicts and difficulties, which find resolution upon reaching the destination. Meanwhile, the poet Augustus Carmichael and the painter Lily Briscoe do not participate in the trip; she resumes work on her painting of Mrs. Ramsay, and by overcoming her insecurities and doubts, she manages to complete it, finding a sense of artistic fulfillment in its realization. The novel concludes with the completion of the painting, symbolizing not only the young woman’s artistic return but also her acceptance of loss.
-</p>
-
-<br>
-<iframe src="top_10_characters_appearances.html" width="100%" height="600px" style="border:none;"></iframe>
-</div>
-
-<div id="novel-2" class="subsection">
-<h3>2. Comparison between Vader and GPT-4</h3>
-<p>Analisi comparativa tra Vader e GPT-4 nell'interpretazione del testo...</p>
-</div>
-
-<div id="novel-3" class="subsection">
-<h3>3. Matrix of Correlation</h3>
-<p>Presentazione della matrice di correlazione tra emozioni e segmentazione...</p>
-</div>
-</div>
-</div>
-<footer>
-<p>by Nicole Biscaro</p>
-<p>CC BY-NC-SA 4.0</p>
-</footer>
+    <br>
+    <iframe src="top_10_characters_appearances.html" width="100%" height="600px" style="border:none;"></iframe>
+    </div>
+    
+    <div id="novel-2" class="subsection">
+    <h3>2. Comparison between Vader and GPT-4</h3>
+    <p>Analisi comparativa tra Vader e GPT-4 nell'interpretazione del testo...</p>
+    </div>
+    
+    <div id="novel-3" class="subsection">
+    <h3>3. Matrix of Correlation</h3>
+    <p>Presentazione della matrice di correlazione tra emozioni e segmentazione...</p>
+    </div>
+    </div>
+    </div>
+    <footer>
+    <p>by Nicole Biscaro</p>
+    <p>CC BY-NC-SA 4.0</p>
+    </footer>
 
 <script>
+  
 function goBack() {
 window.history.back();
 }
+  
 document.querySelectorAll('.main-section').forEach(section => {
 section.addEventListener('click', function (event) {
 if (!event.target.closest('.close-button')) {
@@ -418,6 +423,7 @@ section.querySelector('.content-section').style.display = 'block';
 }
 });
 });
+  
 document.querySelectorAll('.close-button').forEach(button => {
 button.addEventListener('click', function (event) {
 event.stopPropagation();
@@ -426,12 +432,12 @@ button.closest('.content-section').style.display = 'none';
 });
 
 function toggleSection(sectionId) {
-var section = document.getElementById(sectionId);
-if (section.style.display === "none" || section.style.display === "") {
-section.style.display = "block";
-} else {
-section.style.display = "none";
-}
+    var section = document.getElementById(sectionId);
+    if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block";
+    } else {
+        section.style.display = "none";
+    }
 }
 </script>
 </body>
