@@ -96,24 +96,28 @@
                 width: 100%;
                 font-size: 0.9rem;
             }
-                .container {
-                    padding: 20px;
-                    text-align: left;
+            
+            .container {
+                padding: 20px;
+                text-align: left;
+            }
+                    
+             .main-section {
+                margin-bottom: 20px;
+                padding: 15px;
+                background-color: #0077b6;
+                border-radius: 10px;
+                cursor: pointer;
                 }
-                .main-section {
-                    margin-bottom: 20px;
-                    padding: 15px;
-                    background-color: #0077b6;
-                    border-radius: 10px;
-                    cursor: pointer;
+                    
+            .content-section {
+                display: none;
+                padding: 15px;
+                background-color: #023047;
+                border-radius: 10px;
+                margin-top: 20px;
                 }
-                .content-section {
-                    display: none;
-                    padding: 15px;
-                    background-color: #023047;
-                    border-radius: 10px;
-                    margin-top: 20px;
-                }
+                    
                 .index-section {
                     background-color: #0077b6;
                     padding: 10px;
@@ -461,14 +465,7 @@
             section.style.display = 'none';
         });
 
-        // Funzione per mostrare/nascondere le sezioni
-        window.toggleSection = function (id) {
-            var section = document.getElementById(id);
-            if (section) {
-                section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
-            }
-        };
-    });
+
 </script>
 </body>
 </html>
